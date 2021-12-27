@@ -1,4 +1,4 @@
-package com.member.Front;
+package com.Front;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.DAO.memberDAO;
 import com.inter.Command;
-import com.member.DAO.memberDAO;
-import com.member.service.DeleteService;
-import com.member.service.JoinService;
-import com.member.service.LoginService;
-import com.member.service.LogoutService;
-import com.member.service.UpdateService;
+import com.service.DeleteService;
+import com.service.JoinService;
+import com.service.LoginService;
+import com.service.LogoutService;
+import com.service.UpdateService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {

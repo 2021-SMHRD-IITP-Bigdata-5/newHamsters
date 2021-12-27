@@ -1,4 +1,4 @@
-package com.member.service;
+package com.service;
 
 import java.io.IOException;
 

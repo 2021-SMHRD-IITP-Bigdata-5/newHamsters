@@ -1,4 +1,4 @@
-package com.member.DAO;
+package com.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
-import com.member.DTO.memberDTO;
+import com.DTO.memberDTO;
 	
 public class memberDAO {
 	Connection conn = null;

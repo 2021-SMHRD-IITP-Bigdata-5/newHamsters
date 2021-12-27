@@ -1,4 +1,4 @@
-package com.member.service;
+package com.service;
 
 import java.io.IOException;
 
@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.DAO.memberDAO;
 import com.inter.Command;
-import com.member.DAO.memberDAO;
 
 public class DeleteService implements Command {
 
