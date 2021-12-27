@@ -22,7 +22,8 @@ public class memberDTO {
 
     // 회원 상태 
     private String memStatus;
-
+    
+    private double teamSeq;
     
     
 
@@ -36,6 +37,25 @@ public class memberDTO {
 	
 
 	public memberDTO(String memId, String memPw, String memName, String memCompany, String memEmail, String memPhone,
+			String memStatus,double teamSeq) {
+		this.memId = memId;
+		this.memPw = memPw;
+		this.memName = memName;
+		this.memCompany = memCompany;
+		this.memEmail = memEmail;
+		this.memPhone = memPhone;
+		this.memStatus = memStatus;
+		this.teamSeq = teamSeq;
+	}
+    
+
+	public memberDTO(String memId, String memPw) {
+		super();
+		this.memId = memId;
+		this.memPw = memPw;
+	}
+
+	public memberDTO(String memId, String memPw, String memName, String memCompany, String memEmail, String memPhone,
 			String memStatus) {
 		super();
 		this.memId = memId;
@@ -46,14 +66,13 @@ public class memberDTO {
 		this.memPhone = memPhone;
 		this.memStatus = memStatus;
 	}
-    
 
+	public double getTeamSeq() {
+		return teamSeq; 
+	}
 
-
-	public memberDTO(String memId, String memPw) {
-		super();
-		this.memId = memId;
-		this.memPw = memPw;
+	public void setTeamSeq(double teamSeq) {
+		this.teamSeq = teamSeq;
 	}
 
 	public String getMemId() {

@@ -5,7 +5,7 @@ import java.util.Date;
 public class t_teamDTO {
 
     // 팀 순번 
-    private Double teamSeq;
+    private double teamSeq;
 
     // 팀 이름 
     private String teamName;
@@ -19,7 +19,16 @@ public class t_teamDTO {
     // 등록자 아이디 
     private String memId;
 
-    public t_teamDTO(Double teamSeq, String teamName, String teamContent, Date regDate, String memId) {
+    
+    public t_teamDTO(double teamSeq, String teamName, String teamContent, Date regDate) {
+		super();
+		this.teamSeq = teamSeq;
+		this.teamName = teamName;
+		this.teamContent = teamContent;
+		this.regDate = regDate;
+	}
+
+	public t_teamDTO(double teamSeq, String teamName, String teamContent, Date regDate, String memId) {
 		super();
 		this.teamSeq = teamSeq;
 		this.teamName = teamName;
@@ -28,11 +37,11 @@ public class t_teamDTO {
 		this.memId = memId;
 	}
 
-	public Double getTeamSeq() {
+	public double getTeamSeq() {
         return teamSeq;
     }
 
-    public void setTeamSeq(Double teamSeq) {
+    public void setTeamSeq(double teamSeq) {
         this.teamSeq = teamSeq;
     }
 

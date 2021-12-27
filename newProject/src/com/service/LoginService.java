@@ -1,6 +1,9 @@
 package com.service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.DAO.memberDAO;
 import com.DTO.memberDTO;
+import com.DTO.t_teamDTO;
+import com.google.gson.Gson;
 import com.inter.Command;
 
 public class LoginService implements Command {
@@ -19,13 +24,24 @@ public class LoginService implements Command {
 		
 		String memId = request.getParameter("id");
 		String memPw = request.getParameter("pw");
-		
+		String memid = request.getParameter("id");
 		memberDTO dto1 = new memberDTO(memId, memPw);
 		
 		memberDAO dao = new memberDAO();
 		
-		memberDTO dto = dao.Login(dto1);
+		ArrayList<t_teamDTO> list = dao.teamSeq(memid);
+//		Gson gson = new Gson();
+//		
+//		// gson.tojson();
+//		String json = gson.toJson(list);
 		
+		// ÀÎÄÚµù
+		response.setCharacterEncoding("utf-8");
+		
+//		// printwriter
+//		PrintWriter out = response.getWriter();
+//		out.print(json);
+		memberDTO dto = dao.Login(dto1);
 		String nextpage = "";
 		
 		if(dto != null) {
@@ -33,13 +49,14 @@ public class LoginService implements Command {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("dto", dto);
+			session.setAttribute("teamSeq", list);
 			
 			nextpage = "projectMain.jsp";
 			
 			}else{
 				
 			nextpage = "LoginFalse.jsp";
-	}System.out.println(dto);
+	}
 	return nextpage;
 	
 	}

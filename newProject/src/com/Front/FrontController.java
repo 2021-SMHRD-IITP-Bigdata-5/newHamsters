@@ -38,9 +38,6 @@ public class FrontController extends HttpServlet {
 			
 			com = new LoginService();
 			nextpage = com.execute(request,response); 
-			// 업캐스팅(부모의 이름으로 형변환을 해준다)
-			// Command pattern
-			// 사용자의 요청을 객체인 클래스파일로 처리
 			
 		}else if(command.equals("JoinCon.do")) {
 			

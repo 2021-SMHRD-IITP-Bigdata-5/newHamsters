@@ -1,14 +1,17 @@
 package com.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
 import com.DTO.memberDTO;
+import com.DTO.t_teamDTO;
 	
 public class memberDAO {
 	Connection conn = null;
@@ -18,7 +21,7 @@ public class memberDAO {
 	int cnt = 0;
 	memberDTO dto = null;
 	private boolean check;
-	
+	t_teamDTO dtot = null;
 	public void getConn() {
 		
 		try {
@@ -145,14 +148,13 @@ public class memberDAO {
 
 	public memberDTO Login(memberDTO dto1) {
 		
+		
 		try {
 			getConn();
 
-			
 			String sql = "select * from t_member where mem_id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto1.getMemId());
-			
 			
 			rs = psmt.executeQuery();
 
@@ -164,10 +166,21 @@ public class memberDAO {
 				String getEmail = rs.getString(5);
 				String getPhone = rs.getString(6);
 				String getStat = rs.getString(7);
+				
+//				sql = "select team_seq from t_team where mem_id = ?";
+//				psmt = conn.prepareStatement(sql);
+//				psmt.setString(1, dto1.getMemId());
+//				rs = psmt.executeQuery();
+//				
+//				if(rs.next()) {
+//				double getSeq = rs.getDouble(1);
+//				System.out.println(getSeq);
+//				}
+				teamSeq(dto1.getMemId());
 				if(dto1.getMemPw().equals(getPw)) {
 					dto = new memberDTO(dto1.getMemId(), getPw, getName, getCom, getEmail, getPhone, getStat);
-				}
-				
+					
+			}
 			}
 		} catch (Exception e) {
 			System.out.println("클래스파일 로딩실패");
@@ -205,7 +218,34 @@ public class memberDAO {
 		
 		return check;
 	}
-
-	
+	public ArrayList<t_teamDTO> teamSeq(String memid){
+		ArrayList<t_teamDTO> arr = new ArrayList<t_teamDTO>();
+		memberDTO dto1 = null;
+		try {
+			getConn();
+			
+			String sql = "select * from t_team where mem_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, memid);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				double teamSeq = rs.getDouble(1);
+				String teamName = rs.getString(2);
+				String teamCon = rs.getString(3);
+				Date teamDate = rs.getDate(4);
+				dtot = new t_teamDTO(teamSeq, teamName, teamCon, teamDate);
+				arr.add(dtot);
+				System.out.println(arr);
+				System.out.println(teamSeq);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return arr;
+	}
 }
 
