@@ -6,7 +6,7 @@ public class t_workDTO {
 	// 팀 업무 테이블 
 
 	    // 업무 순번 
-	    private int workSeq;
+	    private double workSeq;
 
 	    // 업무 제목 
 	    private String workTitle;
@@ -15,10 +15,10 @@ public class t_workDTO {
 	    private String workContent;
 
 	    // 업무 시작일자 
-	    private Date workStartDt;
+	    private String workStartDt;
 
 	    // 업무 종료일자 
-	    private Date workEndDt;
+	    private String workEndDt;
 
 	    // 업무 진행상황 
 	    private String workProgress;
@@ -27,7 +27,7 @@ public class t_workDTO {
 	    private String memId;
 
 	    // 팀 순번 
-	    private int teamSeq;
+	    private double teamSeq;
 
 	    // 참조 아이디 
 	    private String referenceId;
@@ -36,10 +36,8 @@ public class t_workDTO {
 	    private Date regDate;
 
 	    
-	    public t_workDTO(int workSeq, String workTitle, String workContent, Date workStartDt, Date workEndDt,
-				String workProgress, String memId, int teamSeq, String referenceId, Date regDate) {
-			super();
-			this.workSeq = workSeq;
+	    public t_workDTO(String workTitle, String workContent, String workStartDt, String workEndDt,
+				String workProgress, String memId, double teamSeq, String referenceId) {
 			this.workTitle = workTitle;
 			this.workContent = workContent;
 			this.workStartDt = workStartDt;
@@ -48,14 +46,13 @@ public class t_workDTO {
 			this.memId = memId;
 			this.teamSeq = teamSeq;
 			this.referenceId = referenceId;
-			this.regDate = regDate;
 		}
 
-		public int getWorkSeq() {
+		public double getWorkSeq() {
 	        return workSeq;
 	    }
 
-	    public void setWorkSeq(int workSeq) {
+	    public void setWorkSeq(double workSeq) {
 	        this.workSeq = workSeq;
 	    }
 
@@ -75,19 +72,19 @@ public class t_workDTO {
 	        this.workContent = workContent;
 	    }
 
-	    public Date getWorkStartDt() {
+	    public String getWorkStartDt() {
 	        return workStartDt;
 	    }
 
-	    public void setWorkStartDt(Date workStartDt) {
+	    public void setWorkStartDt(String workStartDt) {
 	        this.workStartDt = workStartDt;
 	    }
 
-	    public Date getWorkEndDt() {
+	    public String getWorkEndDt() {
 	        return workEndDt;
 	    }
 
-	    public void setWorkEndDt(Date workEndDt) {
+	    public void setWorkEndDt(String workEndDt) {
 	        this.workEndDt = workEndDt;
 	    }
 
@@ -107,11 +104,11 @@ public class t_workDTO {
 	        this.memId = memId;
 	    }
 
-	    public int getTeamSeq() {
+	    public double getTeamSeq() {
 	        return teamSeq;
 	    }
 
-	    public void setTeamSeq(int teamSeq) {
+	    public void setTeamSeq(double teamSeq) {
 	        this.teamSeq = teamSeq;
 	    }
 

@@ -36,6 +36,7 @@ public class CommuService implements Command {
 		System.out.println(teamSeq);
 		System.out.println(articleTitle);
 		System.out.println(memId);
+		
 		String nextpage = "";
 		t_commuDTO tdto = new t_commuDTO(articleTitle, articleContent, hashTag, articleCnt, teamSeq, memId);
 		teamDAO dao = new teamDAO();

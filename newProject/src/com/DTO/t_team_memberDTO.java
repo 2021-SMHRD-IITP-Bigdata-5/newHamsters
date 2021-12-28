@@ -1,5 +1,7 @@
 package com.DTO;
 
+import java.sql.Date;
+
 public class t_team_memberDTO {
 	// 팀 소속 회원 테이블 
 	
@@ -14,7 +16,7 @@ public class t_team_memberDTO {
 	    private Double teamSeq;
 
 	    // 등록 일자 
-	    private String regDate;
+	    private Date regDate;
 
 	    // 팀회원 메모 
 	    private String tmMemo;
@@ -23,7 +25,7 @@ public class t_team_memberDTO {
 	    private String tmPicture;
 
 	    
-	    public t_team_memberDTO(Double tmSeq, String memId, Double teamSeq, String regDate, String tmMemo,
+	    public t_team_memberDTO(Double tmSeq, String memId, Double teamSeq, Date regDate, String tmMemo,
 				String tmPicture) {
 			super();
 			this.tmSeq = tmSeq;
@@ -58,11 +60,11 @@ public class t_team_memberDTO {
 	        this.teamSeq = teamSeq;
 	    }
 
-	    public String getRegDate() {
+	    public Date getRegDate() {
 	        return regDate;
 	    }
 
-	    public void setRegDate(String regDate) {
+	    public void setRegDate(Date regDate) {
 	        this.regDate = regDate;
 	    }
 

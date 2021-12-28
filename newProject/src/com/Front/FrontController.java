@@ -18,6 +18,7 @@ import com.service.JoinService;
 import com.service.LoginService;
 import com.service.LogoutService;
 import com.service.UpdateService;
+import com.service.WorkService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -75,11 +76,17 @@ public class FrontController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.print(check);
 			
-		}else if(command.equals("comWrite.do")) {
+		}
+		else if(command.equals("comWrite.do")) {
 			com = new CommuService();
 			nextpage = com.execute(request, response);
-		}else if(command.equals("connectPage.do")) {
+		}
+		else if(command.equals("connectPage.do")) {
 			com = new ConnectPageService();
+			nextpage = com.execute(request, response);
+		}
+		else if(command.equals("workWrite.do")) {
+			com = new WorkService();
 			nextpage = com.execute(request, response);
 		}
 		if(nextpage != null) {

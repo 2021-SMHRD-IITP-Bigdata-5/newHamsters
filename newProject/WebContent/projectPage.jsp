@@ -831,6 +831,7 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                 <div class="team_icon"></div>
+                  <h1><a href="sadf.jsp">이동동</a></h1>
                   <h3 class="team_name"><%= t_DTO.getTeamName()%></h3> <br>
                   <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
                 </div>
@@ -862,7 +863,6 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
                     <div>
                        <ul class="newContentsBox">
                           <li class="newContentsBox"><button type="button" id="yongdal_open1">글</button></li>
-                          
                           <li class="newContentsBox"><button type="button" id="yongdal_open2">업무</button></li>
                           <li class="newContentsBox"><button type="button" id="yongdal_open3">일정</button></li>
                           <li class="newContentsBox"><button type="button" id="yongdal_open4">할 일</button></li>
@@ -980,6 +980,7 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
   <div id="modal2" class="modal_content">
         <div class="modal_content">
             <div class="title2">
+            
                 <h2>업무 : 게시물 작성</h2>
             </div>
             <button type="button" id="yongdal_close2">X</button>
@@ -992,7 +993,8 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
                    <div class="jinhang4"><botton>완료</botton></div>
                    <div class="jinhang5"><botton>보류</botton></div>
                 </div>
-                <input type="text" id="damdangja" placeholder="담당자 배정">
+                <input type="text" id="damdangja" placeholder="담당자 배정"><br>
+                <input type = "date"><input type = "date"><br>
                 <input type = "text" id="content2" placeholder="내용을 입력하세요.">
                 <br>
                 <br>
@@ -1022,15 +1024,14 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
             <button type="button" id="yongdal_close3">X</button>
             <div class="content">
                 <input type = "text" id="title" placeholder="제목을 입력하세요.">
+                <input type = "date"><input type = "date"><br>
+                <input type = "text" placeholder="담당자 배정">
                 <input type = "text" id="content" placeholder="내용을 입력하세요.">
                 <br>
                 <br>
                 <div id="button">
                     <button id="submit" type="submit">올리기</button>
                 </div>
-
-                
-                
             </div>
         </div>
         <div class="modal_layer"></div>

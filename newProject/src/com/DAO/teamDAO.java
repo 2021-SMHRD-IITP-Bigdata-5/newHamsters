@@ -5,11 +5,13 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 
 import com.DTO.memberDTO;
 import com.DTO.t_commuDTO;
 import com.DTO.t_teamDTO;
 import com.DTO.t_workDTO;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 public class teamDAO {
 	
@@ -72,16 +74,56 @@ public void getConn() {
 		} catch (Exception e) {
 			
 		}
-	}
-	public void workWrite(t_workDTO dto) {
+	} 
+//	public Date transformDate(String date) throws java.text.ParseException{
+//        SimpleDateFormat beforeFormat = new SimpleDateFormat("yyyymmdd");
+//        
+//        // Date로 변경하기 위해서는 날짜 형식을 yyyy-mm-dd로 변경해야 한다.
+//        SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
+//        
+//        java.util.Date tempDate = null;
+//        
+//        try {
+//            // 현재 yyyymmdd로된 날짜 형식으로 java.util.Date객체를 만든다.
+//            tempDate = beforeFormat.parse(date);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        
+//        // java.util.Date를 yyyy-mm-dd 형식으로 변경하여 String로 반환한다.
+//        String transDate = afterFormat.format(tempDate);
+//        
+//        // 반환된 String 값을 Date로 변경한다.
+//        Date d = Date.valueOf(transDate);
+//        
+//        return d;
+//    }
+
+
+	public int workWrite(t_workDTO dto) {
 		try {
 			getConn();
 			
-			String sql = "";
+			String sql = "INSERT INTO t_work (work_title, work_content, work_start_dt, work_end_dt, work_progress, mem_id, team_seq, reference_id, reg_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getWorkTitle());
+			psmt.setString(2, dto.getWorkContent());
+			psmt.setString(3, dto.getWorkStartDt());
+			psmt.setString(4, dto.getWorkEndDt());
+			psmt.setString(5, dto.getWorkProgress());
+			psmt.setString(6, dto.getMemId());
+			psmt.setDouble(7, dto.getTeamSeq());
+			psmt.setString(8, dto.getReferenceId());
+			System.out.println("dao" + dto.getWorkStartDt()+ "." +dto.getWorkEndDt());
+			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
+			e.printStackTrace();
 		}finally {
 			close();
 		}
+		return cnt;
 	}
 	public int comWrite(t_commuDTO dto) {
 		
@@ -133,5 +175,8 @@ public void getConn() {
 	         e.printStackTrace();
 	      }
 	      return dto;
+	}
+	public void date() {
+		
 	}
 }

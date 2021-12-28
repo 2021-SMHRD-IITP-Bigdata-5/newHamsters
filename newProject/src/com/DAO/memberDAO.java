@@ -195,11 +195,8 @@ public class memberDAO {
 
 	public boolean idcheck(String id) {
 		
-		
-		
 		try {
 			getConn();
-
 			
 			String sql = "select * from t_member where mem_Id = ?";
 			psmt = conn.prepareStatement(sql);
