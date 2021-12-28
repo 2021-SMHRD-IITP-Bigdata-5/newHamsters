@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.memberDAO;
 import com.inter.Command;
+import com.service.CommuService;
 import com.service.DeleteService;
 import com.service.JoinService;
 import com.service.LoginService;
@@ -71,9 +72,11 @@ public class FrontController extends HttpServlet {
 			
 			//중복된 아이디입니다
 			PrintWriter out = response.getWriter();
-			
 			out.print(check);
 			
+		}else if(command.equals("comWrite.do")) {
+			com = new CommuService();
+			nextpage = com.execute(request, response);
 		}
 		if(nextpage != null) {
 			response.sendRedirect(nextpage);

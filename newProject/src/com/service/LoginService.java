@@ -25,23 +25,17 @@ public class LoginService implements Command {
 		String memId = request.getParameter("id");
 		String memPw = request.getParameter("pw");
 		String memid = request.getParameter("id");
+		
 		memberDTO dto1 = new memberDTO(memId, memPw);
 		
 		memberDAO dao = new memberDAO();
 		
 		ArrayList<t_teamDTO> list = dao.teamSeq(memid);
-//		Gson gson = new Gson();
-//		
-//		// gson.tojson();
-//		String json = gson.toJson(list);
 		
-		// ÀÎÄÚµù
 		response.setCharacterEncoding("utf-8");
 		
-//		// printwriter
-//		PrintWriter out = response.getWriter();
-//		out.print(json);
 		memberDTO dto = dao.Login(dto1);
+		
 		String nextpage = "";
 		
 		if(dto != null) {

@@ -129,6 +129,7 @@ input#content {
 %>
 <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
+    
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
@@ -207,6 +208,7 @@ input#content {
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
+      <h1><a href="sadf.jsp">이동</a></h1>
         <div id="settings-trigger"><i class="ti-settings"></i></div>
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
@@ -414,6 +416,7 @@ input#content {
           
             <div class="col-md-6 grid-margin transparent">
               <div class="row">
+              <% HttpSession session1 = request.getSession();%>
                <%
                  
                  for(int i = 0; i < team_dto.size(); i++){
@@ -421,6 +424,8 @@ input#content {
                     out.print("<div class='card card-tale'>");
                     out.print("<div class='card-body'>");
                     out.print("<p class='fs-30 mb-2'>" + team_dto.get(i).getTeamName() + "</p>");
+                    out.print("<a href='projectPage.jsp'"+"</a>");
+                    session.setAttribute("teamName", team_dto.get(i).getTeamName());
                     out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
                     out.print("</div>");
                     out.print("</div>");

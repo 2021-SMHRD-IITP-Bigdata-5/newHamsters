@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.DTO.memberDTO;
+import com.DTO.t_commuDTO;
 import com.DTO.t_workDTO;
 
 public class teamDAO {
@@ -13,7 +14,6 @@ public class teamDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	
 	int cnt = 0;
 	memberDTO dto = null;
 	private boolean check;
@@ -57,6 +57,7 @@ public void getConn() {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public void connWork() {
@@ -79,5 +80,28 @@ public void getConn() {
 			close();
 		}
 	}
-	
+	public int comWrite(t_commuDTO dto) {
+		
+		try {
+			getConn();
+			
+			String sql = "INSERT INTO t_community(article_title, article_content, article_date, hash_tag, article_cnt, team_seq, mem_id) VALUES (?, ?, sysdate, ?, ?, ?, ?)";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getArticleTitle());
+			psmt.setString(2, dto.getArticleContent());
+			psmt.setString(3, dto.getHashTag());
+			psmt.setDouble(4, dto.getArticleCnt());
+			psmt.setDouble(5, dto.getTeamSeq());
+			psmt.setString(6, dto.getMemId());
+			
+			cnt = psmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 }

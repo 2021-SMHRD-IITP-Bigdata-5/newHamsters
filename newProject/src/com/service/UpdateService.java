@@ -39,7 +39,7 @@ public class UpdateService implements Command {
 			response.sendRedirect("main.jsp");
 			
 		} else {
-
+			
 		}
 		return null;
 	}

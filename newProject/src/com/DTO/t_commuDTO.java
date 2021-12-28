@@ -6,7 +6,7 @@ public class t_commuDTO {
 	// 팀 커뮤니티 게시판 테이블 
 
 	    // 글 순번 
-	    private int articleSeq;
+	    private Double articleSeq;
 
 	    // 글 제목 
 	    private String articleTitle;
@@ -23,42 +23,28 @@ public class t_commuDTO {
 	    // 글 조회수 
 	    private Double articleCnt;
 
-	    // 첨부파일1 
-	    private String articleFile1;
-
-	    // 첨부파일2 
-	    private String articleFile2;
-
 	    // 팀 순번 
-	    private int teamSeq;
-
-	    public t_commuDTO(int articleSeq, String articleTitle, String articleContent, Date articleDate, String hashTag,
-				Double articleCnt, String articleFile1, String articleFile2, int teamSeq, String articleFile3,
-				String memId) {
-			this.articleSeq = articleSeq;
-			this.articleTitle = articleTitle;
-			this.articleContent = articleContent;
-			this.articleDate = articleDate;
-			this.hashTag = hashTag;
-			this.articleCnt = articleCnt;
-			this.articleFile1 = articleFile1;
-			this.articleFile2 = articleFile2;
-			this.teamSeq = teamSeq;
-			this.articleFile3 = articleFile3;
-			this.memId = memId;
-		}
-
-		// 첨부파일3 
-	    private String articleFile3;
+	    private Double teamSeq;
 
 	    // 작성자 아이디 
 	    private String memId;
 
-	    public int getArticleSeq() {
-	        return articleSeq;
-	    }
 
-	    public void setArticleSeq(int articleSeq) {
+	    public t_commuDTO(String articleTitle, String articleContent,
+				String hashTag, Double articleCnt, Double teamSeq, String memId) {
+			this.articleTitle = articleTitle;
+			this.articleContent = articleContent;
+			this.hashTag = hashTag;
+			this.articleCnt = articleCnt;
+			this.teamSeq = teamSeq;
+			this.memId = memId;
+		}
+
+	    public Double getArticleSeq() {
+	    	return articleSeq;
+	    }
+	    
+		public void setArticleSeq(Double articleSeq) {
 	        this.articleSeq = articleSeq;
 	    }
 
@@ -102,36 +88,12 @@ public class t_commuDTO {
 	        this.articleCnt = articleCnt;
 	    }
 
-	    public String getArticleFile1() {
-	        return articleFile1;
-	    }
-
-	    public void setArticleFile1(String articleFile1) {
-	        this.articleFile1 = articleFile1;
-	    }
-
-	    public String getArticleFile2() {
-	        return articleFile2;
-	    }
-
-	    public void setArticleFile2(String articleFile2) {
-	        this.articleFile2 = articleFile2;
-	    }
-
-	    public int getTeamSeq() {
+	    public Double getTeamSeq() {
 	        return teamSeq;
 	    }
 
-	    public void setTeamSeq(int teamSeq) {
+	    public void setTeamSeq(Double teamSeq) {
 	        this.teamSeq = teamSeq;
-	    }
-
-	    public String getArticleFile3() {
-	        return articleFile3;
-	    }
-
-	    public void setArticleFile3(String articleFile3) {
-	        this.articleFile3 = articleFile3;
 	    }
 
 	    public String getMemId() {
@@ -142,4 +104,5 @@ public class t_commuDTO {
 	        this.memId = memId;
 	    }
 
+	    
 }
