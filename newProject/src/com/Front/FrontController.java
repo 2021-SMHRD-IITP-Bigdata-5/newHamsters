@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.DAO.memberDAO;
 import com.inter.Command;
 import com.service.CommuService;
+import com.service.ConnectPageService;
 import com.service.DeleteService;
 import com.service.JoinService;
 import com.service.LoginService;
@@ -76,6 +77,9 @@ public class FrontController extends HttpServlet {
 			
 		}else if(command.equals("comWrite.do")) {
 			com = new CommuService();
+			nextpage = com.execute(request, response);
+		}else if(command.equals("connectPage.do")) {
+			com = new ConnectPageService();
 			nextpage = com.execute(request, response);
 		}
 		if(nextpage != null) {

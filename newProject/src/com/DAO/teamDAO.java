@@ -1,12 +1,14 @@
 package com.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.DTO.memberDTO;
 import com.DTO.t_commuDTO;
+import com.DTO.t_teamDTO;
 import com.DTO.t_workDTO;
 
 public class teamDAO {
@@ -17,6 +19,7 @@ public class teamDAO {
 	int cnt = 0;
 	memberDTO dto = null;
 	private boolean check;
+	t_teamDTO t_DTO =null;
 	
 public void getConn() {
 	
@@ -103,5 +106,32 @@ public void getConn() {
 			close();
 		}
 		return cnt;
+	}
+	
+	public t_teamDTO selectTeam(t_teamDTO dto) {
+	      
+	      try {
+	         getConn();
+	         
+	         String sql = "select * from t_team where team_name = ?";
+	         
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, dto.getTeamName());
+	         
+	         rs = psmt.executeQuery();
+	         
+	         if(rs.next()) {
+					double teamSeq = rs.getDouble(1);
+					String teamName = rs.getString(2);
+					String teamCon = rs.getString(3);
+					Date teamDate = rs.getDate(4);
+					if(teamName.equals(dto.getTeamName())) {
+						dto = new t_teamDTO(teamSeq, dto.getTeamName(), teamCon, teamDate);
+					}
+			}
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      return dto;
 	}
 }

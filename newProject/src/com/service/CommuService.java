@@ -13,6 +13,7 @@ import com.DAO.memberDAO;
 import com.DAO.teamDAO;
 import com.DTO.memberDTO;
 import com.DTO.t_commuDTO;
+import com.DTO.t_teamDTO;
 import com.inter.Command;
 
 public class CommuService implements Command {
@@ -23,17 +24,18 @@ public class CommuService implements Command {
 		
 		HttpSession session = request.getSession();
 		memberDTO mdto = (memberDTO)session.getAttribute("dto");
+		t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
 		
 		String articleTitle = request.getParameter("title");
 		String articleContent = request.getParameter("content");
 		String hashTag = request.getParameter("hashtag");
 		double articleCnt = 0;
-		double teamSeq = 7.0;
+		double teamSeq = t_DTO.getTeamSeq();
 		String memId = mdto.getMemId();
 		
-		System.out.println(memId);
+		System.out.println(teamSeq);
 		System.out.println(articleTitle);
-		System.out.println(articleContent);
+		System.out.println(memId);
 		String nextpage = "";
 		t_commuDTO tdto = new t_commuDTO(articleTitle, articleContent, hashTag, articleCnt, teamSeq, memId);
 		teamDAO dao = new teamDAO();

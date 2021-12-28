@@ -20,7 +20,12 @@ public class t_teamDTO {
     private String memId;
 
     
-    public t_teamDTO(double teamSeq, String teamName, String teamContent, Date regDate) {
+    public t_teamDTO(String teamName) {
+		super();
+		this.teamName = teamName;
+	}
+
+	public t_teamDTO(double teamSeq, String teamName, String teamContent, Date regDate) {
 		super();
 		this.teamSeq = teamSeq;
 		this.teamName = teamName;
