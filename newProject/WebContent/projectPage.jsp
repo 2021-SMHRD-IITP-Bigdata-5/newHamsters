@@ -1,4 +1,3 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.DTO.t_teamDTO"%>
 <%@page import="com.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -26,6 +25,8 @@
   
   <!-- modal style -->
   <style>
+  
+  
 #modal {
   display: none;
   width:100%;
@@ -40,6 +41,9 @@
 #modal h2 {
   margin:0;   
   font-size: 25px;
+  color: black;
+   background-color: white;
+   font-weight: bold;
 }
 
  #modal button {
@@ -52,7 +56,7 @@
   top: 15%;
   width:550px;
   height: 400px;
-  margin:100px auto;
+  margin:0px auto;
   padding:40px;
   padding-right:0px;
   background:#fff;
@@ -87,7 +91,7 @@ button#submit {
    heigth: 50px;
    font-size: 20px;
     right : 15%;
-    top : 75%;
+    top : 80%;
     transform: translate(-50%, -50%);
    border: none;
    border-radius: 5px;
@@ -95,7 +99,9 @@ button#submit {
 
 
 input#title{
-   margin: 10px;
+   position: absolute;
+   top : 25%;
+   margin: 0px;
    background: transparent;
    width: 400px;
    height: 40px;
@@ -108,40 +114,460 @@ input#title::placeholder{
 }
 
 input#content {
+   display: inline; 
+   position: relative;
+   top : 40%;
    border: solid 1px;
    border-color: grey;
-   margin-left: 10px;
-   margin-right: 10px;
+   margin-top: 10px;
+   margin-left: 0px;
+   margin-right: 0px;
    margin-bottom: 10px;
    width: 400px;
    height: 100px;
    border-radius: 10px;
 }
 
-.fs-30>a:link {
-	font-size: 25px;
-	font-weight: bold;
-	color: white;
-	text-docoration: none;
+div.team_icon{
+   width: 40px;
+   height: 40px;
+   border-radius: 10px;
+   border: none;
+   background-color: green;
+   display:inline-block;
+   
 }
 
-.fs-30>a:visited {
-	color: white;
-	text-docoration: none;
+h3.team_name{
+   font-weight: bold;
+   display:inline-block;
+}
+
+h6.team_attri{
+   display:inline-block;
+}
+
+ul#menutap{
+   display: flex;
+   flex-flow: row nowrap;
+   align-content: space-between;   
+}
+ul#menutap>li{
+   display: inline-block;
+    margin: 0 10px;
+    align-content: flex-end;
+}
+
+ul#menutap>li>a{
+   text-decoration: none;
+    color: black;
+}
+
+div.row1{
+   position: relative;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 170px;
+}
+
+div.row{
+   margin-top: 20px;
+}
+
+div.content{
+   padding-left: 40px;
+   padding-top: 40px;
+
+}
+
+div.newContentsBox{
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid grey;
+   width: 800px;
+   height: 100px;
+   padding-left: 10px;
+   
+}
+
+ul.newContentsBox{
+   display: flex;
+   flex-flow: row nowrap;
+   place-content: space-evenly;   
+}
+
+li.newContentsBox{
+   display: inline-block;
+    margin: auto;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+li.newContentsBox>button{
+   background-color: white;
+   border: none;
+}
+
+div.title{
+   background-color: #4B49AC;
 }
 
 
+/* 게시글 */
+/* 게시글 */
+/* 게시글 */
+
+#modal1 {
+  display: none;
+  width:100%;
+  height:100%;
+  z-index:1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal1 h2 {
+  margin:0;   
+  font-size: 25px;
+  color: black;
+   background-color: white;
+   font-weight: bold;
+}
+
+ #modal1 button {
+  display:inline-block;
+  margin-left:calc(100% - 100px - 10px);
+} 
+
+#modal1 .modal_content {
+  position: relative;
+  top: 15%;
+  width:550px;
+  height: 400px;
+  margin:0px auto;
+  padding:40px;
+  padding-right:0px;
+  background:#fff;
+  border-radius: 10px;
+  
+}
+
+#modal1 .modal_layer {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.8);
+  z-index:-1;
+}   
+
+ #yongdal_close1 {
+   position: relative;
+   border: none;
+   background-color: white;
+   width: 25px;
+   height: 25px;
+   cursor : pointer;
+   right: -10%;
+   top: -10%;
+} 
+
+/* 업무 */
+/* 업무 */
+/* 업무 */
+
+#modal2 {
+  display: none;
+  width:100%;
+  height:100%;
+  z-index:1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal2 h2 {
+  margin:0;   
+  font-size: 25px;
+  color: black;
+   background-color: white;
+   font-weight: bold;
+}
+
+ #modal2 button {
+  display:inline-block;
+  margin-left:calc(100% - 100px - 10px);
+} 
+
+#modal2 .modal_content {
+  position: relative;
+  top: 15%;
+  width:550px;
+  height: 400px;
+  margin:0px auto;
+  padding:40px;
+  padding-right:0px;
+  background:#fff;
+  border-radius: 10px;
+  
+}
+
+
+#modal2 .modal_layer {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.8);
+  z-index:-1;
+}   
+
+ #yongdal_close2 {
+   position: relative;
+   border: none;
+   background-color: white;
+   width: 25px;
+   height: 25px;
+   cursor : pointer;
+   right: -10%;
+   top: -10%;
+} 
+
+
+div#jinhang{
+   display: flex;
+   flex-flow: row nowrap;
+   align-content: space-between;   
+   margin-top: -10px;
+   margin-bottom: 15px;
+   text-align: center;
+}
+
+div#jinhang>div{
+   display: inline-block;
+    margin: 0 10px;
+    align-content: flex-end;
+    font-weight: bold;
+   border-radius: 15px;
+   border: none;
+    height: 30px;
+    width: 80px;   
+    vertical-align: middle;
+    background-color: #EEEEEE;
+   color: #777777;
+}
+
+div.jinhang1:focus{
+   background-color: #00B2FF;
+    color: white;
+}
+
+div.jinhang2:focus{
+   background-color: #00B01C;
+    color: white;
+}
+
+div.jinhang3:focus{
+   background-color: #FD7900;
+    color: white;
+}
+
+div.jinhang4:focus{
+   background-color: #402A9D;
+    color: white;
+}
+
+div.jinhang5:focus{
+   background-color: #777777;
+    color: white;
+}
+
+button#submit2 {
+   position: absolute;
+   width: 200px;
+   heigth: 50px;
+   font-size: 20px;
+    right : 15%;
+    top : 90%;
+    transform: translate(-50%, -50%);
+   border: none;
+   border-radius: 5px;
+}
+
+input#title2{
+   position: absolute;
+   top : 25%;
+   margin: 0px;
+   margin-bottom: 25px;
+   background: transparent;
+   width: 400px;
+   height: 40px;
+   align-content: center;
+   border: none;
+}
+
+input#content2 {
+   display: inline; 
+   position: relative;
+   top : 40%;
+   border: none;
+   margin-top: 10px;
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 10px;
+   width: 400px; 
+   height: 100px;
+}
+
+input#damdangja{
+   border: none;
+}
+
+/* 일정 */
+/* 일정 */
+/* 일정 */
+
+#modal3 {
+  display: none;
+  width:100%;
+  height:100%;
+  z-index:1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal3 h2 {
+  margin:0;   
+  font-size: 25px;
+  color: black;
+   background-color: white;
+   font-weight: bold;
+}
+
+ #modal3 button {
+  display:inline-block;
+  margin-left:calc(100% - 100px - 10px);
+} 
+
+#modal3 .modal_content {
+  position: relative;
+  top: 15%;
+  width:550px;
+  height: 400px;
+  margin:0px auto;
+  padding:40px;
+  padding-right:0px;
+  background:#fff;
+  border-radius: 10px;
+  
+}
+
+#modal3 .modal_layer {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.8);
+  z-index:-1;
+}   
+
+ #yongdal_close3 {
+   position: relative;
+   border: none;
+   background-color: white;
+   width: 25px;
+   height: 25px;
+   cursor : pointer;
+   right: -10%;
+   top: -10%;
+} 
+
+/* 할 일 */
+/* 할 일 */
+/* 할 일 */
+
+#modal4 {
+  display: none;
+  width:100%;
+  height:100%;
+  z-index:1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal4 h2 {
+  margin:0;   
+  font-size: 25px;
+  color: black;
+   background-color: white;
+   font-weight: bold;
+}
+
+ #modal4 button {
+  display:inline-block;
+  margin-left:calc(100% - 100px - 10px);
+} 
+
+#modal4 .modal_content {
+  position: relative;
+  top: 15%;
+  width:550px;
+  height: 400px;
+  margin:0px auto;
+  padding:40px;
+  padding-right:0px;
+  background:#fff;
+  border-radius: 10px;
+  
+}
+
+#modal4 .modal_layer {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.8);
+  z-index:-1;
+}   
+
+ #yongdal_close4 {
+   position: relative;
+   border: none;
+   background-color: white;
+   width: 25px;
+   height: 25px;
+   cursor : pointer;
+   right: -10%;
+   top: -10%;
+} 
 
 </style>
   
 </head>
 <body>
-<%	memberDTO dto = (memberDTO)session.getAttribute("dto"); 
-	ArrayList<t_teamDTO> team_dto = (ArrayList<t_teamDTO>)session.getAttribute("teamSeq"); 
+
+<%
+memberDTO dto = (memberDTO)session.getAttribute("teamdto");
+t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
 %>
+
 <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
@@ -220,7 +646,6 @@ input#content {
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
-      <h1><a href="sadf.jsp">이동</a></h1>
         <div id="settings-trigger"><i class="ti-settings"></i></div>
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
@@ -349,6 +774,7 @@ input#content {
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
+
         <ul class="nav">
           <li class="nav-item">
               <button type="button" id="modal_open_btn">
@@ -399,13 +825,14 @@ input#content {
       </nav>
       <!-- partial -->
       <div class="main-panel">
-        <div class="content-wrapper" style="">
-          <div class="row">
+        <div class="content-wrapper" style="padding: 0px;">
+          <div class="row1" style="">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">내 프로젝트</h3>
-                  <h6 class="font-weight-normal mb-0"> 참여중 프로젝트 <span class="text-primary"> 3 unread alerts!</span></h6>
+                <div class="team_icon"></div>
+                  <h3 class="team_name"><%= t_DTO.getTeamName()%></h3> <br>
+                  <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -422,29 +849,43 @@ input#content {
                   </div>
                  </div>
                 </div>
+                 <div class="menutap"> <br>
+                 <ul type="none" id="menutap">
+                    <li><a href="#">홈</li>
+                    <li><a href="workPage.jsp">업무</li>
+                    <li><a href="#">캘린더</li>
+                 </ul>
+                 </div>
+              </div>
+              <div class="content">
+                 <div class="newContentsBox">
+                    <div>
+                       <ul class="newContentsBox">
+                          <li class="newContentsBox"><button type="button" id="yongdal_open1">글</button></li>
+                          
+                          <li class="newContentsBox"><button type="button" id="yongdal_open2">업무</button></li>
+                          <li class="newContentsBox"><button type="button" id="yongdal_open3">일정</button></li>
+                          <li class="newContentsBox"><button type="button" id="yongdal_open4">할 일</button></li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+              <div class="content">
+                 <div class="newContentsBox">
+                    <div>
+                       <span><%="작성자" %></span>
+                       <span><%="작성일자" %></span>
+                    </div>
+                    <div>
+                       <span><%="제목" %></span>
+                       
+                    </div>
+                 </div>
               </div>
             </div>
           </div>
           
-            <div class="col-md-6 grid-margin transparent">
-              <div class="row">
-               <%
-                 
-                 for(int i = 0; i < team_dto.size(); i++){
-                    out.print("<div class='col-md-6 mb-4 stretch-card transparent'>");
-                    out.print("<div class='card card-tale'>");
-                    out.print("<div class='card-body'>");
-                    out.print("<p class='fs-30 mb-2'><a href='connectPage.do?connect_team=" + team_dto.get(i).getTeamName() + "'</a>" + team_dto.get(i).getTeamName() + "</p>");
-                	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
-                    out.print("</div>");
-                    out.print("</div>");
-                    out.print("</div>");
-                 }
-              %>
-                
-              </div>
-            </div>
-          </div>
+            
       <!-- main-panel ends -->
     </div>   
     <!-- page-body-wrapper ends -->
@@ -474,9 +915,8 @@ input#content {
   <!-- End custom js for this page-->
 
 
-  <!-- modal -->
-  <div style="display: inline">
-  <form action="projectPage.jsp">
+  <!-- MODAL -->
+   <div style="display: inline">
   <div id="modal" class="modal_content">
         <div class="modal_content">
             <div class="title">
@@ -498,33 +938,287 @@ input#content {
         </div>
         <div class="modal_layer"></div>
     </div>
-    </form>
   </div>
+  
+  
+   <!-- 글 modal 창 -->
+  <!--  글 modal 창 -->
+  <!--  글 modal 창 -->
+  
+  <div style="display: inline">
+  <div id="modal1" class="modal_content">
+        <div class="modal_content">
+            <div class="title">
+            	
+                <h2>글 : 게시물 작성</h2>
+            </div>
+            <button type="button" id="yongdal_close1">X</button>
+                <form action="comWrite.do">
+            <div class="content">
+                <input type = "text" name ="title" id="title" placeholder="제목을 입력하세요.">
+                <input type = "text" name ="content" id="content" placeholder="내용을 입력하세요.">
+                <input type = "text" name ="hashtag" id="hashtag" placeholder="해쉬태그">
+                <br>
+                <br>
+                <div id="button">
+                    <button id="submit" type="submit">올리기</button>
+                </div>
+            </div>
+                    </form>
+        </div>
+        <div class="modal_layer"></div>
+    </div>
+  </div>
+  
+  
+  
+  <!-- 업무 modal 창 -->
+  <!-- 업무 modal 창 -->
+  <!-- 업무 modal 창 -->
+  
+  <div style="display: inline">
+  <div id="modal2" class="modal_content">
+        <div class="modal_content">
+            <div class="title2">
+                <h2>업무 : 게시물 작성</h2>
+            </div>
+            <button type="button" id="yongdal_close2">X</button>
+            <div class="content2">
+                <input type = "text" id="title2" placeholder="제목을 입력하세요."> <br> <br> <br>
+                <div id="jinhang">
+                   <div class="jinhang1"><botton>요청</botton></div>
+                   <div class="jinhang2"><botton>진행</botton></div>
+                   <div class="jinhang3"><botton>피드백</botton></div>
+                   <div class="jinhang4"><botton>완료</botton></div>
+                   <div class="jinhang5"><botton>보류</botton></div>
+                </div>
+                <input type="text" id="damdangja" placeholder="담당자 배정">
+                <input type = "text" id="content2" placeholder="내용을 입력하세요.">
+                <br>
+                <br>
+                <div id="button">
+                    <button id="submit2" type="submit">올리기</button>
+                </div>
+
+                
+                
+            </div>
+        </div>
+        <div class="modal_layer"></div>
+    </div>
+  </div>
+  
+  
+  <!-- 일정 modal 창 -->
+  <!-- 일정 modal 창 -->
+  <!-- 일정 modal 창 -->
+  
+  <div style="display: inline">
+  <div id="modal3" class="modal_content">
+        <div class="modal_content">
+            <div class="title">
+                <h2>게시물 작성</h2>
+            </div>
+            <button type="button" id="yongdal_close3">X</button>
+            <div class="content">
+                <input type = "text" id="title" placeholder="제목을 입력하세요.">
+                <input type = "text" id="content" placeholder="내용을 입력하세요.">
+                <br>
+                <br>
+                <div id="button">
+                    <button id="submit" type="submit">올리기</button>
+                </div>
+
+                
+                
+            </div>
+        </div>
+        <div class="modal_layer"></div>
+    </div>
+  </div>
+  
+  
+  <!-- 할 일 modal 창 -->
+  <!-- 할 일 modal 창 -->
+  <!-- 할 일 modal 창 -->
+  
+  <div style="display: inline">
+  <div id="modal4" class="modal_content">
+        <div class="modal_content">
+            <div class="title">
+                <h2>게시물 작성</h2>
+            </div>
+            <button type="button" id="yongdal_close4">X</button>
+            <div class="content">
+                <input type = "text" id="title" placeholder="제목을 입력하세요.">
+                <input type = "text" id="content" placeholder="내용을 입력하세요.">
+                <br>
+                <br>
+                <div id="button">
+                    <button id="submit" type="submit">올리기</button>
+                </div>
+
+                
+                
+            </div>
+        </div>
+        <div class="modal_layer"></div>
+    </div>
+  </div>
+  
+  
   <!-- modal scipt -->
   <script src ="js/jquery-3.6.0.min.js"></script>
 <script>
-    document.getElementById("modal_open_btn").onclick = function() {
-        document.getElementById("modal").style.display="block";
-    }
+document.getElementById("modal_open_btn").onclick = function() {
+       document.getElementById("modal").style.display="block";
+   }
    
-    document.getElementById("modal_close_btn").onclick = function() {
-        document.getElementById("modal").style.display="none";
-    }   
+   document.getElementById("modal_close_btn").onclick = function() {
+       document.getElementById("modal").style.display="none";
+}   
 </script>
 
 
 
 <script>
-    $("#modal_open_btn").click(function(){
-        $("#modal").attr("style", "display:block");
-    });
-   
-     $("#modal_close_btn").click(function(){
-        $("#modal").attr("style", "display:none");
-    });      
+$("#modal_open_btn").click(function(){
+    $("#modal").attr("style", "display:block");
+});
+
+ $("#modal_close_btn").click(function(){
+    $("#modal").attr("style", "display:none");
+});      
+ </script>
+ 
+ 
+ 
+<!--  글 작성 modal  -->
+<!--  글 작성 modal  -->
+<!--  글 작성 modal  -->
+ 
+ 
+<script>
+document.getElementById("yongdal_open1").onclick = function() {
+    document.getElementById("modal1").style.display="block";
+}
+
+document.getElementById("yongdal_close1").onclick = function() {
+    document.getElementById("modal1").style.display="none";
+}   
 </script>
 
 
-  
+
+<script>
+$("#yongdal_open1").click(function(){
+    $("#modal1").attr("style", "display:block");
+});
+
+ $("#yongdal_close1").click(function(){
+    $("#modal1").attr("style", "display:none");
+});      
+
+</script>
+
+<!--  업무 작성 modal  -->
+<!--  업무 작성 modal  -->
+<!--  업무 작성 modal  -->
+ 
+ 
+<script>
+document.getElementById("yongdal_open2").onclick = function() {
+    document.getElementById("modal2").style.display="block";
+}
+
+document.getElementById("yongdal_close2").onclick = function() {
+    document.getElementById("modal2").style.display="none";
+}   
+</script>
+
+
+
+<script>
+$("#yongdal_open2").click(function(){
+    $("#modal2").attr("style", "display:block");
+});
+
+ $("#yongdal_close2").click(function(){
+    $("#modal2").attr("style", "display:none");
+});      
+
+</script>
+
+
+<!--  일정 작성 modal  -->
+<!--  일정 작성 modal  -->
+<!--  일정 작성 modal  -->
+ 
+ 
+<script>
+document.getElementById("yongdal_open3").onclick = function() {
+    document.getElementById("modal3").style.display="block";
+}
+
+document.getElementById("yongdal_close3").onclick = function() {
+    document.getElementById("modal3").style.display="none";
+}   
+</script>
+
+
+
+<script>
+$("#yongdal_open3").click(function(){
+    $("#modal3").attr("style", "display:block");
+});
+
+ $("#yongdal_close3").click(function(){
+    $("#modal3").attr("style", "display:none");
+});      
+
+</script>
+
+
+<!--  할 일 작성 modal  -->
+<!--  할 일 작성 modal  -->
+<!--  할 일 작성 modal  -->
+ 
+ 
+<script>
+document.getElementById("yongdal_open4").onclick = function() {
+    document.getElementById("modal4").style.display="block";
+}
+
+document.getElementById("yongdal_close4").onclick = function() {
+    document.getElementById("modal4").style.display="none";
+}   
+</script>
+
+
+
+<script>
+$("#yongdal_open4").click(function(){
+    $("#modal4").attr("style", "display:block");
+});
+
+ $("#yongdal_close4").click(function(){
+    $("#modal4").attr("style", "display:none");
+});      
+
+</script>
+
+
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- <script>
+$('div>div>button').click(function(){
+     $('div>div>button').removeClass("active");
+     $(this).addClass("active");
+   });
+
+</script> -->
+
 </body>
 </html>
