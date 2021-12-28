@@ -118,6 +118,18 @@ input#content {
    border-radius: 10px;
 }
 
+.fs-30>a:link {
+	font-size: 25px;
+	font-weight: bold;
+	color: white;
+	text-docoration: none;
+}
+
+.fs-30>a:visited {
+	color: white;
+	text-docoration: none;
+}
+
 
 
 </style>
@@ -416,17 +428,14 @@ input#content {
           
             <div class="col-md-6 grid-margin transparent">
               <div class="row">
-              <% HttpSession session1 = request.getSession();%>
                <%
                  
                  for(int i = 0; i < team_dto.size(); i++){
                     out.print("<div class='col-md-6 mb-4 stretch-card transparent'>");
                     out.print("<div class='card card-tale'>");
                     out.print("<div class='card-body'>");
-                    out.print("<p class='fs-30 mb-2'>" + team_dto.get(i).getTeamName() + "</p>");
-                    out.print("<a href='projectPage.jsp'"+"</a>");
-                    session.setAttribute("teamName", team_dto.get(i).getTeamName());
-                    out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
+                    out.print("<p class='fs-30 mb-2'><a href='connectPage.do?connect_team=" + team_dto.get(i).getTeamName() + "'</a>" + team_dto.get(i).getTeamName() + "</p>");
+                	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
                     out.print("</div>");
                     out.print("</div>");
                     out.print("</div>");

@@ -11,7 +11,6 @@
    --font-color: #4e4e4e;
    --border-gray-color : #dadada;
    --naver-green-color: #623ad6;
-   
    --naver-green-border-color: #623ad6;
 }
 
