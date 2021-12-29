@@ -17,9 +17,11 @@ import com.service.DeleteService;
 import com.service.JoinService;
 import com.service.LoginService;
 import com.service.LogoutService;
+import com.service.ScheduleService;
 import com.service.TodoService;
 import com.service.UpdateService;
 import com.service.WorkService;
+import com.service.newTeamService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -92,6 +94,16 @@ public class FrontController extends HttpServlet {
 		}
 		else if(command.equals("todoWrite.do")) {
 			com = new TodoService();
+			nextpage = com.execute(request, response);
+		}
+		
+		else if(command.equals("schedule.do")) {
+			com = new ScheduleService();
+			nextpage = com.execute(request, response);
+		}
+		
+		else if(command.equals("newTeam.do")) {
+			com = new newTeamService();
 			nextpage = com.execute(request, response);
 		}
 		if(nextpage != null) {
