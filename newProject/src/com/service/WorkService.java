@@ -29,7 +29,7 @@ public class WorkService implements Command {
 		
 		String workTitle = request.getParameter("title");
 		String workContent = request.getParameter("content");
-		String workStartDt = request.getParameter("startdt");
+		Date workStartDt = request.getda("startdt");
 		String workEndDt = request.getParameter("enddt");
 		String workProgress = request.getParameter("progress");
 		String memId = mdto.getMemId();

@@ -166,7 +166,7 @@ public class memberDAO {
 				String getEmail = rs.getString(5);
 				String getPhone = rs.getString(6);
 				String getStat = rs.getString(7);
-				
+				System.out.println("로그인dao");
 //				sql = "select team_seq from t_team where mem_id = ?";
 //				psmt = conn.prepareStatement(sql);
 //				psmt.setString(1, dto1.getMemId());
@@ -225,7 +225,7 @@ public class memberDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, memid);
 			rs = psmt.executeQuery();
-			
+			System.out.println("어레이리스트 팀시퀀스");
 			while(rs.next()) {
 				double teamSeq = rs.getDouble(1);
 				String teamName = rs.getString(2);

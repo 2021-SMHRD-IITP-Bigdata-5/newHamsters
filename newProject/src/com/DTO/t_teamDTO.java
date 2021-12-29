@@ -25,13 +25,6 @@ public class t_teamDTO {
 		this.teamName = teamName;
 	}
 
-	public t_teamDTO(String teamName, String teamContent, String memId) {
-		super();
-		this.teamName = teamName;
-		this.teamContent = teamContent;
-		this.memId = memId;
-	}
-
 	public t_teamDTO(double teamSeq, String teamName, String teamContent, Date regDate) {
 		super();
 		this.teamSeq = teamSeq;

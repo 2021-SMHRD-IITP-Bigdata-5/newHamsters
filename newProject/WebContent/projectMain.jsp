@@ -428,12 +428,12 @@ input#content {
             <div class="col-md-6 grid-margin transparent">
               <div class="row">
                <%
-                 
+               System.out.println("프로젝트메인페이지");
                  for(int i = 0; i < team_dto.size(); i++){
                     out.print("<div class='col-md-6 mb-4 stretch-card transparent'>");
                     out.print("<div class='card card-tale'>");
                     out.print("<div class='card-body'>");
-                    out.print("<p class='fs-30 mb-2'><a href='connectPage.do?connect_team=" + team_dto.get(i).getTeamName() + "'</a>" + team_dto.get(i).getTeamName() + "</p>");
+                    out.print("<p class='fs-30 mb-2'><a href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'</a>" + team_dto.get(i).getTeamName() + "</p>");
                 	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
                     out.print("</div>");
                     out.print("</div>");

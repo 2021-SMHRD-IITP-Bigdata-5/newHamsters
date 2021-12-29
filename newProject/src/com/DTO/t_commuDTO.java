@@ -40,7 +40,19 @@ public class t_commuDTO {
 			this.memId = memId;
 		}
 
-	    public Double getArticleSeq() {
+	    public t_commuDTO(Double articleSeq, String articleTitle, String articleContent, Date articleDate,
+				String hashTag, Double articleCnt, Double teamSeq, String memId) {
+			this.articleSeq = articleSeq;
+			this.articleTitle = articleTitle;
+			this.articleContent = articleContent;
+			this.articleDate = articleDate;
+			this.hashTag = hashTag;
+			this.articleCnt = articleCnt;
+			this.teamSeq = teamSeq;
+			this.memId = memId;
+		}
+
+		public Double getArticleSeq() {
 	    	return articleSeq;
 	    }
 	    

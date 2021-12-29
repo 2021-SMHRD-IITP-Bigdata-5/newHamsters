@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import com.DTO.memberDTO;
 import com.DTO.t_commuDTO;
@@ -24,7 +25,8 @@ public class teamDAO {
 	memberDTO dto = null;
 	private boolean check;
 	t_teamDTO t_DTO =null;
-	
+	t_commuDTO comdto = null;
+	t_workDTO workdto = null;
 public void getConn() {
 	
 	
@@ -111,8 +113,8 @@ public void getConn() {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getWorkTitle());
 			psmt.setString(2, dto.getWorkContent());
-			psmt.setString(3, dto.getWorkStartDt());
-			psmt.setString(4, dto.getWorkEndDt());
+			psmt.setDate(3, dto.getWorkStartDt());
+			psmt.setDate(4, dto.getWorkEndDt());
 			psmt.setString(5, dto.getWorkProgress());
 			psmt.setString(6, dto.getMemId());
 			psmt.setDouble(7, dto.getTeamSeq());
@@ -152,31 +154,33 @@ public void getConn() {
 		return cnt;
 	}
 	
-	public t_teamDTO selectTeam(t_teamDTO dto) {
-	      
+	public t_teamDTO selectTeam(double team_seq) {
+		t_teamDTO tdto = null;
 	      try {
 	         getConn();
 	         
-	         String sql = "select * from t_team where team_name = ?";
+	         String sql = "select * from t_team where team_seq = ?";
 	         
 	         psmt = conn.prepareStatement(sql);
-	         psmt.setString(1, dto.getTeamName());
-	         
+	         psmt.setDouble(1, team_seq);
+	         System.out.println("팀선택dao");
 	         rs = psmt.executeQuery();
 	         
 	         if(rs.next()) {
-					double teamSeq = rs.getDouble(1);
+					double rteamSeq = rs.getDouble(1);
 					String teamName = rs.getString(2);
 					String teamCon = rs.getString(3);
 					Date teamDate = rs.getDate(4);
-					if(teamName.equals(dto.getTeamName())) {
-						dto = new t_teamDTO(teamSeq, dto.getTeamName(), teamCon, teamDate);
+					
+					getCommu(rteamSeq);
+					if(team_seq == rteamSeq) {
+						tdto = new t_teamDTO(rteamSeq, teamName, teamCon, teamDate);
 					}
 			}
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
-	      return dto;
+	      return tdto;
 	}
 	public int todoWrite(t_todoDTO dto) {
 		
@@ -229,28 +233,78 @@ public void getConn() {
 	      }
 	      return cnt;
 	   }
-	
-	public int createteam(t_teamDTO dto) {
-		
-		try {
-			getConn();
-			
-			String sql = "INSERT INTO t_team (team_name, team_content, reg_date, mem_id) VALUES (?, ?, sysdate, ?)";
-			
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getTeamName());
-			psmt.setString(2, dto.getTeamContent());
-			psmt.setString(3, dto.getMemId());
-			
-			cnt = psmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println("클래스파일 로딩실패");
-	         e.printStackTrace();
-		} finally {
-			close();
-		}
-		
-		
-		return cnt;
-	}
+	public ArrayList<t_commuDTO> getCommu(double teamSeq1) {
+	      ArrayList<t_commuDTO> arr = new ArrayList<t_commuDTO>();
+	      try {
+	            getConn();
+	            
+	            String sql = "select * from t_community where team_seq = ?";
+	            
+	            psmt = conn.prepareStatement(sql);
+	            psmt.setDouble(1, teamSeq1);
+	            
+	            rs = psmt.executeQuery();
+	            
+	            while(rs.next()) {
+	               double artiSeq = rs.getDouble(1);
+	               String artiTitle = rs.getString(2);
+	               String artiConte = rs.getString(3);
+	               Date artiDate = rs.getDate(4);
+	               String artiTag = rs.getString(5);
+	               double articnt = rs.getDouble(6);
+	               double teamSeq = rs.getDouble(7);
+	               String memId = rs.getString(8);
+	               
+	               System.out.println("========================artiDate : "  + artiDate.getTime());
+	               
+	                  comdto = new t_commuDTO(artiSeq, artiTitle, artiConte, artiDate, artiTag, articnt, teamSeq, memId);
+	                  arr.add(comdto);
+	               }
+	         
+	         } catch (Exception e) {
+	            System.out.println("클래스파일 로딩 실패");
+	            e.printStackTrace();
+	         } finally {
+	            close();
+	         }
+	      return arr;
+	   }
+	public ArrayList<t_workDTO> getWork(double teamSeq1) {
+	      ArrayList<t_workDTO> arr = new ArrayList<t_workDTO>();
+	      try {
+	            getConn();
+	            
+	            String sql = "select * from t_community where team_seq = ?";
+	            
+	            psmt = conn.prepareStatement(sql);
+	            psmt.setDouble(1, teamSeq1);
+	            
+	            rs = psmt.executeQuery();
+	            
+	            while(rs.next()) {
+	               double workSeq = rs.getDouble(1);
+	               String workTitle = rs.getString(2);
+	               String workContent = rs.getString(3);
+	               Date startDt = rs.getDate(4);
+	               Date endDt = rs.getDate(5);
+	               String memId = rs.getString(6);
+	               double teamSeq = rs.getDouble(7);
+	               Date workDate = rs.getDate(8);
+	               String refmem = rs.getString(9);
+	               String workProgress = rs.getString(10);
+	               
+	               System.out.println("========================artiDate : "  + workDate.getTime());
+	               
+	                  workdto = new t_workDTO(workSeq, workTitle, workContent, startDt, endDt, memId, teamSeq, workDate, refmem, workProgress);
+	                  arr.add(workdto);
+	               }
+	         
+	         } catch (Exception e) {
+	            System.out.println("클래스파일 로딩 실패");
+	            e.printStackTrace();
+	         } finally {
+	            close();
+	         }
+	      return arr;
+	   }
 }

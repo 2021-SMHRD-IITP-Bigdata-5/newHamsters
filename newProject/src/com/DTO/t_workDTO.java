@@ -15,10 +15,10 @@ public class t_workDTO {
 	    private String workContent;
 
 	    // 업무 시작일자 
-	    private String workStartDt;
+	    private Date workStartDt;
 
 	    // 업무 종료일자 
-	    private String workEndDt;
+	    private Date workEndDt;
 
 	    // 업무 진행상황 
 	    private String workProgress;
@@ -35,8 +35,18 @@ public class t_workDTO {
 	    // 등록 일자 
 	    private Date regDate;
 
+//	    double workSeq = rs.getDouble(1);
+//        String workTitle = rs.getString(2);
+//        String workContent = rs.getString(3);
+//        Date startDt = rs.getDate(4);
+//        Date endDt = rs.getDate(5);
+//        String workProgress = rs.getString(10);
+//        String memId = rs.getString(6);
+//        double teamSeq = rs.getDouble(7);
+//        String refmem = rs.getString(9);
+//        Date regDate = rs.getDate(8);
 	    
-	    public t_workDTO(String workTitle, String workContent, String workStartDt, String workEndDt,
+	    public t_workDTO(String workTitle, String workContent, Date workStartDt, Date workEndDt,
 				String workProgress, String memId, double teamSeq, String referenceId) {
 			this.workTitle = workTitle;
 			this.workContent = workContent;
@@ -47,6 +57,31 @@ public class t_workDTO {
 			this.teamSeq = teamSeq;
 			this.referenceId = referenceId;
 		}
+
+		
+
+		public t_workDTO(double workSeq, String workTitle, String workContent, Date workStartDt, Date workEndDt,
+				String workProgress, String memId, double teamSeq, String referenceId, Date regDate) {
+			super();
+			this.workSeq = workSeq;
+			this.workTitle = workTitle;
+			this.workContent = workContent;
+			this.workStartDt = workStartDt;
+			this.workEndDt = workEndDt;
+			this.workProgress = workProgress;
+			this.memId = memId;
+			this.teamSeq = teamSeq;
+			this.referenceId = referenceId;
+			this.regDate = regDate;
+		}
+
+
+		public t_workDTO(double workSeq2, String workTitle2, String workContent2, Date startDt, Date endDt,
+				String memId2, double teamSeq2, Date workDate, String refmem, String workProgress2) {
+			// TODO Auto-generated constructor stub
+		}
+
+
 
 		public double getWorkSeq() {
 	        return workSeq;
@@ -72,19 +107,19 @@ public class t_workDTO {
 	        this.workContent = workContent;
 	    }
 
-	    public String getWorkStartDt() {
+	    public Date getWorkStartDt() {
 	        return workStartDt;
 	    }
 
-	    public void setWorkStartDt(String workStartDt) {
+	    public void setWorkStartDt(Date workStartDt) {
 	        this.workStartDt = workStartDt;
 	    }
 
-	    public String getWorkEndDt() {
+	    public Date getWorkEndDt() {
 	        return workEndDt;
 	    }
 
-	    public void setWorkEndDt(String workEndDt) {
+	    public void setWorkEndDt(Date workEndDt) {
 	        this.workEndDt = workEndDt;
 	    }
 
