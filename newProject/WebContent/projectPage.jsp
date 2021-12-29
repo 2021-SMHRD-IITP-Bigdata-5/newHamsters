@@ -1,3 +1,5 @@
+<%@page import="com.DTO.t_todoDTO"%>
+<%@page import="com.DTO.t_workDTO"%>
 <%@page import="com.DTO.t_commuDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DTO.t_teamDTO"%>
@@ -567,6 +569,8 @@ input#damdangja{
 memberDTO dto = (memberDTO)session.getAttribute("teamdto");
 t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
 ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("teamSeq");
+ArrayList<t_workDTO> workdto = (ArrayList<t_workDTO>)session.getAttribute("teamSeq1");
+ArrayList<t_todoDTO> tododto = (ArrayList<t_todoDTO>)session.getAttribute("teamSeq2");
 %>
 
 <div class="container-scroller">
@@ -840,6 +844,14 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
                   <h1><%=commudto.get(0).getTeamSeq() %></h1>
                   <h1><%=commudto.get(0).getArticleTitle() %></h1>
                   <%System.out.println("프로젝트페이지"); %>
+                  <%System.out.println("우ㅝ크타이틀" +workdto.get(0).getWorkTitle()); %>
+                  
+                  <h1><%=workdto.get(0).getWorkTitle() %></h1>
+                  <h1><%=workdto.get(0).getTeamSeq() %></h1>
+                  <h1>todo-list</h1>
+                  <h1><%=tododto.get(0).getTodoTitle() %></h1>
+                  <h1><%=tododto.get(0).getTodoContent() %></h1>
+                  
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -989,27 +1001,26 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
                 <h2>업무 : 게시물 작성</h2>
             </div>
             <button type="button" id="yongdal_close2">X</button>
+            <form action="workWrite.do">
             <div class="content2">
-                <input type = "text" id="title2" placeholder="제목을 입력하세요."> <br> <br> <br>
-                <div id="jinhang">
+                <input type = "text" id="title2" placeholder="제목을 입력하세요."name ="title"> <br> <br> <br>
+                <div id="jinhang"name ="progress">
                    <div class="jinhang1"><botton>요청</botton></div>
                    <div class="jinhang2"><botton>진행</botton></div>
                    <div class="jinhang3"><botton>피드백</botton></div>
                    <div class="jinhang4"><botton>완료</botton></div>
                    <div class="jinhang5"><botton>보류</botton></div>
                 </div>
-                <input type="text" id="damdangja" placeholder="담당자 배정"><br>
-                <input type = "date"><input type = "date"><br>
-                <input type = "text" id="content2" placeholder="내용을 입력하세요.">
+                <input type="text" id="damdangja" placeholder="담당자 배정"name ="ref"><br>
+                <input type = "date"name ="startdt"><input type = "date"name ="enddt"><br>
+                <input type = "text" id="content2" placeholder="내용을 입력하세요."name ="content">
                 <br>
                 <br>
                 <div id="button">
-                    <button id="submit2" type="submit">올리기</button>
+                    <button id="submit" type="submit">올리기</button>
                 </div>
-
-                
-                
             </div>
+            </form>
         </div>
         <div class="modal_layer"></div>
     </div>

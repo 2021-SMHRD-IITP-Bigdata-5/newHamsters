@@ -2,6 +2,10 @@ package com.service;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,12 +33,25 @@ public class WorkService implements Command {
 		
 		String workTitle = request.getParameter("title");
 		String workContent = request.getParameter("content");
-		Date workStartDt = request.getda("startdt");
-		String workEndDt = request.getParameter("enddt");
+		String workStartDt2 = request.getParameter("startdt");
+		String workEndDt2 = request.getParameter("enddt");
 		String workProgress = request.getParameter("progress");
+		if(workContent.equals("")) {
+			response.sendRedirect("errormodal.jsp");
+		}
 		String memId = mdto.getMemId();
 		double teamSeq = tdto.getTeamSeq();
 		String referenceId = request.getParameter("ref");
+		
+		//String type 으로 받아온 date 정보를 localdate로 형변환
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.US);
+		LocalDate workStartDt3 = LocalDate.parse(workStartDt2, formatter);
+		LocalDate workEndDt3 = LocalDate.parse(workEndDt2, formatter);
+		
+		// localDate -> date
+		Date workStartDt = java.sql.Date.valueOf(workStartDt3);
+		Date workEndDt = java.sql.Date.valueOf(workEndDt3);
+		
 		
 		System.out.println("입력받은날짜 : "+workStartDt + workEndDt);
 		System.out.println("팀시퀀스"+teamSeq);
@@ -53,4 +70,6 @@ public class WorkService implements Command {
 		}
 		return null;
 	}
+	
+	
 }

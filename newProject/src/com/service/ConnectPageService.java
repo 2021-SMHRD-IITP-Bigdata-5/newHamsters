@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import com.DAO.teamDAO;
 import com.DTO.t_commuDTO;
 import com.DTO.t_teamDTO;
+import com.DTO.t_todoDTO;
+import com.DTO.t_workDTO;
 import com.inter.Command;
 
 public class ConnectPageService implements Command {
@@ -25,15 +27,18 @@ public class ConnectPageService implements Command {
 		
 		ArrayList<t_commuDTO> list = dao.getCommu(teamSeq);
 		t_teamDTO t_DTO = dao.selectTeam(teamSeq);
-		System.out.println(3);
+		ArrayList<t_workDTO> list2 = dao.getWork(teamSeq);
+		ArrayList<t_todoDTO> list3 = dao.getTodoDTO(teamSeq);
 		String nextpage = "";
-		System.out.println("커넥트페이지 서비스");
 		if (t_DTO != null) {
 
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("teamName", t_DTO);
 			session.setAttribute("teamSeq", list);
+			session.setAttribute("teamSeq1", list2);
+			session.setAttribute("teamSeq2", list3);
+			System.out.println("커넥트페이지 서비스");
 			
 			nextpage = "projectPage.jsp";
 

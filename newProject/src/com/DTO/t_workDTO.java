@@ -76,10 +76,7 @@ public class t_workDTO {
 		}
 
 
-		public t_workDTO(double workSeq2, String workTitle2, String workContent2, Date startDt, Date endDt,
-				String memId2, double teamSeq2, Date workDate, String refmem, String workProgress2) {
-			// TODO Auto-generated constructor stub
-		}
+		
 
 
 

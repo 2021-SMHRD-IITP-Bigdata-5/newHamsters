@@ -26,10 +26,23 @@ public class t_todoDTO {
 	    // 관련자 아이디 
 	    private String todoAttendance;
 
-	    private String eventDate;
+	    private Date eventDate;
 	    
+		public t_todoDTO(double todoSeq, String todoTitle, String todoContent, Date regDate, double teamSeq,
+				String memId, String todoAttendance, Date eventDate) {
+			super();
+			this.todoSeq = todoSeq;
+			this.todoTitle = todoTitle;
+			this.todoContent = todoContent;
+			this.regDate = regDate;
+			this.teamSeq = teamSeq;
+			this.memId = memId;
+			this.todoAttendance = todoAttendance;
+			this.eventDate = eventDate;
+		}
+
 		public t_todoDTO(String todoTitle, String todoContent, double teamSeq, String memId,
-				String todoAttendance, String eventDate) {
+				String todoAttendance, Date eventDate) {
 			this.todoTitle = todoTitle;
 			this.todoContent = todoContent;
 			this.teamSeq = teamSeq;
@@ -38,11 +51,11 @@ public class t_todoDTO {
 			this.eventDate = eventDate;
 		}
 
-		public String getEventDate() {
+		public Date getEventDate() {
 			return eventDate;
 		}
 
-		public void setEventDate(String eventDate) {
+		public void setEventDate(Date eventDate) {
 			this.eventDate = eventDate;
 		}
 

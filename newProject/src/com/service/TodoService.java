@@ -1,6 +1,10 @@
 package com.service;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +32,16 @@ public class TodoService implements Command{
 		double teamSeq = t_DTO.getTeamSeq();
 		String memId = mdto.getMemId();
 		String todoAttendance = request.getParameter("attend");
-		String eventDate = request.getParameter("event");
+		String eventDate2 = request.getParameter("event");
+		
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.US);
+		LocalDate eventDate3 = LocalDate.parse(eventDate2, formatter);
+		
+		// localDate  -> date
+		Date eventDate = java.sql.Date.valueOf(eventDate3);
+		
+		
 		
 		
 		System.out.println("ÆÀ½ÃÄö½º"+teamSeq);
