@@ -426,6 +426,7 @@ input#content {
           </div>
           
             <div class="col-md-6 grid-margin transparent">
+            <a href="sadf.jsp">이동동</a>
               <div class="row">
                <%
                System.out.println("프로젝트메인페이지");

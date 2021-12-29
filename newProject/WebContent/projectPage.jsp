@@ -192,7 +192,6 @@ div.newContentsBox{
    border-radius: 10px;
    border: 1px solid grey;
    width: 800px;
-   height: 100px;
    padding-left: 10px;
    
 }
@@ -560,6 +559,10 @@ input#damdangja{
    top: -10%;
 } 
 
+.content-wrapper{
+	overflow: auto;
+}
+
 </style>
   
 </head>
@@ -838,19 +841,9 @@ ArrayList<t_todoDTO> tododto = (ArrayList<t_todoDTO>)session.getAttribute("teamS
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                 <div class="team_icon"></div>
-                  <h1><a href="sadf.jsp">이동동</a></h1>
+                  <!-- <h1><a href="sadf.jsp">이동동</a></h1> -->
                   <h3 class="team_name"><%= t_DTO.getTeamName()%></h3> <br>
                   <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
-                  <h1><%=commudto.get(0).getTeamSeq() %></h1>
-                  <h1><%=commudto.get(0).getArticleTitle() %></h1>
-                  <%System.out.println("프로젝트페이지"); %>
-                  <%System.out.println("우ㅝ크타이틀" +workdto.get(0).getWorkTitle()); %>
-                  
-                  <h1><%=workdto.get(0).getWorkTitle() %></h1>
-                  <h1><%=workdto.get(0).getTeamSeq() %></h1>
-                  <h1>todo-list</h1>
-                  <h1><%=tododto.get(0).getTodoTitle() %></h1>
-                  <h1><%=tododto.get(0).getTodoContent() %></h1>
                   
                 </div>
                 <div class="col-12 col-xl-4">
@@ -868,13 +861,7 @@ ArrayList<t_todoDTO> tododto = (ArrayList<t_todoDTO>)session.getAttribute("teamS
                   </div>
                  </div>
                 </div>
-                 <div class="menutap"> <br>
-                 <ul type="none" id="menutap">
-                    <li><a href="#">홈</li>
-                    <li><a href="workPage.jsp">업무</li>
-                    <li><a href="#">캘린더</li>
-                 </ul>
-                 </div>
+                
               </div>
               <div class="content">
                  <div class="newContentsBox">
@@ -888,14 +875,47 @@ ArrayList<t_todoDTO> tododto = (ArrayList<t_todoDTO>)session.getAttribute("teamS
                     </div>
                  </div>
               </div>
+                  <%-- <h1><%=commudto.get(0).getTeamSeq() %></h1>
+                  <h1><%=commudto.get(0).getArticleTitle() %></h1>
+                  <%System.out.println("프로젝트페이지"); %>
+                  <%System.out.println("우ㅝ크타이틀" +workdto.get(0).getWorkTitle()); %>
+                  
+                  <h1><%=workdto.get(0).getWorkTitle() %></h1>
+                  <h1><%=workdto.get(0).getTeamSeq() %></h1>
+                  <h1>todo-list</h1>
+                  <h1><%=tododto.get(0).getTodoTitle() %></h1>
+                  <h1><%=tododto.get(0).getTodoContent() %></h1> --%>
               <div class="content">
+              <a href="sadf.jsp">이동동</a>
                  <div class="newContentsBox">
                     <div>
-                       <span><%="작성자" %></span>
-                       <span><%="작성일자" %></span>
+                    <% for(int i = 0; i < commudto.size(); i++){ %>
+                       <span><%=commudto.get(i).getMemId() %></span>
+                       <span><%=commudto.get(i).getArticleDate() %></span>
+                       <h2><%=commudto.get(i).getArticleTitle() %></h2>
+                       <h4><%=commudto.get(i).getArticleContent() %></h4>
+                    <%} %>
                     </div>
                     <div>
-                       <span><%="제목" %></span>
+                    <% for(int i = 0; i < workdto.size(); i++){ %>
+                       <span><%=workdto.get(i).getMemId() %></span>
+                       <span><%=workdto.get(i).getRegDate() %></span>
+                       <h2><%=workdto.get(i).getWorkTitle() %></h2>
+                       <div>진행상태</div>
+                       <span>시작일 : <%=workdto.get(i).getWorkStartDt() %></span>
+                       <span>마감일 : <%=workdto.get(i).getWorkEndDt() %></span>
+                       <h4><%=workdto.get(i).getWorkContent() %></h4>
+                    <%} %>
+                    </div>
+                    <div>
+                    <% for(int i = 0; i < tododto.size(); i++){ %>
+                       <span><%=tododto.get(i).getMemId() %></span>
+                       <span><%=tododto.get(i).getRegDate() %></span>
+                       <h2><%=tododto.get(i).getTodoTitle() %></h2>
+                       <span><%=tododto.get(i).getTodoContent() %></span>
+                       <span><%=tododto.get(i).getEventDate() %></span>
+                       <span><%=tododto.get(i).getTodoAttendance() %></span>
+                    <%} %>
                     </div>
                  </div>
               </div>
@@ -1065,8 +1085,9 @@ ArrayList<t_todoDTO> tododto = (ArrayList<t_todoDTO>)session.getAttribute("teamS
   <div id="modal4" class="modal_content">
         <div class="modal_content">
             <div class="title">
-                <h2>게시물 작성</h2>
+                <h2>할일 작성</h2>
             </div>
+            <form action="todoWrite.do">
             <button type="button" id="yongdal_close4">X</button>
             <div class="content">
                 <input type = "text" id="title" placeholder="제목을 입력하세요.">
@@ -1076,10 +1097,9 @@ ArrayList<t_todoDTO> tododto = (ArrayList<t_todoDTO>)session.getAttribute("teamS
                 <div id="button">
                     <button id="submit" type="submit">올리기</button>
                 </div>
-
-                
                 
             </div>
+            </form>
         </div>
         <div class="modal_layer"></div>
     </div>

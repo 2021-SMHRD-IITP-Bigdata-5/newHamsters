@@ -3,87 +3,86 @@ package com.DTO;
 import java.sql.Date;
 
 public class t_team_memberDTO {
-	// 팀 소속 회원 테이블 
-	
+   // 팀 소속 회원 테이블 
+   
 
-	    // 팀회원 순번 
-	    private Double tmSeq;
+       // 팀회원 순번 
+       private Double tmSeq;
 
-	    // 팀원 아이디 
-	    private String memId;
+       // 팀원 아이디 
+       private String memId;
 
-	    // 팀 순번 
-	    private Double teamSeq;
+       // 팀 순번 
+       private Double teamSeq;
 
-	    // 등록 일자 
-	    private Date regDate;
+       // 등록 일자 
+       private Date regDate;
 
-	    // 팀회원 메모 
-	    private String tmMemo;
+       // 팀회원 메모 
+       private String tmMemo;
 
-	    // 팀회원 사진 
-	    private String tmPicture;
+       // 팀회원 사진 
+       
+       private String adminYN;
 
-	    
-	    public t_team_memberDTO(Double tmSeq, String memId, Double teamSeq, Date regDate, String tmMemo,
-				String tmPicture) {
-			super();
-			this.tmSeq = tmSeq;
-			this.memId = memId;
-			this.teamSeq = teamSeq;
-			this.regDate = regDate;
-			this.tmMemo = tmMemo;
-			this.tmPicture = tmPicture;
-		}
+       
+       public t_team_memberDTO(Double tmSeq, String memId, Double teamSeq, Date regDate, String tmMemo) {
+         this.tmSeq = tmSeq;
+         this.memId = memId;
+         this.teamSeq = teamSeq;
+         this.regDate = regDate;
+         this.tmMemo = tmMemo;
+      }
 
-		public Double getTmSeq() {
-	        return tmSeq;
-	    }
+      public t_team_memberDTO(String memId, Double teamSeq, Date regDate, String tmMemo, String adminYN) {
+         this.memId = memId;
+         this.teamSeq = teamSeq;
+         this.regDate = regDate;
+         this.tmMemo = tmMemo;
+         this.adminYN = adminYN;
+      }
 
-	    public void setTmSeq(Double tmSeq) {
-	        this.tmSeq = tmSeq;
-	    }
+      public Double getTmSeq() {
+           return tmSeq;
+       }
 
-	    public String getMemId() {
-	        return memId;
-	    }
+       public void setTmSeq(Double tmSeq) {
+           this.tmSeq = tmSeq;
+       }
 
-	    public void setMemId(String memId) {
-	        this.memId = memId;
-	    }
+       public String getMemId() {
+           return memId;
+       }
 
-	    public Double getTeamSeq() {
-	        return teamSeq;
-	    }
+       public void setMemId(String memId) {
+           this.memId = memId;
+       }
 
-	    public void setTeamSeq(Double teamSeq) {
-	        this.teamSeq = teamSeq;
-	    }
+       public Double getTeamSeq() {
+           return teamSeq;
+       }
 
-	    public Date getRegDate() {
-	        return regDate;
-	    }
+       public void setTeamSeq(Double teamSeq) {
+           this.teamSeq = teamSeq;
+       }
 
-	    public void setRegDate(Date regDate) {
-	        this.regDate = regDate;
-	    }
+       public Date getRegDate() {
+           return regDate;
+       }
 
-	    public String getTmMemo() {
-	        return tmMemo;
-	    }
+       public void setRegDate(Date regDate) {
+           this.regDate = regDate;
+       }
 
-	    public void setTmMemo(String tmMemo) {
-	        this.tmMemo = tmMemo;
-	    }
+       public String getTmMemo() {
+           return tmMemo;
+       }
 
-	    public String getTmPicture() {
-	        return tmPicture;
-	    }
+       public void setTmMemo(String tmMemo) {
+           this.tmMemo = tmMemo;
+       }
 
-	    public void setTmPicture(String tmPicture) {
-	        this.tmPicture = tmPicture;
-	    }
 
-	   
-	
+      
+   
 }

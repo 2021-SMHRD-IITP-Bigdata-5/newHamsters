@@ -20,7 +20,14 @@ public class t_teamDTO {
     private String memId;
 
     
-    public t_teamDTO(String teamName) {
+    public t_teamDTO(String teamName, String teamContent, String memId) {
+		super();
+		this.teamName = teamName;
+		this.teamContent = teamContent;
+		this.memId = memId;
+	}
+
+	public t_teamDTO(String teamName) {
 		super();
 		this.teamName = teamName;
 	}
