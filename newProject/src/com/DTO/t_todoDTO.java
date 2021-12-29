@@ -6,7 +6,7 @@ public class t_todoDTO {
 	// 팀 할일 테이블 
 
 	    // 할일 순번 
-	    private int todoSeq;
+	    private double todoSeq;
 
 	    // 할일 제목 
 	    private String todoTitle;
@@ -18,7 +18,7 @@ public class t_todoDTO {
 	    private Date regDate;
 
 	    // 팀 순번 
-	    private int teamSeq;
+	    private double teamSeq;
 
 	    // 작성자 아이디 
 	    private String memId;
@@ -26,28 +26,26 @@ public class t_todoDTO {
 	    // 관련자 아이디 
 	    private String todoAttendance;
 
+	    private String eventDate;
 	    
-	    
-	    
-	    public t_todoDTO(int todoSeq, String todoTitle, String todoContent, Date regDate, int teamSeq, String memId,
-				String todoAttendance) {
-			super();
-			this.todoSeq = todoSeq;
+		public t_todoDTO(String todoTitle, String todoContent, double teamSeq, String memId,
+				String todoAttendance, String eventDate) {
 			this.todoTitle = todoTitle;
 			this.todoContent = todoContent;
-			this.regDate = regDate;
 			this.teamSeq = teamSeq;
 			this.memId = memId;
 			this.todoAttendance = todoAttendance;
+			this.eventDate = eventDate;
 		}
 
-		public int getTodoSeq() {
-	        return todoSeq;
-	    }
+		public String getEventDate() {
+			return eventDate;
+		}
 
-	    public void setTodoSeq(int todoSeq) {
-	        this.todoSeq = todoSeq;
-	    }
+		public void setEventDate(String eventDate) {
+			this.eventDate = eventDate;
+		}
+
 
 	    public String getTodoTitle() {
 	        return todoTitle;
@@ -73,15 +71,24 @@ public class t_todoDTO {
 	        this.regDate = regDate;
 	    }
 
-	    public int getTeamSeq() {
-	        return teamSeq;
-	    }
 
-	    public void setTeamSeq(int teamSeq) {
-	        this.teamSeq = teamSeq;
-	    }
+	    public double getTodoSeq() {
+			return todoSeq;
+		}
 
-	    public String getMemId() {
+		public void setTodoSeq(double todoSeq) {
+			this.todoSeq = todoSeq;
+		}
+
+		public double getTeamSeq() {
+			return teamSeq;
+		}
+
+		public void setTeamSeq(double teamSeq) {
+			this.teamSeq = teamSeq;
+		}
+
+		public String getMemId() {
 	        return memId;
 	    }
 

@@ -949,7 +949,7 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
   <div id="modal1" class="modal_content">
         <div class="modal_content">
             <div class="title">
-            	
+               
                 <h2>글 : 게시물 작성</h2>
             </div>
             <button type="button" id="yongdal_close1">X</button>
@@ -1021,18 +1021,20 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
             <div class="title">
                 <h2>게시물 작성</h2>
             </div>
-            <button type="button" id="yongdal_close3">X</button>
+            <button type="button" id="yongdal_close3"> X</button>
+            <form action="schedule.do">
             <div class="content">
-                <input type = "text" id="title" placeholder="제목을 입력하세요.">
-                <input type = "date"><input type = "date"><br>
-                <input type = "text" placeholder="담당자 배정">
-                <input type = "text" id="content" placeholder="내용을 입력하세요.">
+                <input type = "text" id="title" placeholder="제목을 입력하세요." name="title">
+                <input type = "text" id="content" placeholder="내용을 입력하세요." name="content">
+                   시작일 <input type = "date" name="std"> - 마감일 <input type = "date" name="endd"><br>
+                <input type = "text" placeholder="참석자" name="attend">
                 <br>
                 <br>
                 <div id="button">
                     <button id="submit" type="submit">올리기</button>
                 </div>
             </div>
+            </form>
         </div>
         <div class="modal_layer"></div>
     </div>

@@ -17,6 +17,7 @@ import com.service.DeleteService;
 import com.service.JoinService;
 import com.service.LoginService;
 import com.service.LogoutService;
+import com.service.TodoService;
 import com.service.UpdateService;
 import com.service.WorkService;
 
@@ -87,6 +88,10 @@ public class FrontController extends HttpServlet {
 		}
 		else if(command.equals("workWrite.do")) {
 			com = new WorkService();
+			nextpage = com.execute(request, response);
+		}
+		else if(command.equals("todoWrite.do")) {
+			com = new TodoService();
 			nextpage = com.execute(request, response);
 		}
 		if(nextpage != null) {

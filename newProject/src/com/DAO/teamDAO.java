@@ -9,7 +9,9 @@ import java.text.SimpleDateFormat;
 
 import com.DTO.memberDTO;
 import com.DTO.t_commuDTO;
+import com.DTO.t_scheduleDTO;
 import com.DTO.t_teamDTO;
+import com.DTO.t_todoDTO;
 import com.DTO.t_workDTO;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
@@ -176,7 +178,55 @@ public void getConn() {
 	      }
 	      return dto;
 	}
-	public void date() {
+	public int todoWrite(t_todoDTO dto) {
 		
+		try {
+			getConn();
+			
+			String sql = "INSERT INTO t_todo_list (todo_title, todo_content, reg_date, team_seq, mem_id, todo_attendance, todo_eventdate) VALUES (?, ?, sysdate, ?, ?, ?, ?)";
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getTodoTitle());
+			psmt.setString(2, dto.getTodoContent());
+			psmt.setDouble(3, dto.getTeamSeq());
+			psmt.setString(4, dto.getMemId());
+			psmt.setString(5, dto.getTodoAttendance());
+			psmt.setString(6, dto.getEventDate());
+			
+			cnt = psmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return cnt;
 	}
+	public int scheWrite(t_scheduleDTO dto) {
+	      try {
+	         getConn();
+	         
+	         String sql = "INSERT INTO t_schedule(SCHE_TITLE, sche_contnet, sche_start_dt, sche_end_dt, reg_date, sche_attendance, team_seq, mem_id) VALUES (?, ?, ?, ?, sysdate, ?, ?, ?)";
+	         
+	         psmt = conn.prepareStatement(sql);
+	         
+	         psmt.setString(1, dto.getScheTitle());
+	         psmt.setString(2, dto.getScheContnet());
+	         psmt.setString(3, dto.getScheStartDt());
+	         psmt.setString(4, dto.getScheEndDt());
+	         psmt.setString(5, dto.getScheAttendance());
+	         psmt.setDouble(6, dto.getTeamSeq());
+	         psmt.setString(7, dto.getMemId());
+	         
+	         cnt = psmt.executeUpdate();
+	      } catch (Exception e) {
+	         System.out.println("클래스파일 로딩실패");
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return cnt;
+	   }
 }
