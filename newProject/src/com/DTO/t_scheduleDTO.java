@@ -9,16 +9,16 @@ public class t_scheduleDTO {
        private Double scheSeq;
 
        // 일정 제목 
-       private String scheTitle;
+       private String title;
 
        // 일정 내용 
        private String scheContnet;
 
        // 일정 시작일자일정 
-       private Date scheStartDt;
+       private String start;
 
        // 일정 마감일자 
-       private Date scheEndDt;
+       private String end;
 
        // 등록 일자 
        private Date regDate;
@@ -31,45 +31,67 @@ public class t_scheduleDTO {
        
        private String memId;
 
-       public t_scheduleDTO(Double scheSeq, String scheTitle, String scheContnet, Date scheStd, Date scheEndd,
-			Date regDate, String scheAttendance, Double teamSeq, String memId) {
-		super();
-		this.scheSeq = scheSeq;
-		this.scheTitle = scheTitle;
-		this.scheContnet = scheContnet;
-		this.scheStartDt = scheStd;
-		this.scheEndDt = scheEndd;
-		this.regDate = regDate;
-		this.scheAttendance = scheAttendance;
-		this.teamSeq = teamSeq;
-		this.memId = memId;
-	}
-
-	public t_scheduleDTO(String scheTitle, String scheContnet, Date scheStartDt, Date scheEndDt,
+       public t_scheduleDTO(String scheTitle, String scheContnet, String scheStartDt, String scheEndDt,
             String scheAttendance, Double teamSeq, String memId) {
-         this.scheTitle = scheTitle;
+         this.title = scheTitle;
          this.scheContnet = scheContnet;
-         this.scheStartDt = scheStartDt;
-         this.scheEndDt = scheEndDt;
+         this.start = scheStartDt;
+         this.end = scheEndDt;
          this.scheAttendance = scheAttendance;
          this.teamSeq = teamSeq;
          this.memId = memId;
       }
+     
 
-      public Double getScheSeq() {
+
+      public t_scheduleDTO(Double scheSeq, String scheTitle, String scheContnet, String scheStartDt, String scheEndDt,
+         String scheAttendance, Double teamSeq, String memId) {
+      super();
+      this.scheSeq = scheSeq;
+      this.title = scheTitle;
+      this.scheContnet = scheContnet;
+      this.start = scheStartDt;
+      this.end = scheEndDt;
+      this.scheAttendance = scheAttendance;
+      this.teamSeq = teamSeq;
+      this.memId = memId;
+   }
+
+   public Double getScheSeq() {
            return scheSeq;
        }
 
-       public void setScheSeq(Double scheSeq) {
+       public t_scheduleDTO(Double scheSeq, String title, String scheContnet, String start, String end, Date regDate,
+         String scheAttendance, Double teamSeq, String memId) {
+      super();
+      this.scheSeq = scheSeq;
+      this.title = title;
+      this.scheContnet = scheContnet;
+      this.start = start;
+      this.end = end;
+      this.regDate = regDate;
+      this.scheAttendance = scheAttendance;
+      this.teamSeq = teamSeq;
+      this.memId = memId;
+   }
+
+
+
+
+
+
+
+
+public void setScheSeq(Double scheSeq) {
            this.scheSeq = scheSeq;
        }
 
        public String getScheTitle() {
-           return scheTitle;
+           return title;
        }
 
        public void setScheTitle(String scheTitle) {
-           this.scheTitle = scheTitle;
+           this.title = scheTitle;
        }
 
        public String getScheContnet() {
@@ -80,20 +102,20 @@ public class t_scheduleDTO {
            this.scheContnet = scheContnet;
        }
 
-       public Date getScheStartDt() {
-           return scheStartDt;
+       public String getScheStartDt() {
+           return start;
        }
 
-       public void setScheStartDt(Date scheStartDt) {
-           this.scheStartDt = scheStartDt;
+       public void start(String scheStartDt) {
+           this.start = scheStartDt;
        }
 
-       public Date getScheEndDt() {
-           return scheEndDt;
+       public String getScheEndDt() {
+           return end;
        }
 
-       public void setScheEndDt(Date scheEndDt) {
-           this.scheEndDt = scheEndDt;
+       public void setScheEndDt(String scheEndDt) {
+           this.end = scheEndDt;
        }
 
        public Date getRegDate() {

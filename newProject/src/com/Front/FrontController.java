@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.memberDAO;
 import com.inter.Command;
+import com.service.CalenderService;
 import com.service.CommuService;
 import com.service.ConnectPageService;
 import com.service.DeleteService;
@@ -22,7 +23,7 @@ import com.service.TodoService;
 import com.service.UpdateService;
 import com.service.WorkService;
 import com.service.createTeamService;
-import com.service.getScheService;
+import com.service.deleteTeamService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -98,10 +99,13 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("createTeam.do")) {
 			com = new createTeamService();
 			nextpage = com.execute(request, response);
-		} else if (command.equals("getSche.do")) {
-			com = new getScheService();
+		} else if (command.equals("deleteTeam.do")) {
+			com = new deleteTeamService();
 			nextpage = com.execute(request, response);
-		} 
+		} else if (command.equals("GetDate.do")) {
+			com = new CalenderService();
+			nextpage = com.execute(request, response);
+		}
 		if (nextpage != null) {
 			response.sendRedirect(nextpage);
 		}

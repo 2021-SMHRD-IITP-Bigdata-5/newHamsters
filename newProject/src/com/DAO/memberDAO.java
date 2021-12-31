@@ -68,7 +68,7 @@ public class memberDAO {
 		try {
 			getConn();
 			// --------------DB연결------
-			String sql = "insert into t_member values (?, ?, ?, ?, ?, ?, ?, sysdate)";
+			String sql = "insert into t_member values (?, ?, ?, ?, ?, ?, ?)";
 			// 5. SQL명령문을 준비
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getMemId());

@@ -24,7 +24,7 @@ public class ConnectPageService implements Command {
 			throws ServletException, IOException {
 		String teamseq = request.getParameter("connect_team");
 		double teamSeq = Double.parseDouble(teamseq);
-
+		
 		teamDAO dao = new teamDAO();
 
 		ArrayList<t_commuDTO> list = dao.getCommu(teamSeq);

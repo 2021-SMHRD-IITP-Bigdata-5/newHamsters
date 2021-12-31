@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="test.">
-	 <input type = "date"><input type = "date"><br>
-	 </form>
+
+
 </body>
 </html>

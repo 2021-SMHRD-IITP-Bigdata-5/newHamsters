@@ -44,6 +44,8 @@ public class TodoService implements Command{
 		
 		
 		
+		
+		
 		System.out.println("팀시퀀스"+teamSeq);
 		System.out.println("입력하는 사람의 아이디"+memId);
 		String nextpage = "";
