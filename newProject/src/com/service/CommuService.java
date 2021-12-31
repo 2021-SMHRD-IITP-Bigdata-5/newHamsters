@@ -42,6 +42,8 @@ public class CommuService implements Command {
 		teamDAO dao = new teamDAO();
 		int cnt = dao.comWrite(tdto);
 		
+		
+		
 		if(cnt > 0) {
 			
 			RequestDispatcher dis = request.getRequestDispatcher("projectPage.jsp");

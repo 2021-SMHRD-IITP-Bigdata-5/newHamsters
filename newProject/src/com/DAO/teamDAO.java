@@ -30,6 +30,7 @@ public class teamDAO {
 	t_workDTO workdto = null;
 	t_todoDTO tododto = null;
 	t_team_memberDTO t_memdto = null;
+	t_scheduleDTO schedto = null;
 
 	public void getConn() {
 
@@ -224,8 +225,8 @@ public class teamDAO {
 
 			psmt.setString(1, dto.getScheTitle());
 			psmt.setString(2, dto.getScheContnet());
-			psmt.setString(3, dto.getScheStartDt());
-			psmt.setString(4, dto.getScheEndDt());
+			psmt.setDate(3, dto.getScheStartDt());
+			psmt.setDate(4, dto.getScheEndDt());
 			psmt.setString(5, dto.getScheAttendance());
 			psmt.setDouble(6, dto.getTeamSeq());
 			psmt.setString(7, dto.getMemId());
@@ -245,7 +246,7 @@ public class teamDAO {
 		try {
 			getConn();
 
-			String sql = "select * from t_community where team_seq = ?";
+			String sql = "select * from t_community where team_seq = ? order by article_seq desc";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setDouble(1, teamSeq1);
@@ -282,7 +283,7 @@ public class teamDAO {
 		try {
 			getConn();
 
-			String sql = "select * from t_work where team_seq = ?";
+			String sql = "select * from t_work where team_seq = ? order by work_seq desc";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setDouble(1, teamSeq1);
@@ -322,7 +323,7 @@ public class teamDAO {
 		try {
 			getConn();
 
-			String sql = "select * from t_todo_list where team_seq = ?";
+			String sql = "select * from t_todo_list where team_seq = ? order by todo_seq desc";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setDouble(1, teamSeq1);
@@ -380,12 +381,45 @@ public class teamDAO {
 		return 1;
 	}
 
-	public ArrayList<t_team_memberDTO> getMembers(double teamSeq1) {
-		ArrayList<t_team_memberDTO> arr4 = new ArrayList<t_team_memberDTO>();
+	   public ArrayList<t_team_memberDTO> getMembers(double teamSeq1) {
+		      ArrayList<t_team_memberDTO> arr4 = new ArrayList<t_team_memberDTO>();
+		      try {
+		         getConn();
+
+		         String sql = "select * from t_team_members where team_seq = ?";
+
+		         psmt = conn.prepareStatement(sql);
+		         psmt.setDouble(1, teamSeq1);
+
+		         rs = psmt.executeQuery();
+
+		         while (rs.next()) {
+
+		            String memId = rs.getString(2);
+		            double teamSeq = rs.getDouble(3);
+		            Date regDate = rs.getDate(4);
+		            String memo = rs.getString(5);
+		            String adminyn = rs.getString(6);
+
+		            t_memdto = new t_team_memberDTO(memId, teamSeq, regDate, memo, adminyn);
+		            arr4.add(t_memdto);
+		         }
+
+		      } catch (Exception e) {
+		         System.out.println("클래스파일 로딩 실패");
+		         e.printStackTrace();
+		      } finally {
+		         close();
+		      }
+		      return arr4;
+		   }
+
+	public ArrayList<t_scheduleDTO> getScheDTO(double teamSeq1) {
+		ArrayList<t_scheduleDTO> arr5 = new ArrayList<t_scheduleDTO>();
 		try {
 			getConn();
 
-			String sql = "select * from t_team_members where team_seq = ?";
+			String sql = "select * from t_schedule where team_seq = ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setDouble(1, teamSeq1);
@@ -393,15 +427,23 @@ public class teamDAO {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
+				double scheSeq = rs.getDouble(1);
+				String scheTitle = rs.getString(2);
+				String scheContent = rs.getString(3);
+				Date scheStd = rs.getDate(4);
+				Date scheEndd = rs.getDate(5);
+				Date regDate = rs.getDate(6);
+				double teamSeq = rs.getDouble(7);
+				String scheAtten = rs.getString(8);
+				String memId = rs.getString(9);
 
-				String memId = rs.getString(2);
-				double teamSeq = rs.getDouble(3);
-				Date regDate = rs.getDate(4);
-				String memo = rs.getString(5);
-				String adminyn = rs.getString(6);
+				System.out.println("========================todoDate : " + regDate.getTime());
 
-				t_memdto = new t_team_memberDTO(memId, teamSeq, regDate, memo, adminyn);
-				arr4.add(t_memdto);
+				if (teamSeq1 == teamSeq) {
+					schedto = new t_scheduleDTO(scheSeq, scheTitle, scheContent, scheStd, scheEndd, regDate, scheAtten,
+							teamSeq, memId);
+					arr5.add(schedto);
+				}
 			}
 
 		} catch (Exception e) {
@@ -410,6 +452,42 @@ public class teamDAO {
 		} finally {
 			close();
 		}
-		return arr4;
+		return arr5;
 	}
+
+	public int getteamSeq(t_teamDTO dto) {
+		String seq = "";
+		try {
+			System.out.println("팀시퀀스실행");
+			getConn();
+
+			String sql = "select max(team_seq) from t_team where mem_id = ?";
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getMemId());
+
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				seq = rs.getString(1);
+				System.out.println("리턴값" + seq);
+				sql = "insert into t_team_members(mem_id, team_seq, tm_memo, admin_yesno, reg_date) values(?, ?, '하윙', '1', sysdate)";
+				psmt = conn.prepareStatement(sql);
+
+				psmt.setString(1, dto.getMemId());
+				System.out.println(dto.getMemId());
+				psmt.setString(2, seq);
+				System.out.println(seq);
+				cnt = psmt.executeUpdate();
+			}
+		} catch (Exception e) {
+			System.out.println("클래스파일 로딩 실패");
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+		return cnt;
+
+	}
+
 }

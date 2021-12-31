@@ -593,10 +593,6 @@ div.content-wrapper {
 </head>
 <body>
 
-	<%
-memberDTO dto = (memberDTO)session.getAttribute("teamdto");
-t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
-%>
 
 	<div class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
@@ -878,12 +874,6 @@ t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
 								<div class="col-12 col-xl-8 mb-4 mb-xl-0">
 									<div class="team_icon"></div>
 									<h1>
-										<a href="sadf.jsp">이동동</a>
-									</h1>
-									<h3 class="team_name"><%= t_DTO.getTeamName()%></h3>
-									<br>
-									<h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6>
-									<br>
 								</div>
 								<div class="col-12 col-xl-4">
 									<div class="justify-content-end d-flex">

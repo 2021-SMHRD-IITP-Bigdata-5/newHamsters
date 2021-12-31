@@ -1,4 +1,4 @@
-<%@page import="com.DTO.t_team_memberDTO"%>
+<%@page import="com.DTO.t_scheduleDTO"%>
 <%@page import="com.DTO.t_todoDTO"%>
 <%@page import="com.DTO.t_workDTO"%>
 <%@page import="com.DTO.t_commuDTO"%>
@@ -26,6 +26,20 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  
+  
+  <!-- calendar -->
+  <!-- calendar -->
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>TOAST UI Calendar App DEMO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+    <link rel="stylesheet" type="text/css" href="./dist.t/tui-calendar.css">
+    <link rel="stylesheet" type="text/css" href="./css.t/default.css">
+    <link rel="stylesheet" type="text/css" href="./css.t/icons.css">
+  <!-- calendar -->
+  <!-- calendar -->  
   
   
   <!-- modal style -->
@@ -193,11 +207,7 @@ div.newContentsBox{
    border-radius: 10px;
    border: 1px solid grey;
    width: 800px;
-   padding-left: 20px;
-   padding-top: 20px;
-   padding-bottom: 20px;
-   margin-top: 20px;
-   margin-bottom: 20px;
+   padding-left: 10px;
    
 }
 
@@ -568,18 +578,6 @@ input#damdangja{
 	overflow: auto;
 }
 
-li.menuuu{
-	display: inline-block;
-    margin: 10px 20px;
-}
-li.menuuu>a{
-	text-decoration: none;
-    color: black;
-    font-weight: 800;
-    font-size: 20px;
-}
-
-
 </style>
   
 </head>
@@ -588,8 +586,7 @@ li.menuuu>a{
 <%
 memberDTO dto = (memberDTO)session.getAttribute("teamdto");
 t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
-ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("teamSeq");
-/* ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3"); */
+ArrayList<t_scheduleDTO> schedto = (ArrayList<t_scheduleDTO>)session.getAttribute("teamSeq3");
 %>
 
 <div class="container-scroller">
@@ -647,11 +644,9 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
                 <i class="ti-settings text-primary"></i>
                 설정
               </a>
-              <form action="update.jsp">
-              <button class="dropdown-item">
+              <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
-                내프로필</button>
-                </form>
+                내프로필
               </a>
               <a class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
@@ -830,7 +825,7 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
             </a>
           </li>
           <li class="nav-item">
-            <%out.print("<a class='nav-link' href='getSche.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
+            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
@@ -859,11 +854,10 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                 <div class="team_icon"></div>
-                  <!-- <h1><a href="sadf.jsp">이동동</a></h1> -->
-                  <%-- <%=memberdto.get(0).getTeamSeq() %> --%>
+                  <%-- <!-- <h1><a href="sadf.jsp">이동동</a></h1> -->
                   <h3 class="team_name"><%= t_DTO.getTeamName()%></h3> <br>
                   <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
-                  
+                   --%>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -880,43 +874,99 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
                   </div>
                  </div>
                 </div>
-                <div>
-                	<ul type="none">
-                		<li class="menuuu"><a href="projectPage.jsp">글</a></li>
-                		<li class="menuuu"><a href="projectPageWork.jsp">업무</a></li>
-                		<li class="menuuu"><a href="projectPageTodo.jsp">할 일</a></li>
-                		<li class="menuuu"><a href="projectPageCal.jsp">캘린더</a></li>
-                	</ul>
-                </div>
+                
               </div>
-              <form action="update.jsp">
-              <!-- <button>  내프로필</button> -->
-                </form>
-              <div class="content">
-                 <div class="newContentsBox">
+             
                     <div>
-                       <ul class="newContentsBox">
-                          <li class="newContentsBox"><button type="button" id="yongdal_open1">글</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open2">업무</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open3">일정</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open4">할 일</button></li>
-                       </ul>
-                    </div>
-                 </div>
-              </div>
-              <div class="content">
-              <a href="sadf.jsp">이동동</a>
-                    <% for(int i = 0; i < commudto.size(); i++){ %>
-                 <div class="newContentsBox">
-                    <div>
-                       <span><%=commudto.get(i).getMemId() %></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span><%=commudto.get(i).getArticleDate() %></span>
-                       <h2><%=commudto.get(i).getArticleTitle() %></h2>
-                       <h4><%=commudto.get(i).getArticleContent() %></h4>
-                       <h6>#<%=commudto.get(i).getHashTag() %></h6>
+                    <% for(int i = 0; i < schedto.size(); i++){ 
+                    	
+                    %>
+                       <h2><%=schedto.get(i).getScheTitle() %></h2>
+                       <span><%=schedto.get(i).getScheStartDt() %></span>
+                       <span><%=schedto.get(i).getScheEndDt() %></span>
+                       <span><%=schedto.get(i).getScheContnet() %></span>
+                       <span><%=schedto.get(i).getScheAttendance() %></span>
+                    <%} %>
                     </div>
                     
+                    
+                    
+                    <!-- calendar -->
+                    <!-- calendar -->
+                    <div id="right">
+        <div id="menu">
+            <span class="dropdown">
+                <button id="dropdownMenu-calendarType" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    <i id="calendarTypeIcon" class="calendar-icon ic_view_month" style="margin-right: 4px;"></i>
+                    <span id="calendarTypeName">Dropdown</span>&nbsp;
+                    <i class="calendar-icon tui-full-calendar-dropdown-arrow"></i>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu-calendarType">
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-daily">
+                            <i class="calendar-icon ic_view_day"></i>Daily
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weekly">
+                            <i class="calendar-icon ic_view_week"></i>Weekly
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-monthly">
+                            <i class="calendar-icon ic_view_month"></i>Month
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weeks2">
+                            <i class="calendar-icon ic_view_week"></i>2 weeks
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weeks3">
+                            <i class="calendar-icon ic_view_week"></i>3 weeks
+                        </a>
+                    </li>
+                    <li role="presentation" class="dropdown-divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" data-action="toggle-workweek">
+                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-workweek" checked>
+                            <span class="checkbox-title"></span>Show weekends
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" data-action="toggle-start-day-1">
+                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-start-day-1">
+                            <span class="checkbox-title"></span>Start Week on Monday
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" data-action="toggle-narrow-weekend">
+                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-narrow-weekend">
+                            <span class="checkbox-title"></span>Narrower than weekdays
+                        </a>
+                    </li>
+                </ul>
+            </span>
+            <span id="menu-navi">
+                <button type="button" class="btn btn-default btn-sm move-today" data-action="move-today">Today</button>
+                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-prev">
+                    <i class="calendar-icon ic-arrow-line-left" data-action="move-prev"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-next">
+                    <i class="calendar-icon ic-arrow-line-right" data-action="move-next"></i>
+                </button>
+            </span>
+            <span id="renderRange" class="render-range"></span>
+        </div>
+        <div id="calendar"></div>
+    </div>
+                    <!-- calendar -->
+                    <!-- calendar -->
+                    
+                    
                  </div>
-                    <%} %>
               </div>
             </div>
           </div>
@@ -1246,45 +1296,36 @@ $("#yongdal_open4").click(function(){
 </script>
 
 
-<script>
-	function getCommu(){
-		$.ajax({
-			url : "ConnectPageService",	
-			type : "get", 
-			data : {
-			},
-			dataType: 'json',  // json데이터를 가져올 때, json으로 지정해줘야함.
-			success : function(res){
-				console.log(res)
-				
-				$('#tbody').html('');	// tbody의 html 코드를 초기화
-				for(let i = 0; i < res.length; i++){
-					let table = "";
-					table += '<tr>';
-					table += '<td>' + res[i].email + '</td>';	// 가져올 데이터가 res에 들어있음. 
-					table += '<td>' + res[i].tel + '</td>'; 	
-					table += '<td>' + res[i].address + '</td>'; 
-					table += '</tr>';
-				// 태그 만들기
-				
-				// javaScript 코드로 html에 태그 제작
-				// .html()
-				// .after()
-				// .before()
-				// .append()  ->  선택한 태그 내부에 추가
-				$("#tbody").append(table);
-				}
-				// append 해주는 것까지 for문안에서 진행되야되겟죠?? 아니면 let table 선언을 for문 밖에서 해주어야 for문 밖에서도 사용할 수 있을겁니다.
-			},
-			error : function(){
-				alert("요청실패");
-			}
-		})
-	}
-</script>
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- <script>
+$('div>div>button').click(function(){
+     $('div>div>button').removeClass("active");
+     $(this).addClass("active");
+   });
+
+</script> -->
 
 
-
+<!-- calendar -->
+<!-- calendar -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.time-picker/v2.0.3/tui-time-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.date-picker/v4.0.3/tui-date-picker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.13/chance.min.js"></script>
+    <script src="./dist.t/tui-calendar.js"></script>
+    <script src="./js.t/data/calendars.js"></script>
+    <script src="./js.t/data/schedules.js"></script>
+    <!-- <script src="./js/theme/dooray.js"></script> -->
+    <script src="./js.t/app.js"></script>
+<!-- calendar -->
+<!-- calendar -->
 
 
 </body>

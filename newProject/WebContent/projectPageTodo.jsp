@@ -568,6 +568,7 @@ input#damdangja{
 	overflow: auto;
 }
 
+
 li.menuuu{
 	display: inline-block;
     margin: 10px 20px;
@@ -579,7 +580,6 @@ li.menuuu>a{
     font-size: 20px;
 }
 
-
 </style>
   
 </head>
@@ -588,8 +588,8 @@ li.menuuu>a{
 <%
 memberDTO dto = (memberDTO)session.getAttribute("teamdto");
 t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
-ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("teamSeq");
-/* ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3"); */
+ArrayList<t_todoDTO> tododto = (ArrayList<t_todoDTO>)session.getAttribute("teamSeq2");
+ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3");
 %>
 
 <div class="container-scroller">
@@ -906,15 +906,17 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
               </div>
               <div class="content">
               <a href="sadf.jsp">이동동</a>
-                    <% for(int i = 0; i < commudto.size(); i++){ %>
+                    <% for(int i = 0; i < tododto.size(); i++){ %>
                  <div class="newContentsBox">
+                   
                     <div>
-                       <span><%=commudto.get(i).getMemId() %></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span><%=commudto.get(i).getArticleDate() %></span>
-                       <h2><%=commudto.get(i).getArticleTitle() %></h2>
-                       <h4><%=commudto.get(i).getArticleContent() %></h4>
-                       <h6>#<%=commudto.get(i).getHashTag() %></h6>
+                       <span><%=tododto.get(i).getMemId() %></span>
+                       <span><%=tododto.get(i).getRegDate() %></span>
+                       <h2><%=tododto.get(i).getTodoTitle() %></h2>
+                       <span><%=tododto.get(i).getTodoContent() %></span>
+                       <span><%=tododto.get(i).getEventDate() %></span>
+                       <span><%=tododto.get(i).getTodoAttendance() %></span>
                     </div>
-                    
                  </div>
                     <%} %>
               </div>
@@ -1246,46 +1248,17 @@ $("#yongdal_open4").click(function(){
 </script>
 
 
-<script>
-	function getCommu(){
-		$.ajax({
-			url : "ConnectPageService",	
-			type : "get", 
-			data : {
-			},
-			dataType: 'json',  // json데이터를 가져올 때, json으로 지정해줘야함.
-			success : function(res){
-				console.log(res)
-				
-				$('#tbody').html('');	// tbody의 html 코드를 초기화
-				for(let i = 0; i < res.length; i++){
-					let table = "";
-					table += '<tr>';
-					table += '<td>' + res[i].email + '</td>';	// 가져올 데이터가 res에 들어있음. 
-					table += '<td>' + res[i].tel + '</td>'; 	
-					table += '<td>' + res[i].address + '</td>'; 
-					table += '</tr>';
-				// 태그 만들기
-				
-				// javaScript 코드로 html에 태그 제작
-				// .html()
-				// .after()
-				// .before()
-				// .append()  ->  선택한 태그 내부에 추가
-				$("#tbody").append(table);
-				}
-				// append 해주는 것까지 for문안에서 진행되야되겟죠?? 아니면 let table 선언을 for문 밖에서 해주어야 for문 밖에서도 사용할 수 있을겁니다.
-			},
-			error : function(){
-				alert("요청실패");
-			}
-		})
-	}
-</script>
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- 색깔을 변경하는 함수 -->
+<!-- <script>
+$('div>div>button').click(function(){
+     $('div>div>button').removeClass("active");
+     $(this).addClass("active");
+   });
 
-
-
-
+</script> -->
 
 </body>
 </html>

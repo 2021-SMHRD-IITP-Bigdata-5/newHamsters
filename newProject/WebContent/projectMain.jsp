@@ -193,15 +193,17 @@ input#content {
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
-                설정
+                	설정
               </a>
-              <a class="dropdown-item">
+              <form action="update.jsp">
+              <button class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
-                내프로필
-              </a>
-              <a class="dropdown-item">
+                	내프로필</button>
+                </form>
+              <a href = 'LogoutCon.do'>
+              <button class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
-                로그아웃
+                	로그아웃</button>
               </a>
             </div>
           </li>
@@ -358,6 +360,8 @@ input#content {
               </div>
             </a>
               </button>
+              
+              <!-- <button><a href="projectCalPage.jsp">이동</a></button> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="project.html"> 
@@ -375,11 +379,13 @@ input#content {
             </a>
           </li>
           <li class="nav-item">
+              <form action="getSche.do">
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
             </a>
+              </form>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
@@ -434,7 +440,7 @@ input#content {
                     out.print("<div class='col-md-6 mb-4 stretch-card transparent'>");
                     out.print("<div class='card card-tale'>");
                     out.print("<div class='card-body'>");
-                    out.print("<p class='fs-30 mb-2'><a href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'</a>" + team_dto.get(i).getTeamName() + "</p>");
+                    out.print("<a class='fs-30 mb-2' href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'</a>");
                 	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
                     out.print("</div>");
                     out.print("</div>");

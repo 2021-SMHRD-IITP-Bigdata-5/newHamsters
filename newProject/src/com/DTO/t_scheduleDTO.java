@@ -15,10 +15,10 @@ public class t_scheduleDTO {
        private String scheContnet;
 
        // 일정 시작일자일정 
-       private String scheStartDt;
+       private Date scheStartDt;
 
        // 일정 마감일자 
-       private String scheEndDt;
+       private Date scheEndDt;
 
        // 등록 일자 
        private Date regDate;
@@ -31,7 +31,21 @@ public class t_scheduleDTO {
        
        private String memId;
 
-       public t_scheduleDTO(String scheTitle, String scheContnet, String scheStartDt, String scheEndDt,
+       public t_scheduleDTO(Double scheSeq, String scheTitle, String scheContnet, Date scheStd, Date scheEndd,
+			Date regDate, String scheAttendance, Double teamSeq, String memId) {
+		super();
+		this.scheSeq = scheSeq;
+		this.scheTitle = scheTitle;
+		this.scheContnet = scheContnet;
+		this.scheStartDt = scheStd;
+		this.scheEndDt = scheEndd;
+		this.regDate = regDate;
+		this.scheAttendance = scheAttendance;
+		this.teamSeq = teamSeq;
+		this.memId = memId;
+	}
+
+	public t_scheduleDTO(String scheTitle, String scheContnet, Date scheStartDt, Date scheEndDt,
             String scheAttendance, Double teamSeq, String memId) {
          this.scheTitle = scheTitle;
          this.scheContnet = scheContnet;
@@ -66,19 +80,19 @@ public class t_scheduleDTO {
            this.scheContnet = scheContnet;
        }
 
-       public String getScheStartDt() {
+       public Date getScheStartDt() {
            return scheStartDt;
        }
 
-       public void setScheStartDt(String scheStartDt) {
+       public void setScheStartDt(Date scheStartDt) {
            this.scheStartDt = scheStartDt;
        }
 
-       public String getScheEndDt() {
+       public Date getScheEndDt() {
            return scheEndDt;
        }
 
-       public void setScheEndDt(String scheEndDt) {
+       public void setScheEndDt(Date scheEndDt) {
            this.scheEndDt = scheEndDt;
        }
 

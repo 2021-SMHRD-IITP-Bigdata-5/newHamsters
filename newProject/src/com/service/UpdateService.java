@@ -26,17 +26,19 @@ public class UpdateService implements Command {
 		String tel = request.getParameter("tel");	
 		String email = request.getParameter("email");
 		
-		memberDTO dto1 = new memberDTO(id, email, pw, tel);
+		memberDTO dto1 = new memberDTO(id, pw, email, tel);
+		System.out.println(2);
 		memberDAO dao = new memberDAO();
+		System.out.println(3);
 		int cnt = dao.Update(dto);
-		
+		System.out.println(4);
 		if (cnt > 0) {
-			
-			memberDTO update_dto = new memberDTO(id, email, pw, tel);
+			System.out.println(5);
+			memberDTO update_dto = new memberDTO(id, pw, email, tel);
 			
 			session.setAttribute("dto", update_dto);
 			
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("projectMain.jsp");
 			
 		} else {
 			

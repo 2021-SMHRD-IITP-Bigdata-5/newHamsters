@@ -15,8 +15,8 @@ public class LogoutService implements Command {
 		
 		HttpSession session = request.getSession();
 		session.removeAttribute("dto");
-		
-		return "main.jsp";
+		System.out.println("로그아웃완료");
+		return "FitstPage.jsp";
 		
 	}
 

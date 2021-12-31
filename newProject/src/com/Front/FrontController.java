@@ -22,6 +22,7 @@ import com.service.TodoService;
 import com.service.UpdateService;
 import com.service.WorkService;
 import com.service.createTeamService;
+import com.service.getScheService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -97,7 +98,10 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("createTeam.do")) {
 			com = new createTeamService();
 			nextpage = com.execute(request, response);
-		}
+		} else if (command.equals("getSche.do")) {
+			com = new getScheService();
+			nextpage = com.execute(request, response);
+		} 
 		if (nextpage != null) {
 			response.sendRedirect(nextpage);
 		}

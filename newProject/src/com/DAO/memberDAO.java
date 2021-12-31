@@ -99,7 +99,7 @@ public class memberDAO {
 		try {
 			getConn();
 
-			String sql = "delete from member where id = ?";
+			String sql = "delete from t_member where mem_id = ?";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -120,20 +120,17 @@ public class memberDAO {
 	
 		try {
 			getConn();
-
-			String sql = "update member_message set pw = ? ,name= ?,company = ?, email = ?, phone = ?, status= ? where id = ?";
+			String sql = "update t_member set mem_pw = ? , mem_email = ?, mem_phone = ? where mem_id = ?";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, dto.getMemPw());
-			psmt.setString(2, dto.getMemName());
-			psmt.setString(3, dto.getMemCompany());
-			psmt.setString(4, dto.getMemEmail());
-			psmt.setString(5, dto.getMemPhone());
-			psmt.setString(6, dto.getMemStatus());
-			psmt.setString(7, dto.getMemId());
+			psmt.setString(2, dto.getMemEmail());
+			psmt.setString(3, dto.getMemPhone());
+			psmt.setString(4, dto.getMemId());
 
 			// 6. SQL명령문 실행
 			cnt = psmt.executeUpdate();
+			System.out.println(1);
 
 			// 7.명령 후 처리
 

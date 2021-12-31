@@ -17,7 +17,7 @@ public class DeleteService implements Command {
 		request.setCharacterEncoding("utf-8");
 		
 		String id = request.getParameter("delete_id");
-		System.out.println("삭제하는 이메일 : " + id);
+		System.out.println("삭제하는 아이디 : " + id);
 		
 		//member_message 테이블에서 위 email 값 삭제 후
 		// selectmember.jsp 로 이동
