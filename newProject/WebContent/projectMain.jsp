@@ -118,18 +118,49 @@ input#content {
    border-radius: 10px;
 }
 
-.fs-30>a:link {
+/* 프로젝트 */
+/* 프로젝트 */
+div.card-body>a:link {
 	font-size: 25px;
 	font-weight: bold;
 	color: white;
 	text-docoration: none;
 }
 
-.fs-30>a:visited {
+div.card-body>a:visited {
 	color: white;
 	text-docoration: none;
 }
 
+
+
+
+
+
+/* 새 프로젝트 */
+/* 새 프로젝트 */
+
+button#modal_open_btn{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #815ee8;
+	
+}
+
+button#modal_open_btn:hover{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #b68cff;
+	
+}
+
+span.newp{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
 
 
 </style>
@@ -354,9 +385,8 @@ input#content {
           <li class="nav-item">
               <button type="button" id="modal_open_btn">
             <a class="nav-link">
-              <i class="icon-grid menu-icon"></i>
               <div id="root">
-              <span class="menu-title">새프로젝트</span>
+              <span class="newp">새 프로젝트</span>
               </div>
             </a>
               </button>
@@ -440,7 +470,8 @@ input#content {
                     out.print("<div class='col-md-6 mb-4 stretch-card transparent'>");
                     out.print("<div class='card card-tale'>");
                     out.print("<div class='card-body'>");
-                    out.print("<a class='fs-30 mb-2' href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'</a>");
+                	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
+                    out.print("<a class='fs-30 mb-2' href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'>" + team_dto.get(i).getTeamName() + "</a>");
                 	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
                     out.print("</div>");
                     out.print("</div>");
@@ -482,7 +513,7 @@ input#content {
 
   <!-- modal -->
   <div style="display: inline">
-  <form action="projectPage.jsp">
+  <form action="createTeam.do">
   <div id="modal" class="modal_content">
         <div class="modal_content">
             <div class="title">
@@ -490,8 +521,8 @@ input#content {
             </div>
             <button type="button" id="modal_close_btn">X</button>
             <div class="content">
-                <input type = "text" id="title" placeholder="제목을 입력하세요">
-                <input type = "text" id="content" placeholder="프로젝트에 관한 설명(옵션)">
+                <input type = "text" id="title" name ="title" placeholder="제목을 입력하세요">
+                <input type = "text" id="content" name ="content" placeholder="프로젝트에 관한 설명(옵션)">
                 <br>
                 <br>
                 <div id="button">

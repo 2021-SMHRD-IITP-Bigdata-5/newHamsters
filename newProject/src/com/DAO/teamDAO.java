@@ -298,8 +298,8 @@ public class teamDAO {
 				Date endDt = rs.getDate(5);
 				String memId = rs.getString(6);
 				double teamSeq = rs.getDouble(7);
-				Date workDate = rs.getDate(8);
-				String refmem = rs.getString(9);
+				String refmem = rs.getString(8);
+				Date workDate = rs.getDate(9);
 				String workProgress = rs.getString(10);
 
 				System.out.println("========================artiDate : " + workDate.getTime());

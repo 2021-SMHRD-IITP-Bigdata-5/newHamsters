@@ -1,6 +1,7 @@
 package com.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -41,11 +42,11 @@ public class CommuService implements Command {
 		t_commuDTO tdto = new t_commuDTO(articleTitle, articleContent, hashTag, articleCnt, teamSeq, memId);
 		teamDAO dao = new teamDAO();
 		int cnt = dao.comWrite(tdto);
-		
+		ArrayList<t_commuDTO> list = dao.getCommu(teamSeq);
 		
 		
 		if(cnt > 0) {
-			
+			session.setAttribute("teamSeq", list);
 			RequestDispatcher dis = request.getRequestDispatcher("projectPage.jsp");
 			dis.forward(request, response);
 		}else {

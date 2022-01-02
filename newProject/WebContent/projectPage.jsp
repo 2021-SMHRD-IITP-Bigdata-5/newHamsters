@@ -580,6 +580,19 @@ li.menuuu>a{
 }
 
 
+/* 새프로젝트 버튼 */
+/* 새프로젝트 버튼 */
+button#modal_open_btn{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #815ee8;
+	
+}
+
+
+
+
 </style>
   
 </head>
@@ -806,12 +819,10 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
         <ul class="nav">
           <li class="nav-item">
               <button type="button" id="modal_open_btn">
-            <a class="nav-link">
               <i class="icon-grid menu-icon"></i>
               <div id="root">
-              <span class="menu-title">새프로젝트</span>
+              <span class="menu-title">새 프로젝트</span>
               </div>
-            </a>
               </button>
           </li>
           <li class="nav-item">
@@ -830,7 +841,7 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
             </a>
           </li>
           <li class="nav-item">
-            <%out.print("<a class='nav-link' href='GetDate.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
+            <%out.print("<a class='nav-link' href='getSche.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
@@ -915,8 +926,12 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
                     <% for(int i = 0; i < commudto.size(); i++){ %>
                  <div class="newContentsBox">
                     <div>
+                    <img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15
+										hspace=10>
                        <span><%=commudto.get(i).getMemId() %></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span><%=commudto.get(i).getArticleDate() %></span>
+                       <br>
                        <h2><%=commudto.get(i).getArticleTitle() %></h2>
+                       <hr>
                        <h4><%=commudto.get(i).getArticleContent() %></h4>
                        <h6>#<%=commudto.get(i).getHashTag() %></h6>
                     </div>
@@ -1066,8 +1081,8 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
             <form action="schedule.do">
             <div class="content">
                 <input type = "text" id="title" placeholder="제목을 입력하세요." name="title">
-                <input type = "text" id="content" placeholder="내용을 입력하세요." name="content">
-                   시작일 <input type = "date" name="std"> - 마감일 <input type = "date" name="endd"><br>
+                <input type = "text" id="content" placeholder="내용을 입력하세요." name="content"><br>
+                   시작일 : <input type = "date" name="std"><br>마감일 : <input type = "date" name="endd"><br>
                 <input type = "text" placeholder="참석자" name="attend">
                 <br>
                 <br>
@@ -1095,8 +1110,11 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
             <form action="todoWrite.do">
             <button type="button" id="yongdal_close4">X</button>
             <div class="content">
-                <input type = "text" id="title" placeholder="제목을 입력하세요.">
-                <input type = "text" id="content" placeholder="내용을 입력하세요.">
+                <input type = "text" id="title" name="title" placeholder="제목을 입력하세요.">
+                <input type = "text" id="content" name="content" placeholder="내용을 입력하세요.">
+                <input type = "text" name="attend" placeholder="참석자">
+                <input type = "Date" name="event">
+                
                 <br>
                 <br>
                 <div id="button">
