@@ -211,7 +211,7 @@ li.newContentsBox>button {
 }
 
 div.title {
-	background-color: #4B49AC;
+	background-color: #FFFFFF;
 }
 
 /* 게시글 */
@@ -552,7 +552,7 @@ button {
 	border: none;
 	display: inline-block;
 	padding: 5px 15px;
-	border-radius: 15px;
+	border-radius: 10px;
 	font-family: "paybooc-Light", sans-serif;
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 	text-decoration: none;
@@ -563,7 +563,7 @@ button {
 .w-btn-outline {
 	position: relative;
 	padding: 5px 20px;
-	border-radius: 15px;
+	border-radius: 10px;
 	font-family: "paybooc-Light", sans-serif;
 	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
 	text-decoration: none;
@@ -577,15 +577,205 @@ button {
 }
 
 .w-btn-skin-outline {
-	border: 3px solid #999999;
+	border: 0.5px solid #999999;
 	color: #000000;
 }
 
 div.content-wrapper {
 	min-height: 100%;
 	overflow: auto;
-	height:auto;
+	height: auto;
 	margin-bottom: 30%;
+}
+
+.div2 {
+	border: 1px solid #cccccc;
+	float: left; & amp; amp; nbsp;
+	border-radius: 2em;
+	background: #cccccc;
+	width: 15%;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bolder;
+}
+
+.clicked {
+	border: 1px solid #cccccc;
+	float: left;
+	border-radius: 2em;
+	background: #bb99da;
+	display: flex;
+	/*  align-items: center;
+        justify-content: center; */
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+
+#modal5 {
+	display: none;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#modal5 h2 {
+	margin: 0;
+	font-size: 25px;
+	color: black;
+	background-color: white;
+	font-weight: bold;
+}
+
+#modal5 button {
+	display: inline-block;
+	margin-left: calc(100% - 100px - 10px);
+}
+
+#modal5 .modal_content {
+	position: relative;
+	top: 15%;
+	width: 550px;
+	height: 250px;
+	margin: 0px auto;
+	padding: 50px;
+	background: #fff;
+	border-radius: 10px;
+}
+
+
+#modal5 .modal_layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: -1;
+}
+
+#yongdal_close5 {
+	position: relative;
+	border: none;
+	background-color: white;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	right: -10%;
+	top: -10%;
+}
+
+#modal.modal-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: radial-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+	box-shadow: 0 8px 28px 6 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(1.5px);
+	-webkit-backdrop-filter: blur(1.5px);
+	border-radius: 10px;
+	border: 1px solid rgb(255, 255, 255);
+}
+
+#modal .modal-window {
+	background: rgb(246, 243, 246);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(13.5px);
+	-webkit-backdrop-filter: blur(13.5px);
+	border-radius: 10px;
+	border: 1px solid rgba(36, 3, 3, 0.418);
+	width: 350px;
+	height: 150px;
+	position: relative;
+	top: -50px;
+	padding: 15px;
+}
+
+#modal .title h2 {
+	display: inline;
+}
+
+#modal .close-area {
+	display: inline;
+	float: right;
+	padding-right: 10px;
+	cursor: pointer;
+	text-shadow: 1px 1px 2px gray;
+	color: rgb(244, 237, 245);
+}
+
+#modal .content {
+	margin-top: 20px;
+	padding: 0px 10px;
+	text-shadow: 1px 1px 2px gray;
+	color: white;
+}
+
+div#button {
+	align-items: center;
+	font-size: 15px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.wrap {
+	position: absolute;
+	top: 50%;
+	left: 35%;
+	position: relative;
+	margin-top: -30px;
+	margin-left: -80px;
+	text-align: center;
+
+}
+
+a {
+	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	display: block;
+	margin: 0px auto;
+	max-width: 180px;
+	text-decoration: none;
+	border-radius: 4px;
+	padding: 10px 50px;
+}
+
+a.button {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+a.button2 {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button2:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
 }
 
 </style>
@@ -593,6 +783,10 @@ div.content-wrapper {
 </head>
 <body>
 
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("teamdto");
+	t_teamDTO t_DTO = (t_teamDTO) session.getAttribute("teamName");
+	%>
 
 	<div class="container-scroller">
 		<!-- partial:partials/_navbar.html -->
@@ -829,19 +1023,26 @@ div.content-wrapper {
 			<nav class="sidebar sidebar-offcanvas" id="sidebar">
 
 				<ul class="nav">
-					<li class="nav-item">
-						<button type="button" id="modal_open_btn">
-							<a class="nav-link"> <i class="icon-grid menu-icon"></i>
-								<div id="root">
-									<span class="menu-title">새프로젝트</span>
-								</div>
-							</a>
-						</button>
+			
+					<li class="nav-item" >
+						<a class="nav-link" style="background:#5F04B4;">
+						<span class="menu-title" type="clickable button" id="modal_open_btn" style="font-size:1.8em; color:#FFFFFF;"><b>New Project</b></span></a>
+							
+						<li type="clickable button" id="modal_open_btn">
+						
+						</li>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="project.html">
-							<i class="icon-layout menu-icon"></i> <span class="menu-title">내프로젝트</span>
+					
+					
+					<li class="nav-item">
+						<a class="nav-link" href="project.html">
+							<i class="icon-layout menu-icon"></i> 
+							<span class="menu-title">내프로젝트</span>
 							<i class="menu-arrow"></i>
-					</a> </a></li>
+					 </a></li>
+					
+					
+					
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href="#form-elements" aria-expanded="false"
 						aria-controls="form-elements"> <i
@@ -867,13 +1068,12 @@ div.content-wrapper {
 			</nav>
 			<!-- partial -->
 			<div class="main-panel">
-				<div class="content-wrapper" style="padding: 0px;" >
+				<div class="content-wrapper" style="padding: 0px;">
 					<div class="row1" style="">
 						<div class="col-md-12 grid-margin">
 							<div class="row">
 								<div class="col-12 col-xl-8 mb-4 mb-xl-0">
 									<div class="team_icon"></div>
-									<h1>
 								</div>
 								<div class="col-12 col-xl-4">
 									<div class="justify-content-end d-flex">
@@ -911,8 +1111,9 @@ div.content-wrapper {
 
 							<div class="content">
 								<div class="newContentsBox">
-									 <img src="사용자.JPG" style="width:50px; height:50px;" vspace=15 hspace=10>
-									 <font size="3" color="000000"><b>최유라</b>&nbsp; 2021-12-29 15:57</font>
+									<img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15
+										hspace=10> <font size="3" color="000000"><b>최유라</b>&nbsp;
+										2021-12-29 15:57</font>
 
 									<p style="font-size: 10px float:left"></p>
 									<br>
@@ -928,252 +1129,295 @@ div.content-wrapper {
 
 							<div class="content">
 								<div class="newContentsBox">
-									 <img src="사용자.JPG" style="width:50px; height:50px;" vspace=15 hspace=10>
-									 <font size="3" color="000000"><b>최유라</b>&nbsp; 2021-12-29 15:57</font>
+									<img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15
+										hspace=10> <font size="3" color="000000"><b>최유라</b>&nbsp;
+										2021-12-29 15:57</font>
 
 									<p style="font-size: 15px">
 										<b>제목</b>
 									</p>
 									<hr>
-									<img src="시계.JPG" style="width:25px; height:25px; float: left;" vspace=3 hspace=3>
-									<div align="center"
-										style="width: 15%; height: 25px; border: 1px solid #cccccc; border-radius: 2em; float: left; &amp; amp; nbsp; background: #cccccc;">
-										&nbsp;<b>요청</b>
-									</div>
-									<div align="center"
-										style="width: 15%; height: 25px; border: 1px solid #cccccc; border-radius: 2em; float: left; &amp; amp; nbsp; background: #cccccc;">
-										<b>진행</b>
-									</div>
-									<div align="center"
-										style="width: 15%; height: 25px; border: 1px solid #cccccc; border-radius: 2em; float: left; &amp; amp; nbsp; background: #cccccc;">
-										<b>피드백</b>
-									</div>
-									<div align="center"
-										style="width: 15%; height: 25px; border: 1px solid #cccccc; border-radius: 2em; float: left; &amp; amp; nbsp; background: #cccccc;">
-										<b>완료</b>
-									</div>
-									<div align="center"
-										style="width: 15%; height: 25px; border: 1px solid #cccccc; border-radius: 2em; float: left; &amp; amp; nbsp; background: #cccccc;">
-										<b>보류</b>
-									</div>
-									<button>담당자</button>
+									<img src="시계.JPG"
+										style="width: 25px; height: 25px; float: left;" vspace=3
+										hspace=3>
 
+
+									<div class="div1">
+										<div class="div2">요청</div>
+										<div class="div2">진행</div>
+										<div class="div2">피드백</div>
+										<div class="div2">완료</div>
+										<div class="div2">보류</div>
+									</div>
+
+									<script src="./js/jquery-3.6.0.min.js"></script>
+									<script>
+										  var div2 = document.getElementsByClassName("div2");
+
+									      function handleClick(event) {
+									        console.log(event.target);
+									        // console.log(this);
+									        // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+									        console.log(event.target.classList);
+
+									        if (event.target.classList[1] === "clicked") {
+									          event.target.classList.remove("clicked");
+									        } else {
+									          for (var i = 0; i < div2.length; i++) {
+									            div2[i].classList.remove("clicked");
+									          }
+
+									          event.target.classList.add("clicked");
+									        }
+									        
+									        $("#modal5").attr("style", "display:block");
+									        
+									      }
+
+									      function init() {
+									        for (var i = 0; i < div2.length; i++) {
+									          div2[i].addEventListener("click", handleClick);
+									        }
+									      }
+
+									      init();
+									</script>
 
 								</div>
 							</div>
-
-							<div class="content">
-								<div class="newContentsBox">
-									<img src="사용자.JPG" style="width:50px; height:50px;" vspace=15 hspace=10>
-									 <font size="3" color="000000"><b>최유라</b>&nbsp; 2021-12-29 15:57</font>
-									<p style="font-size: 15px">
-										<b>제목</b>
-									</p>
-									<hr>
-									<h4>To do list</h4>
-									<table>
-									<tr>
-									<td onmouseover="this.style.background='#ccccFF'" onmouseout="this.style.background='#FFFFFF'">
-									<input type="checkbox" name="xxx" value="yyy" checked>
-									 <b>일정관리</b>
-									</td>
-									</tr>
-									</table>
-									
-									
-									
+						</div> 
 
 
-						</div>
-					</div>
-				</div>
-
-
-				<!-- main-panel ends -->
-			</div>
-			<!-- page-body-wrapper ends -->
-		</div>
-		<!-- container-scroller -->
-
-		<!-- plugins:js -->
-		<script src="vendors/js/vendor.bundle.base.js"></script>
-		<!-- endinject -->
-		<!-- Plugin js for this page -->
-		<script src="vendors/chart.js/Chart.min.js"></script>
-		<script src="vendors/datatables.net/jquery.dataTables.js"></script>
-		<script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-		<script src="js/dataTables.select.min.js"></script>
-
-		<!-- End plugin js for this page -->
-		<!-- inject:js -->
-		<script src="js/off-canvas.js"></script>
-		<script src="js/hoverable-collapse.js"></script>
-		<script src="js/template.js"></script>
-		<script src="js/settings.js"></script>
-		<script src="js/todolist.js"></script>
-		<!-- endinject -->
-		<!-- Custom js for this page-->
-		<script src="js/dashboard.js"></script>
-		<script src="js/Chart.roundedBarCharts.js"></script>
-		<!-- End custom js for this page-->
-
-
-		<!-- MODAL -->
-		<div style="display: inline">
-			<div id="modal" class="modal_content">
-				<div class="modal_content">
-					<div class="title">
-						<h2>새 프로젝트</h2>
-					</div>
-					<button type="button" id="modal_close_btn">X</button>
-					<div class="content">
-						<input type="text" id="title" placeholder="제목을 입력하세요"> <input
-							type="text" id="content" placeholder="프로젝트에 관한 설명(옵션)"> <br>
-						<br>
-						<div id="button">
-							<button id="submit" type="submit">만들기</button>
-						</div>
-
-					</div>
-				</div>
-				<div class="modal_layer"></div>
-			</div>
-		</div>
-
-
-		<!-- 글 modal 창 -->
-		<!--  글 modal 창 -->
-		<!--  글 modal 창 -->
-
-		<div style="display: inline">
-			<div id="modal1" class="modal_content">
-				<div class="modal_content">
-					<div class="title">
-
-						<h2>글 : 게시물 작성</h2>
-					</div>
-					<button type="button" id="yongdal_close1">X</button>
-					<form action="comWrite.do">
 						<div class="content">
-							<input type="text" name="title" id="title"
-								placeholder="제목을 입력하세요."> <input type="text"
-								name="content" id="content" placeholder="내용을 입력하세요."> <input
-								type="text" name="hashtag" id="hashtag" placeholder="해쉬태그">
+							<div class="newContentsBox">
+								<img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15
+									hspace=10> <font size="3" color="000000"><b>최유라</b>&nbsp;
+									2021-12-29 15:57</font>
+								<p style="font-size: 15px">
+									<b>제목</b>
+								</p>
+								<hr>
+								<h4>To do list</h4>
+								<table>
+									<tr>
+										<td onmouseover="this.style.background='#ccccFF'"
+											onmouseout="this.style.background='#FFFFFF'"><input
+											type="checkbox" name="xxx" value="yyy" checked> <b>일정관리</b>
+										</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+					</div>
+
+
+					<!-- main-panel ends -->
+				</div>
+				<!-- page-body-wrapper ends -->
+			</div>
+			<!-- container-scroller -->
+
+			<!-- plugins:js -->
+			<script src="vendors/js/vendor.bundle.base.js"></script>
+			<!-- endinject -->
+			<!-- Plugin js for this page -->
+			<script src="vendors/chart.js/Chart.min.js"></script>
+			<script src="vendors/datatables.net/jquery.dataTables.js"></script>
+			<script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+			<script src="js/dataTables.select.min.js"></script>
+
+			<!-- End plugin js for this page -->
+			<!-- inject:js -->
+			<script src="js/off-canvas.js"></script>
+			<script src="js/hoverable-collapse.js"></script>
+		<!--  	<script src="js/template.js"></script>-->
+			<script src="js/settings.js"></script>
+			<script src="js/todolist.js"></script>
+			<!-- endinject -->
+			<!-- Custom js for this page-->
+			<script src="js/dashboard.js"></script>
+			<script src="js/Chart.roundedBarCharts.js"></script>
+			<!-- End custom js for this page-->
+
+
+			<!-- MODAL -->
+			<div style="display: inline">
+				<div id="modal" class="modal_content">
+					<div class="modal_content">
+						<div class="title">
+							<h2>새 프로젝트</h2>
+						</div>
+						<button type="button" id="modal_close_btn">X</button>
+						<div class="content">
+							<input type="text" id="title" placeholder="제목을 입력하세요"> <input
+								type="text" id="content" placeholder="프로젝트에 관한 설명(옵션)">
 							<br> <br>
+							<div id="button">
+								<button id="submit" type="submit">만들기</button>
+							</div>
+
+						</div>
+					</div>
+					<div class="modal_layer"></div>
+				</div>
+			</div>
+
+
+			<!-- 글 modal 창 -->
+			<!--  글 modal 창 -->
+			<!--  글 modal 창 -->
+
+			<div style="display: inline">
+				<div id="modal1" class="modal_content">
+					<div class="modal_content">
+						<div class="title">
+
+							<h2>글 : 게시물 작성</h2>
+						</div>
+						<button type="button" id="yongdal_close1">X</button>
+						<form action="comWrite.do">
+							<div class="content">
+								<input type="text" name="title" id="title"
+									placeholder="제목을 입력하세요."> <input type="text"
+									name="content" id="content" placeholder="내용을 입력하세요."> <input
+									type="text" name="hashtag" id="hashtag" placeholder="해쉬태그">
+								<br> <br>
+								<div id="button">
+									<button id="submit" type="submit">올리기</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal_layer"></div>
+				</div>
+			</div>
+
+
+
+			<!-- 업무 modal 창 -->
+			<!-- 업무 modal 창 -->
+			<!-- 업무 modal 창 -->
+
+			<div style="display: inline">
+				<div id="modal2" class="modal_content">
+					<div class="modal_content">
+						<div class="title2">
+
+							<h2>업무 : 게시물 작성</h2>
+						</div>
+						<button type="button" id="yongdal_close2">X</button>
+						<div class="content2">
+							<input type="text" id="title2" placeholder="제목을 입력하세요.">
+							<br> <br> <br>
+							<div id="jinhang">
+								<div class="jinhang1">
+									<botton>요청</botton>
+								</div>
+								<div class="jinhang2">
+									<botton>진행</botton>
+								</div>
+								<div class="jinhang3">
+									<botton>피드백</botton>
+								</div>
+								<div class="jinhang4">
+									<botton>완료</botton>
+								</div>
+								<div class="jinhang5">
+									<botton>보류</botton>
+								</div>
+							</div>
+							<input type="text" id="damdangja" placeholder="담당자 배정"><br>
+							<input type="date"><input type="date"><br> <input
+								type="text" id="content2" placeholder="내용을 입력하세요."> <br>
+							<br>
+							<div id="button">
+								<button id="submit2" type="submit">올리기</button>
+							</div>
+
+						</div>
+					</div>
+					<div class="modal_layer"></div>
+				</div>
+			</div>
+
+
+			<!-- 일정 modal 창 -->
+			<!-- 일정 modal 창 -->
+			<!-- 일정 modal 창 -->
+
+			<div style="display: inline">
+				<div id="modal3" class="modal_content">
+					<div class="modal_content">
+						<div class="title">
+							<h2>게시물 작성</h2>
+						</div>
+						<button type="button" id="yongdal_close3">X</button>
+						<div class="content">
+							<input type="text" id="title" placeholder="제목을 입력하세요."> <input
+								type="date"><input type="date"><br> <input
+								type="text" placeholder="담당자 배정"> <input type="text"
+								id="content" placeholder="내용을 입력하세요."> <br> <br>
 							<div id="button">
 								<button id="submit" type="submit">올리기</button>
 							</div>
 						</div>
-					</form>
+					</div>
+					<div class="modal_layer"></div>
 				</div>
-				<div class="modal_layer"></div>
 			</div>
-		</div>
 
 
+			<!-- 할 일 modal 창 -->
+			<!-- 할 일 modal 창 -->
+			<!-- 할 일 modal 창 -->
 
-		<!-- 업무 modal 창 -->
-		<!-- 업무 modal 창 -->
-		<!-- 업무 modal 창 -->
+			<div style="display: inline">
+				<div id="modal4" class="modal_content">
+					<div class="modal_content">
+						<div class="title">
+							<h2>게시물 작성</h2>
+						</div>
+						<button type="button" id="yongdal_close4">X</button>
+						<div class="content">
+							<input type="text" id="title" placeholder="제목을 입력하세요."> <input
+								type="text" id="content" placeholder="내용을 입력하세요."> <br>
+							<br>
+							<div id="button">
+								<button id="submit" type="submit">올리기</button>
+							</div>
 
+						</div>
+					</div>
+					<div class="modal_layer"></div>
+				</div>
+			</div>
+			
+			
+		<!-- modal -->
 		<div style="display: inline">
-			<div id="modal2" class="modal_content">
-				<div class="modal_content">
-					<div class="title2">
-
-						<h2>업무 : 게시물 작성</h2>
+				<div id="modal5" class="modal_content">
+					<div class="modal_content">
+						<form class="content">
+							<br>
+							<br>
+							<h5 style="text-align:center">상태를 변경하시겠습니까?</h5>
+							<br>
+							<div style="padding-left: 90px;">
+								<a class="button" style="float:left;">취소</a>
+								<a class="button2" style="float:left;">확인</a>
+							</div>
+						</form>
 					</div>
-					<button type="button" id="yongdal_close2">X</button>
-					<div class="content2">
-						<input type="text" id="title2" placeholder="제목을 입력하세요."> <br>
-						<br> <br>
-						<div id="jinhang">
-							<div class="jinhang1">
-								<botton>요청</botton>
-							</div>
-							<div class="jinhang2">
-								<botton>진행</botton>
-							</div>
-							<div class="jinhang3">
-								<botton>피드백</botton>
-							</div>
-							<div class="jinhang4">
-								<botton>완료</botton>
-							</div>
-							<div class="jinhang5">
-								<botton>보류</botton>
-							</div>
-						</div>
-						<input type="text" id="damdangja" placeholder="담당자 배정"><br>
-						<input type="date"><input type="date"><br> <input
-							type="text" id="content2" placeholder="내용을 입력하세요."> <br>
-						<br>
-						<div id="button">
-							<button id="submit2" type="submit">올리기</button>
-						</div>
-
-					</div>
+					<div class="modal_layer"></div>
 				</div>
-				<div class="modal_layer"></div>
 			</div>
-		</div>
 
 
-		<!-- 일정 modal 창 -->
-		<!-- 일정 modal 창 -->
-		<!-- 일정 modal 창 -->
-
-		<div style="display: inline">
-			<div id="modal3" class="modal_content">
-				<div class="modal_content">
-					<div class="title">
-						<h2>게시물 작성</h2>
-					</div>
-					<button type="button" id="yongdal_close3">X</button>
-					<div class="content">
-						<input type="text" id="title" placeholder="제목을 입력하세요."> <input
-							type="date"><input type="date"><br> <input
-							type="text" placeholder="담당자 배정"> <input type="text"
-							id="content" placeholder="내용을 입력하세요."> <br> <br>
-						<div id="button">
-							<button id="submit" type="submit">올리기</button>
-						</div>
-					</div>
-				</div>
-				<div class="modal_layer"></div>
-			</div>
-		</div>
-
-
-		<!-- 할 일 modal 창 -->
-		<!-- 할 일 modal 창 -->
-		<!-- 할 일 modal 창 -->
-
-		<div style="display: inline">
-			<div id="modal4" class="modal_content">
-				<div class="modal_content">
-					<div class="title">
-						<h2>게시물 작성</h2>
-					</div>
-					<button type="button" id="yongdal_close4">X</button>
-					<div class="content">
-						<input type="text" id="title" placeholder="제목을 입력하세요."> <input
-							type="text" id="content" placeholder="내용을 입력하세요."> <br>
-						<br>
-						<div id="button">
-							<button id="submit" type="submit">올리기</button>
-						</div>
-
-					</div>
-				</div>
-				<div class="modal_layer"></div>
-			</div>
-		</div>
-
-
-		<!-- modal scipt -->
-		<script src="js/jquery-3.6.0.min.js"></script>
-		<script>
+					<!-- modal scipt -->
+					<script src="js/jquery-3.6.0.min.js"></script>
+					<script>
 			document.getElementById("modal_open_btn").onclick = function() {
 				document.getElementById("modal").style.display = "block";
 			}
@@ -1185,7 +1429,7 @@ div.content-wrapper {
 
 
 
-		<script>
+					<script>
 			$("#modal_open_btn").click(function() {
 				$("#modal").attr("style", "display:block");
 			});
@@ -1197,12 +1441,12 @@ div.content-wrapper {
 
 
 
-		<!--  글 작성 modal  -->
-		<!--  글 작성 modal  -->
-		<!--  글 작성 modal  -->
+					<!--  글 작성 modal  -->
+					<!--  글 작성 modal  -->
+					<!--  글 작성 modal  -->
 
 
-		<script>
+					<script>
 			document.getElementById("yongdal_open1").onclick = function() {
 				document.getElementById("modal1").style.display = "block";
 			}
@@ -1210,11 +1454,14 @@ div.content-wrapper {
 			document.getElementById("yongdal_close1").onclick = function() {
 				document.getElementById("modal1").style.display = "none";
 			}
+			document.getElementById("modal5_close_btn").onclick = function() {
+				document.getElementById("modal5").style.display = "none";
+			}
 		</script>
 
 
 
-		<script>
+					<script>
 			$("#yongdal_open1").click(function() {
 				$("#modal1").attr("style", "display:block");
 			});
@@ -1224,12 +1471,12 @@ div.content-wrapper {
 			});
 		</script>
 
-		<!--  업무 작성 modal  -->
-		<!--  업무 작성 modal  -->
-		<!--  업무 작성 modal  -->
+					<!--  업무 작성 modal  -->
+					<!--  업무 작성 modal  -->
+					<!--  업무 작성 modal  -->
 
 
-		<script>
+					<script>
 			document.getElementById("yongdal_open2").onclick = function() {
 				document.getElementById("modal2").style.display = "block";
 			}
@@ -1241,7 +1488,7 @@ div.content-wrapper {
 
 
 
-		<script>
+					<script>
 			$("#yongdal_open2").click(function() {
 				$("#modal2").attr("style", "display:block");
 			});
@@ -1252,12 +1499,12 @@ div.content-wrapper {
 		</script>
 
 
-		<!--  일정 작성 modal  -->
-		<!--  일정 작성 modal  -->
-		<!--  일정 작성 modal  -->
+					<!--  일정 작성 modal  -->
+					<!--  일정 작성 modal  -->
+					<!--  일정 작성 modal  -->
 
 
-		<script>
+					<script>
 			document.getElementById("yongdal_open3").onclick = function() {
 				document.getElementById("modal3").style.display = "block";
 			}
@@ -1269,7 +1516,7 @@ div.content-wrapper {
 
 
 
-		<script>
+					<script>
 			$("#yongdal_open3").click(function() {
 				$("#modal3").attr("style", "display:block");
 			});
@@ -1280,12 +1527,12 @@ div.content-wrapper {
 		</script>
 
 
-		<!--  할 일 작성 modal  -->
-		<!--  할 일 작성 modal  -->
-		<!--  할 일 작성 modal  -->
+					<!--  할 일 작성 modal  -->
+					<!--  할 일 작성 modal  -->
+					<!--  할 일 작성 modal  -->
 
 
-		<script>
+					<script>
 			document.getElementById("yongdal_open4").onclick = function() {
 				document.getElementById("modal4").style.display = "block";
 			}
@@ -1297,7 +1544,7 @@ div.content-wrapper {
 
 
 
-		<script>
+					<script>
 			$("#yongdal_open4").click(function() {
 				$("#modal4").attr("style", "display:block");
 			});
@@ -1308,16 +1555,14 @@ div.content-wrapper {
 		</script>
 
 
-		<!-- 색깔을 변경하는 함수 -->
-		<!-- 색깔을 변경하는 함수 -->
-		<!-- 색깔을 변경하는 함수 -->
-		<!-- 색깔을 변경하는 함수 -->
-		<!-- <script>
-$('div>div>button').click(function(){
-     $('div>div>button').removeClass("active");
-     $(this).addClass("active");
-   });
+					<!-- 요청작성 modal  -->
+					<!-- 요청작성 modal  -->
+					<!-- 요청작성 modal  -->
+					<!-- 요청작성 modal  -->
+				
+			
+					
+					
 
-</script> -->
 </body>
 </html>
