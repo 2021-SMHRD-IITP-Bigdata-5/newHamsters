@@ -36,7 +36,7 @@ public class CalenderService implements Command {
       out.print(gson.toJson(schedul));
       
       request.setAttribute("schedul", gson.toJson(schedul));      
-      RequestDispatcher dis = request.getRequestDispatcher("Calender2.jsp");
+      RequestDispatcher dis = request.getRequestDispatcher("t_Calendar.jsp");
       dis.forward(request, response);
       
       return null;

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
@@ -55,7 +56,10 @@ public class TodoService implements Command{
 		teamDAO dao = new teamDAO();
 		int cnt = dao.todoWrite(dto);
 		
+		ArrayList<t_todoDTO> list3 = dao.getTodoDTO(teamSeq);
+		
 		if(cnt > 0) {
+			session.setAttribute("teamSeq2", list3);
 			RequestDispatcher dis = request.getRequestDispatcher("projectPage.jsp");
 			dis.forward(request, response);
 		}else {

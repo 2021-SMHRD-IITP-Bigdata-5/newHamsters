@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
@@ -62,8 +63,11 @@ public class WorkService implements Command {
 		teamDAO dao = new teamDAO();
 		int cnt = dao.workWrite(dto);
 		
+		ArrayList<t_workDTO> list2 = dao.getWork(teamSeq);
+		
 		if(cnt > 0) {
-			RequestDispatcher dis = request.getRequestDispatcher("projectPage.jsp");
+			session.setAttribute("teamSeq1", list2);
+			RequestDispatcher dis = request.getRequestDispatcher("projectPageWork.jsp");
 			dis.forward(request, response);
 		}else {
 			nextpage = "LoginFalse.jsp";

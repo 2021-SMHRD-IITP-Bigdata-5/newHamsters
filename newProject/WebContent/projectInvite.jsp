@@ -1,3 +1,9 @@
+<%@page import="com.DAO.memberDAO"%>
+<%@page import="com.DAO.teamDAO"%>
+<%@page import="com.DTO.t_team_memberDTO"%>
+<%@page import="com.DTO.t_todoDTO"%>
+<%@page import="com.DTO.t_workDTO"%>
+<%@page import="com.DTO.t_commuDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DTO.t_teamDTO"%>
 <%@page import="com.DTO.memberDTO"%>
@@ -24,78 +30,12 @@
   <link rel="shortcut icon" href="images/favicon.png" />
   
   
-  <!-- modal style -->
-  <style>
-#modal {
-  display: none;
-  width:100%;
-  height:100%;
-  z-index:1;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#modal h2 {
-  margin:0;   
-  font-size: 25px;
-}
-
- #modal button {
-  display:inline-block;
-  margin-left:calc(100% - 100px - 10px);
-} 
-
-#modal .modal_content {
-  position: relative;
-  top: 15%;
-  width:550px;
-  height: 400px;
-  margin:100px auto;
-  padding:40px;
-  padding-right:0px;
-  background:#fff;
-  border-radius: 10px;
-  
-}
-
-#modal .modal_layer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0, 0, 0, 0.8);
-  z-index:-1;
-}   
-
- #modal_close_btn {
-   position: relative;
-   border: none;
-   background-color: white;
-   width: 25px;
-   height: 25px;
-   cursor : pointer;
-   right: -10%;
-   top: -10%;
-} 
-
-button#submit {
-   position: absolute;
-   width: 200px;
-   heigth: 50px;
-   font-size: 20px;
-    right : 15%;
-    top : 75%;
-    transform: translate(-50%, -50%);
-   border: none;
-   border-radius: 5px;
-}
-
+ <style>
 
 input#title{
-   margin: 10px;
+   position: absolute;
+   top : 25%;
+   margin: 0px;
    background: transparent;
    width: 400px;
    height: 40px;
@@ -108,193 +48,168 @@ input#title::placeholder{
 }
 
 input#content {
+   display: inline; 
+   position: relative;
+   top : 40%;
    border: solid 1px;
    border-color: grey;
-   margin-left: 10px;
-   margin-right: 10px;
+   margin-top: 10px;
+   margin-left: 0px;
+   margin-right: 0px;
    margin-bottom: 10px;
    width: 400px;
    height: 100px;
    border-radius: 10px;
 }
 
-
-
-/* 업데이트 */
-/* 업데이트 */
-  
-#modal_update_content {
-  display: none;
-  width:100%;
-  height:100%;
-  z-index:1;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#modal_update_content h3 {
-  margin:0;   
-  font-size: 25px;
-}
-
-
-#modal_update_content .update_content {
-  position: relative;
-  top: 15%;
-  width:400px;
-  height: 700px;
-  margin:50px auto;
-  padding:20px;
-  background:#fff;
-  border-radius: 10px;
-  
-}
-
-#modal_update_content .modal_layer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0, 0, 0, 0.8);
-  z-index:-1;
-}   
-
- #modal_update_close {
- 	float:left;
- 	position: relative;
-    width: 150px;
-   heigth: 50px;
-   font-size: 20px;
-    bottom : 10%;
-   border: none;
-   border-radius: 5px;
-   margin: 10px;
-} 
-
-button#updatebutton {
-	float:left;
-	position: relative;
-   width: 150px;
-   heigth: 50px;
-   font-size: 20px;
-    bottom : 10%;
-   border: none;
-   border-radius: 5px;
-   margin: 10px;
-}
-
-
-input#title{
-   margin: 10px;
-   background: transparent;
-   width: 400px;
+div.team_icon{
+   width: 40px;
    height: 40px;
-   align-content: center;
+   border-radius: 10px;
+   border: none;
+   background-color: #e2d6ff;
+   display:inline-block;
+   
+}
+
+h3.team_name{
+   font-weight: bold;
+   display:inline-block;
+}
+
+h6.team_attri{
+   display:inline-block;
+}
+
+ul#menutap{
+   display: flex;
+   flex-flow: row nowrap;
+   align-content: space-between;   
+}
+ul#menutap>li{
+   display: inline-block;
+    margin: 0 10px;
+    align-content: flex-end;
+}
+
+ul#menutap>li>a{
+   text-decoration: none;
+    color: black;
+}
+
+div.row1{
+   position: relative;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 170px;
+}
+
+div.row{
+   margin-top: 20px;
+}
+
+div.content{
+   padding-left: 40px;
+   padding-top: 40px;
+
+}
+
+div.newContentsBox{
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid grey;
+   width: 800px;
+   padding-left: 20px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   
+}
+
+div.content_box{
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid grey;
+   width: 800px;
+   padding: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   
+}
+
+ul.newContentsBox{
+   display: flex;
+   flex-flow: row nowrap;
+   place-content: space-evenly;   
+}
+
+li.newContentsBox{
+   display: inline-block;
+    margin: auto;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+li.newContentsBox>button{
+   background-color: white;
    border: none;
 }
-input.update::placeholder{
-   font-weight: bold;
-   font-size: 20px;
-}
 
-input.update {
-   border: solid 1px;
-   border-color: grey;
-   margin-left: 10px;
-   margin-right: 10px;
-   margin-bottom: 10px;
-   width: 200px;
-   border-radius: 10px;
-}
-/* 프로젝트 */
-/* 프로젝트 */
-div.card-body>a:link {
-	font-size: 25px;
-	font-weight: bold;
-	color: white;
-	text-docoration: none;
-}
-
-div.card-body>a:visited {
-	color: white;
-	text-docoration: none;
-}
-
-div.card-body>a:hover {
-	text-docoration: none;
-
+div.title{
+   background-color: #4B49AC;
 }
 
 
 
 
-/* 새 프로젝트 */
-/* 새 프로젝트 */
 
-button#modal_open_btn{
+/* 참여자 */
+/* 참여자 */
+
+div.attendee{
 	border: none;
 	border-radius: 10px;
-	color: white;
-	background-color: #815ee8;
-	
-}
-
-button#modal_open_btn:hover{
-	border: none;
-	border-radius: 10px;
-	color: white;
-	background-color: #b68cff;
-	
-}
-
-span.newp{
-	color: white;
-	font-size: 20px;
-	font-weight: bold;
-}
-
-div#update_content{
-	border-radius: 10px;
-	border: none;
 	background-color: white;
-}
-
-
-/* 나의 정보 */
-
-div#myinfo{
-	margin: 15px;
-}
-
-.infoimg{
-	display: inline;
-	width: 370px;
-	height: 370px;
-	align: center; 
+	width: 300px;
 	padding: 20px;
+	position: fixed;
+	right: 400px;
+	top: 400px;
 }
 
-span.info{
-	display: inline;
+table{
+	border: 1px solid
+	border-collapse: collapse;
+}
+th, td{
+	border: 1px solid
+
 }
 
 </style>
   
 </head>
 <body>
-<%	memberDTO dto = (memberDTO)session.getAttribute("dto"); 
-	ArrayList<t_teamDTO> team_dto = (ArrayList<t_teamDTO>)session.getAttribute("teamSeq"); 
+
+<%
+memberDAO dao = new memberDAO();
+ArrayList<memberDTO> arr = dao.inviteMember();
+memberDTO dto = (memberDTO)session.getAttribute("teamdto");
+t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
+ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3");
 %>
+
 <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="projectMain.jsp"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="projectMain.jsp"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -342,15 +257,17 @@ span.info{
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
-                	설정
+                설정
               </a>
-              <button class="dropdown-item" id="modal_update">
-                <i class="ti-settings text-primary"></i>
-                	내프로필</button>
-              <a href = 'LogoutCon.do'>
+              <form action="update.jsp">
               <button class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                내프로필</button>
+                </form>
+              </a>
+              <a class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
-                	로그아웃</button>
+                로그아웃
               </a>
             </div>
           </li>
@@ -497,6 +414,7 @@ span.info{
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
+
         <ul class="nav">
           <li class="nav-item">
               <button type="button" id="modal_open_btn">
@@ -505,13 +423,35 @@ span.info{
               <span class="menu-title">새 프로젝트</span>
               </div>
               </button>
-              
-              <!-- <button><a href="projectCalPage.jsp">이동</a></button> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="project.html"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">내프로젝트</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="project.html"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">게시글</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="project.html"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">업무</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="project.html"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">할 일</span>
               <i class="menu-arrow"></i>
             </a>
             </a>
@@ -524,38 +464,50 @@ span.info{
             </a>
           </li>
           <li class="nav-item">
-              <form action="getSche.do">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+            <%out.print("<a class='nav-link' href='getSche.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
             </a>
-              </form>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="icons">
               <i class="icon-contract menu-icon"></i>
               <span class="menu-title">나를언급</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="auth">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">내 게시물</span>
               <i class="menu-arrow"></i>
             </a>
         </ul>
+        <%-- <H1>어드민어ㅕ부<%=ttmem.getAdminYN() %></H1> --%>
+         <li class="nav-item">
+         <h1><a href="sadf.jsp">이동동</a></h1>
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">팀원 초대</span>
+              <i class="menu-arrow"></i>
+            </a>
+         </li>
+        </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
-        <div class="content-wrapper" style="">
-          <div class="row">
+        <div class="content-wrapper" style="padding: 0px;">
+          <div class="row1" style="">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">내 프로젝트</h3>
-                  <h6 class="font-weight-normal mb-0"> 참여중 프로젝트 </h6>
+                <div class="team_icon"></div>
+                  <!-- <h1><a href="sadf.jsp">이동동</a></h1> -->
+                  <%-- <%=memberdto.get(0).getTeamSeq() %> --%>
+                  <h3 class="team_name"><%= t_DTO.getTeamName()%></h3> <br>
+                  <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
+                  
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -573,30 +525,74 @@ span.info{
                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          
-            <div class="col-md-6 grid-margin transparent">
-            <a href="sadf.jsp">이동동</a>
-              <div class="row">
-               <%
-               System.out.println("프로젝트메인페이지");
-                 for(int i = 0; i < team_dto.size(); i++){
-                    out.print("<div class='col-md-6 mb-4 stretch-card transparent'>");
-                    out.print("<div class='card card-tale'>");
-                    out.print("<div class='card-body'>");
-                	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
-                    out.print("<a class='fs-30 mb-2' href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'>" + team_dto.get(i).getTeamName() + "</a>");
-                	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
-                    out.print("</div>");
-                    out.print("</div>");
-                    out.print("</div>");
-                 }
-              %>
-                
+              <div id="invite">
+              	<table >
+              	<thead>
+					<tr>
+						<td colspan="5"><input type="text" name="name" placeholder="검색할 이름을 입력하세요."></td>
+						<td><button onclick="memberSearch()">검색</button></td>
+					</tr>
+					<tr>
+						<td>회사</td>
+						<td>이름</td>
+						<td>아이디</td>
+						<td>이메일</td>
+						<td>휴대폰</td>
+						<td>팀으로 초대</td>
+					</tr>
+				</thead>
+				<tbody id='tbody'>
+              	<%
+              	for(int i = 0; i < arr.size(); i++){
+					 out.print("<tr>");
+					 out.print("<td>" + arr.get(i).getMemCompany() + "</td>");
+					 out.print("<td>" + arr.get(i).getMemName() + "</td>");
+					 out.print("<td>" + arr.get(i).getMemId() + "</td>");
+					 out.print("<td>" + arr.get(i).getMemEmail() + "</td>");
+					 out.print("<td>" + arr.get(i).getMemPhone() + "</td>");
+					 out.print("<td><a href='invite.do?memid=" + arr.get(i).getMemId() + "'>초대</a></td>");
+					 /* out.print("<td>" + arr.get(i).get + "</td>"); */
+					 // 취소하는 버튼 a태그, 쿼리스트링으로 만들기
+					 out.print("</tr>");
+				}
+              	%>
+              	</tbody>
+              	</table>
+              </div>
+              
+              
+              <div class="attendee">
+              	<div class="attendeeTitle">
+              		<h4>참여자</h4>
+              	</div>
+              	<div class="attendeebox">
+              		<%for(int i = 0; i < memberdto.size(); i++) { %>
+              		<hr>
+              		<ul type="none">
+              			<li><b><%=memberdto.get(i).getMemId() %></b></li>
+              			<li><%=memberdto.get(i).getTmMemo() %></li>
+              		</ul>
+              		<% } %>
+              	</div>
+              	
+              </div>
+              
+              <form action="update.jsp">
+              <!-- <button>  내프로필</button> -->
+                </form>
+
+								<%-- <h1>팀삭제하기</h1>
+								<%=t_DTO.getTeamSeq() %>
+								<% out.print("<a href='deleteTeam.do?teamSeq=" + t_DTO.getTeamSeq() + "'</a>"); %>
+									<button type="submit">삭제</button> --%>
+
+								<!-- <a href="sadf.jsp">이동동</a> -->
+                    
               </div>
             </div>
           </div>
+          
+            
       <!-- main-panel ends -->
     </div>   
     <!-- page-body-wrapper ends -->
@@ -624,114 +620,47 @@ span.info{
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-
-
-  <!-- modal -->
-  <div style="display: inline">
-  <form action="createTeam.do">
-  <div id="modal" class="modal_content">
-        <div class="modal_content">
-            <div class="title">
-                <h2>새 프로젝트 </h2>
-            </div>
-            <button type="button" id="modal_close_btn">X</button>
-            <div class="content">
-                <input type = "text" id="title" name ="title" placeholder="제목을 입력하세요">
-                <input type = "text" id="content" name ="content" placeholder="프로젝트에 관한 설명(옵션)">
-                <br>
-                <br>
-                <div id="button">
-                    <button id="submit" type="submit">만들기</button>
-                </div>
-
-                
-                
-            </div>
-        </div>
-        <div class="modal_layer"></div>
-    </div>
-    </form>
-  </div>
-  <!-- modal scipt -->
-  <script src ="js/jquery-3.6.0.min.js"></script>
-<script>
-    document.getElementById("modal_open_btn").onclick = function() {
-        document.getElementById("modal").style.display="block";
-    }
-   
-    document.getElementById("modal_close_btn").onclick = function() {
-        document.getElementById("modal").style.display="none";
-    }   
-</script>
-
-
-
-<script>
-    $("#modal_open_btn").click(function(){
-        $("#modal").attr("style", "display:block");
-    });
-   
-     $("#modal_close_btn").click(function(){
-        $("#modal").attr("style", "display:none");
-    });      
-</script>
-			
+  <script src="js/jquery-3.6.0min.js"></script>
+<script type="text/javascript">
+				function memberSearch(){
+					$.ajax({
+		                  url : "searchMember.do",
+		                  type : "get",
+		                  data : {
+		                     "name" : $('input[name=name]').val()
+		                  },
+		                  dataType : 'json',
+		                  
+		                  success : function(res){
+		                     console.log(res);
+		                     $('#tbody').html(''); // tbody 의 html코드를 초기화
+		                     let table = '';
+		                     for(let i =0; i< res.length; i++){
+		                        //let table = '';  지역변수 처리함!!!
+		                        table += '<tr>';
+		                        table += '<td>'+ res[i].company + '</td>';
+		                        table += '<td>'+ res[i].name + '</td>';
+		                        table += '<td>'+ res[i].id + '</td>';
+		                        table += '<td>'+ res[i].email + '</td>';
+		                        table += '<td>'+ res[i].phone + '</td>';
+		                        table += "<td><a href='invite.do?memid=" + arr.get(i).getMemId() + "'>초대</a></td>"
+		                        table += '</tr>';
+		                        
+		                        // javascript 코드로 html 태그 제작 4가지
+		                        // .html() , after(), before(), append()
+		                        $('#tbody').append(table)
+		                     }
+		                  },
+		                  
+		                  error : function(){
+		                     alert("요청실패")
+		                  }
+		               });
+				}
+			</script>
 
 
 
 
-<!-- 업데이트 -->
-<!-- 업데이트 -->
-<div style="display: inline">
-				<div id="modal_update_content" class="modal_content">
-					<div class="update_content">
-					<form action="UpdateCon.do">
-						<div id="myinfo">
-							<h3 style="font-weight: bold;">내 정보</h3>
-						</div> 	
-						<div id="info">
-							<img class="infoimg" src="사용자.JPG" align="center">
-							<span class="info"><h3><%=dto.getMemName() %></h3></span><br>
-							<span class="info" style="margin-bottom: 20px;"><h4><%=dto.getMemCompany() %></h4></span>
-						</div>
-						<div>
-							<ul type="none">
-								<li>비밀번호&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="pw" class="update" type="text" placeholder="<%=dto.getMemPw()%>"></li>
-								<li>전화번호&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="tel" class="update" type="text" placeholder="<%=dto.getMemPhone() %>"></li>
-								<li>&nbsp;&nbsp;&nbsp;&nbsp;이메일&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="email" class="update" type="email" placeholder="<%=dto.getMemEmail() %>"></li>
-							</ul>
-						</div>
-						<div><button id="updatebutton">정보 수정</button></div></form>
-						<div><button id="modal_update_close">취소</button></div>
-						
-						</div>
-					<div class="modal_layer"></div>
-					</div>
-				</div>
-			</div>
-  
-  
-  <script>
-document.getElementById("modal_update").onclick = function() {
-    document.getElementById("modal_update_content").style.display="block";
-}
-
-document.getElementById("modal_update_close").onclick = function() {
-    document.getElementById("modal_update_content").style.display="none";
-}   
-</script>
-
-
-
-<script>
-$("#modal_update").click(function(){
-    $("#modal_update_content").attr("style", "display:block");
-});
-
- $("#modal_update_close").click(function(){
-    $("#modal_update_content").attr("style", "display:none");
-});      
-
-</script>
 </body>
 </html>

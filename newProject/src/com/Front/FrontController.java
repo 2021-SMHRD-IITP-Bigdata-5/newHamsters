@@ -2,6 +2,7 @@ package com.Front;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.memberDAO;
+import com.google.gson.Gson;
 import com.inter.Command;
 import com.service.CalenderService;
 import com.service.CommuService;
@@ -21,9 +23,11 @@ import com.service.LogoutService;
 import com.service.ScheduleService;
 import com.service.TodoService;
 import com.service.UpdateService;
+import com.service.WorkChangeService;
 import com.service.WorkService;
 import com.service.createTeamService;
 import com.service.deleteTeamService;
+import com.service.inviteService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -105,7 +109,26 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("GetDate.do")) {
 			com = new CalenderService();
 			nextpage = com.execute(request, response);
+		} else if (command.equals("searchMember.do")) {
+			String name = request.getParameter("name");
+			memberDAO dao = new memberDAO();
+			ArrayList<com.DTO.memberDTO> list = dao.searchMember(name);
+			
+			Gson gson = new Gson();
+			String json = gson.toJson(list);
+			response.setCharacterEncoding("utf-8");
+			PrintWriter out = response.getWriter();
+			out.print(json);
+		} else if (command.equals("invite.do")) {
+			com = new inviteService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("WorkChange.do")) {
+			com = new WorkChangeService();
+			nextpage = com.execute(request, response);
 		}
+		
+		
+		
 		if (nextpage != null) {
 			response.sendRedirect(nextpage);
 		}

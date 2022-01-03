@@ -138,7 +138,7 @@ div.team_icon{
    height: 40px;
    border-radius: 10px;
    border: none;
-   background-color: green;
+   background-color: #e2d6ff;
    display:inline-block;
    
 }
@@ -201,6 +201,16 @@ div.newContentsBox{
    
 }
 
+div.content_box{
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid grey;
+   width: 800px;
+   padding: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   
+}
 ul.newContentsBox{
    display: flex;
    flex-flow: row nowrap;
@@ -346,58 +356,11 @@ div.title{
    width: 25px;
    height: 25px;
    cursor : pointer;
-   right: -10%;
+   right: 5%;
    top: -10%;
 } 
 
 
-div#jinhang{
-   display: flex;
-   flex-flow: row nowrap;
-   align-content: space-between;   
-   margin-top: -10px;
-   margin-bottom: 15px;
-   text-align: center;
-}
-
-div#jinhang>div{
-   display: inline-block;
-    margin: 0 10px;
-    align-content: flex-end;
-    font-weight: bold;
-   border-radius: 15px;
-   border: none;
-    height: 30px;
-    width: 80px;   
-    vertical-align: middle;
-    background-color: #EEEEEE;
-   color: #777777;
-}
-
-div.jinhang1:focus{
-   background-color: #00B2FF;
-    color: white;
-}
-
-div.jinhang2:focus{
-   background-color: #00B01C;
-    color: white;
-}
-
-div.jinhang3:focus{
-   background-color: #FD7900;
-    color: white;
-}
-
-div.jinhang4:focus{
-   background-color: #402A9D;
-    color: white;
-}
-
-div.jinhang5:focus{
-   background-color: #777777;
-    color: white;
-}
 
 button#submit2 {
    position: absolute;
@@ -578,6 +541,285 @@ li.menuuu>a{
     font-weight: 800;
     font-size: 20px;
 }
+
+
+/* 새프로젝트 버튼 */
+/* 새프로젝트 버튼 */
+button#modal_open_btn{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #815ee8;
+	
+}
+
+/* 참여자 */
+/* 참여자 */
+
+div.attendee{
+	border: none;
+	border-radius: 10px;
+	background-color: white;
+	width: 300px;
+	padding: 20px;
+	position: fixed;
+	right: 400px;
+	top: 400px;
+}
+
+/* 글 작성 버튼 */
+/* 글 작성 버튼 */
+
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 10px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight:;
+	transition: 0.25s;
+}
+
+.w-btn-outline {
+	position: relative;
+	padding: 5px 20px;
+	border-radius: 10px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-indigo {
+	background-color: aliceblue;
+	color: #1e6b7b;
+}
+
+.w-btn-skin-outline {
+	border: 0.5px solid #999999;
+	color: #000000;
+}
+
+div.content-wrapper {
+	min-height: 100%;
+	overflow: auto;
+	height: auto;
+	margin-bottom: 30%;
+}
+
+.div2 {
+	border: 1px solid #cccccc;
+	float: left; & amp; amp; nbsp;
+	border-radius: 2em;
+	background: #cccccc;
+	width: 15%;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bolder;
+	margin: 4px;
+}
+.div4 {
+	border: 1px solid #cccccc;
+	float: left; & amp; amp; nbsp;
+	border-radius: 2em;
+	background: #cccccc;
+	width: 15%;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bolder;
+	margin: 4px;
+}
+
+.clicked {
+	border: 1px solid #cccccc;
+	float: left;
+	border-radius: 2em;
+	background: #bb99da;
+	display: flex;
+	/*  align-items: center;
+        justify-content: center; */
+}
+
+
+
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+
+#modal5 {
+	display: none;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#modal5 h2 {
+	margin: 0;
+	font-size: 25px;
+	color: black;
+	background-color: white;
+	font-weight: bold;
+}
+
+#modal5 button {
+	display: block;
+	
+}
+
+#modal5 .modal_content {
+	position: relative;
+	top: 15%;
+	width: 550px;
+	height: 250px;
+	margin: 0px auto;
+	padding: 50px;
+	background: #fff;
+	border-radius: 10px;
+}
+
+
+#modal5 .modal_layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: -1;
+}
+
+#yongdal_close5 {
+	position: relative;
+	border: none;
+	background-color: white;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	right: -10%;
+	top: -10%;
+}
+
+#modal.modal-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: radial-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+	box-shadow: 0 8px 28px 6 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(1.5px);
+	-webkit-backdrop-filter: blur(1.5px);
+	border-radius: 10px;
+	border: 1px solid rgb(255, 255, 255);
+}
+
+#modal .modal-window {
+	background: rgb(246, 243, 246);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(13.5px);
+	-webkit-backdrop-filter: blur(13.5px);
+	border-radius: 10px;
+	border: 1px solid rgba(36, 3, 3, 0.418);
+	width: 350px;
+	height: 150px;
+	position: relative;
+	top: -50px;
+	padding: 15px;
+}
+
+#modal .title h2 {
+	display: inline;
+}
+
+#modal .close-area {
+	display: inline;
+	float: right;
+	padding-right: 10px;
+	cursor: pointer;
+	text-shadow: 1px 1px 2px gray;
+	color: rgb(244, 237, 245);
+}
+
+#modal .content {
+	margin-top: 20px;
+	padding: 0px 10px;
+	text-shadow: 1px 1px 2px gray;
+	color: white;
+}
+
+div#button {
+	align-items: center;
+	font-size: 15px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.wrap {
+	position: absolute;
+	top: 50%;
+	left: 35%;
+	position: relative;
+	margin-top: -30px;
+	margin-left: -80px;
+	text-align: center;
+
+}
+
+button {
+	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	display: block;
+	margin: 0px auto;
+	max-width: 180px;
+	text-decoration: none;
+	border-radius: 4px;
+	padding: 10px 50px;
+}
+
+a.button {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+a.button2 {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button2:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
 
 
 
@@ -807,12 +1049,10 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
         <ul class="nav">
           <li class="nav-item">
               <button type="button" id="modal_open_btn">
-            <a class="nav-link">
               <i class="icon-grid menu-icon"></i>
               <div id="root">
-              <span class="menu-title">새프로젝트</span>
+              <span class="menu-title">새 프로젝트</span>
               </div>
-            </a>
               </button>
           </li>
           <li class="nav-item">
@@ -893,38 +1133,116 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               <form action="update.jsp">
               <!-- <button>  내프로필</button> -->
                 </form>
+               <div class="content">
+								<button type="button" id="yongdal_open1"
+									class="w-btn-outline w-btn-skin-outline">글</button>
+								<button type="button" id="yongdal_open2"
+									class="w-btn-outline w-btn-skin-outline">업무</button>
+								<button type="button" id="yongdal_open3"
+									class="w-btn-outline w-btn-skin-outline">일정</button>
+								<button type="button" id="yongdal_open4"
+									class="w-btn-outline w-btn-skin-outline">할 일</button>
+							</div>
               <div class="content">
-                 <div class="newContentsBox">
+              <!-- <a href="sadf.jsp">이동동</a> -->
+                  <% for(int i = 0; i < workdto.size(); i++){ %>
+                 <div class="content_box">
+                    <!-- 0번째 -->
                     <div>
-                       <ul class="newContentsBox">
-                          <li class="newContentsBox"><button type="button" id="yongdal_open1">글</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open2">업무</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open3">일정</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open4">할 일</button></li>
-                       </ul>
-                    </div>
-                 </div>
-              </div>
-              <div class="content">
-              <a href="sadf.jsp">이동동</a>
-                    <% for(int i = 0; i < workdto.size(); i++){ %>
-                 <div class="newContentsBox">
-                    
-                    <div>
+                    <img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15 hspace=10">
                        <span><%=workdto.get(i).getMemId() %></span>
                        <span><%=workdto.get(i).getRegDate() %></span>
                        <h2><%=workdto.get(i).getWorkTitle() %></h2>
-                       <div>진행상태</div>
-                       <span>시작일 : <%=workdto.get(i).getWorkStartDt() %></span>
-                       <span>마감일 : <%=workdto.get(i).getWorkEndDt() %></span>
+                       <div class="div1">
+                       	<img src="시계.JPG" style="width: 25px; height: 25px; float: left;" vspace=3 hspace=3>
+                       		<div id="workChange<%=i+1 %>" class="div2">요청<p style="display:none;">_<%=workdto.get(i).getWorkSeq() %></p></div>
+							<div id="workChange<%=i+1 %>" class="div2">진행<p style="display:none;">_<%=workdto.get(i).getWorkSeq() %></p></div>
+							<div id="workChange<%=i+1 %>" class="div2">피드백<p style="display:none;">_<%=workdto.get(i).getWorkSeq() %></p></div>
+							<div id="workChange<%=i+1 %>" class="div2">완료<p style="display:none;">_<%=workdto.get(i).getWorkSeq() %></p></div>
+							<div id="workChange<%=i+1 %>" class="div2">보류<p style="display:none;">_<%=workdto.get(i).getWorkSeq() %></p></div>
+                       </div>
+                       
+          
+                       <br>
+                       <br>
+                       <span id="workseq<%=i+1 %>" ><%=workdto.get(i).getWorkSeq() %></span>
+                       <span>시작일 : <%=workdto.get(i).getWorkStartDt() %></span><br>
+                       <span>마감일 : <%=workdto.get(i).getWorkEndDt() %></span><br>
+                       <hr>
                        <h4><%=workdto.get(i).getWorkContent() %></h4>
-                    </div>
+                       </div>
+                       </div>
+            </div>
+            <%} %>
+                       <!-- 1번째 -->
+                     
+        
+                    <script type="text/javascript">
+                    	function a(text){
+                    		alert(text);
+                    		
+                    		
+                    	}
+                    </script>
+                  
+                    
                     
                  </div>
-                    <%} %>
-              </div>
+                    <%-- <%} %> --%>
+            <!-- 진행상태 -->
+			<!-- 진행상태 -->
+
+			<script src="./js/jquery-3.6.0.min.js"></script>
+			<script>
+				var div2 = document.getElementsByClassName("div2");
+				let selectItem;
+				/* $("#workseq").click(function () {
+				    index = $("#workseq").index(this);
+				    console.log(index)
+				}); 
+ */
+
+				function handleClick(event) {
+					//클릭한 요소 저장
+					selectItem = event.target;
+					
+					
+					
+					/* console.log(event.target);
+					// console.log(this);
+					// 콘솔창을 보면 둘다 동일한 값이 나온다
+
+					console.log(event.target.classList);
+
+					if (event.target.classList[1] === "clicked") {
+						event.target.classList.remove("clicked");
+					} else {
+						for (var i = 0; i < div2.length; i++) {
+							div2[i].classList.remove("clicked");
+						}
+
+						event.target.classList.add("clicked");
+					} */
+
+					$("#modal5").attr("style", "display:block");
+					
+				}
+
+				function init() {
+					for (var i = 0; i < div2.length; i++) {
+						div2[i].addEventListener("click", handleClick);
+					}
+				}
+
+				init();
+			</script>
+
+			<!-- 진행상태 -->
+			<!-- 진행상태 -->
+                    
+              <!-- </div>
             </div>
-          </div>
+          </div> -->
           
             
       <!-- main-panel ends -->
@@ -1028,12 +1346,12 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
             <form action="workWrite.do">
             <div class="content2">
                 <input type = "text" id="title2" placeholder="제목을 입력하세요."name ="title"> <br> <br> <br>
-                <div id="jinhang"name ="progress">
-                   <div class="jinhang1"><botton>요청</botton></div>
-                   <div class="jinhang2"><botton>진행</botton></div>
-                   <div class="jinhang3"><botton>피드백</botton></div>
-                   <div class="jinhang4"><botton>완료</botton></div>
-                   <div class="jinhang5"><botton>보류</botton></div>
+                <div class="div3">
+                    <div class="div4">요청</div>
+					<div class="div4">진행</div>
+					<div class="div4">피드백</div>
+					<div class="div4">완료</div>
+					<div class="div4">보류</div>
                 </div>
                 <input type="text" id="damdangja" placeholder="담당자 배정"name ="ref"><br>
                 <input type = "date"name ="startdt"><input type = "date"name ="enddt"><br>
@@ -1049,6 +1367,45 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
         <div class="modal_layer"></div>
     </div>
   </div>
+  
+  <!-- 진행상태 -->
+			<!-- 진행상태 -->
+
+			<script src="./js/jquery-3.6.0.min.js"></script>
+			<script>
+				var div3 = document.getElementsByClassName("div4");
+
+				function handleClick(event) {
+					console.log(event.target);
+					// console.log(this);
+					// 콘솔창을 보면 둘다 동일한 값이 나온다
+
+					console.log(event.target.classList);
+
+					if (event.target.classList[1] === "clicked") {
+						event.target.classList.remove("clicked");
+					} else {
+						for (var i = 0; i < div3.length; i++) {
+							div3[i].classList.remove("clicked");
+						}
+
+						event.target.classList.add("clicked");
+					}
+
+
+				}
+
+				function init() {
+					for (var i = 0; i < div3.length; i++) {
+						div3[i].addEventListener("click", handleClick);
+					}
+				}
+
+				init();
+			</script>
+
+			<!-- 진행상태 -->
+			<!-- 진행상태 -->
   
   
   <!-- 일정 modal 창 -->
@@ -1149,6 +1506,9 @@ document.getElementById("yongdal_open1").onclick = function() {
 document.getElementById("yongdal_close1").onclick = function() {
     document.getElementById("modal1").style.display="none";
 }   
+document.getElementById("modal5_close_btn").onclick = function() {
+	document.getElementById("modal5").style.display = "none";
+}
 </script>
 
 
@@ -1260,8 +1620,90 @@ $('div>div>button').click(function(){
      $('div>div>button').removeClass("active");
      $(this).addClass("active");
    });
-
 </script> -->
 
+
+<!-- 진행상태 모달 -->
+<!-- 진행상태 모달 -->
+
+<div style="display: inline">
+				<div id="modal5" class="modal_content">
+					<div class="modal_content">
+						<!-- <form class="content" action=""> -->
+							<br>
+							<br>
+							<h5 style="text-align:center">상태를 변경하시겠습니까?</h5>
+							<br>
+							<div class="modal5" style="padding-left: 90px;">
+								<button id="modal5_close_btn" class="button" style="float:left;">취소</button>
+								<button onclick="workChange()" class="button2" style="float:left;">확인</button>
+							</div>
+						<!-- </form> -->
+					</div>
+					<div class="modal_layer"></div>
+				</div>
+			</div>
+
+<!-- 진행상태 모달 -->
+<!-- 진행상태 모달 -->
+
+
+<div id="list">
+</div>
+
+<script>
+	var phm_workchange = '';
+	$(".div2").on("click", function(){
+    	phm_workchange = $(this).text();
+    	console.log($(this).text());
+    	phm_workchange = $(this).text().split('_')[0];
+    	phm_workseq = $(this).text().split('_')[1];
+	})
+	
+	let cancelBtn = document.getElementById('modal5_close_btn');
+	
+	cancelBtn.addEventListener('click',function(){
+		document.getElementById('modal5').style.display = 'none';
+	});
+
+	function workChange() {
+		
+		console.log(selectItem.innerHTML);
+		
+		let work = selectItem.innerHTML;
+		
+		$.ajax({
+			url:'WorkChange.do',
+			data : {
+				"workChange" : phm_workchange,
+				"workseq1" : phm_workseq
+			},
+			success:function(res){
+				console.log(res)
+				//전체 상태 색깔 초기화
+				for (var i = 0; i < div2.length; i++) {
+					div2[i].classList.remove("clicked");
+				}
+				
+				//통신성공 시 선택한 상태 색깔적용
+				selectItem.classList.add("clicked");
+				
+				//완료 시 모달창 닫기
+				document.getElementById('modal5').style.display = 'none';
+			}
+		});
+		
+	}
+	
+</script>
+<script>
+	
+	
+	
+</script>
+
+
+
+			
 </body>
 </html>

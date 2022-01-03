@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import javax.lang.model.element.ExecutableElement;
+
 import com.DTO.memberDTO;
 import com.DTO.t_commuDTO;
 import com.DTO.t_scheduleDTO;
@@ -37,7 +39,6 @@ public class teamDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			System.out.println("클래스파일준비");
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
 			String dbid = "cgi_7_1_1216";
 			String dbpw = "smhrd1";
@@ -538,4 +539,87 @@ public class teamDAO {
 		}
 		return arr5;
 	}
+	
+	  public t_team_memberDTO teamMemberdto(String memid, double teamseq) {
+		   t_team_memberDTO ttmem = null;
+		   try {
+				getConn();
+
+				String sql = "select * from t_team_members where team_seq = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setDouble(1, teamseq);
+				
+				rs = psmt.executeQuery();
+
+				if (rs.next()) {
+					Double gettmMemSeq = rs.getDouble(1);
+					String gettmId = rs.getString(2);
+					Double gettmSeq = rs.getDouble(3);
+					String gettmMemo = rs.getString(4);
+					String gettmAdmin = rs.getString(5);
+					Date gettmDate = rs.getDate(6);
+					
+					if(memid.equals(gettmId)) {
+						ttmem = new t_team_memberDTO(gettmMemSeq, gettmId, gettmSeq, gettmDate, gettmMemo, gettmAdmin);
+						
+					}
+					
+				}
+			} catch (Exception e) {
+				System.out.println("클래스파일 로딩실패");
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+		
+		   
+		   return ttmem;
+	   }
+	  
+	   public int insertTeam(String memid, double teamseq) {
+		      
+		      try {
+		         getConn();
+		         
+		         String sql = "insert into t_team_members(mem_id, team_seq, tm_memo, admin_yesno, reg_date) values(?, ?, '팀원', '0', sysdate)";
+		         
+		         psmt = conn.prepareStatement(sql);
+		         psmt.setString(1, memid);
+		         psmt.setDouble(2, teamseq);
+
+		         cnt = psmt.executeUpdate();
+		         
+		      } catch (Exception e) {
+		         System.out.println("클래스파일 로딩 실패");
+		         e.printStackTrace();
+		      }finally {
+		         close();
+		      }
+		      
+		      return cnt;
+		   }
+	   
+		public int changeProgress(String progress, double workseq) {
+
+				try {
+					getConn();
+					
+					String sql = "update t_work set work_progress = ? where work_seq = ?";
+					
+					psmt = conn.prepareStatement(sql);
+					psmt.setString(1, progress);
+			        psmt.setDouble(2, workseq);
+
+					cnt = psmt.executeUpdate();
+				} catch (Exception e) {
+					System.out.println("클래스파일 로딩 실패");
+			         e.printStackTrace();
+				} finally {
+					close();
+				}
+				return cnt;
+
+			}
+		
+		
 }

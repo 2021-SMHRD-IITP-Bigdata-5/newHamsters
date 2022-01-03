@@ -26,7 +26,25 @@ public class t_team_memberDTO {
        private String adminYN;
 
        
-       public t_team_memberDTO(Double tmSeq, String memId, Double teamSeq, Date regDate, String tmMemo) {
+       public String getAdminYN() {
+		return adminYN;
+	}
+
+	public void setAdminYN(String adminYN) {
+		this.adminYN = adminYN;
+	}
+
+	public t_team_memberDTO(Double tmSeq, String memId, Double teamSeq, Date regDate, String tmMemo, String adminYN) {
+		super();
+		this.tmSeq = tmSeq;
+		this.memId = memId;
+		this.teamSeq = teamSeq;
+		this.regDate = regDate;
+		this.tmMemo = tmMemo;
+		this.adminYN = adminYN;
+	}
+
+	public t_team_memberDTO(Double tmSeq, String memId, Double teamSeq, Date regDate, String tmMemo) {
          this.tmSeq = tmSeq;
          this.memId = memId;
          this.teamSeq = teamSeq;

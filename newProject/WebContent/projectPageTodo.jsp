@@ -138,7 +138,7 @@ div.team_icon{
    height: 40px;
    border-radius: 10px;
    border: none;
-   background-color: green;
+   background-color: #e2d6ff;
    display:inline-block;
    
 }
@@ -196,6 +196,17 @@ div.newContentsBox{
    padding-left: 20px;
    padding-top: 20px;
    padding-bottom: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   
+}
+
+div.content_box{
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid grey;
+   width: 800px;
+   padding: 20px;
    margin-top: 20px;
    margin-bottom: 20px;
    
@@ -568,7 +579,6 @@ input#damdangja{
 	overflow: auto;
 }
 
-
 li.menuuu{
 	display: inline-block;
     margin: 10px 20px;
@@ -578,6 +588,76 @@ li.menuuu>a{
     color: black;
     font-weight: 800;
     font-size: 20px;
+}
+
+
+/* 새프로젝트 버튼 */
+/* 새프로젝트 버튼 */
+button#modal_open_btn{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #815ee8;
+	
+}
+
+/* 참여자 */
+/* 참여자 */
+
+div.attendee{
+	border: none;
+	border-radius: 10px;
+	background-color: white;
+	width: 300px;
+	padding: 20px;
+	position: fixed;
+	right: 400px;
+	top: 400px;
+}
+
+/* 글 작성 버튼 */
+/* 글 작성 버튼 */
+
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 10px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight:;
+	transition: 0.25s;
+}
+
+.w-btn-outline {
+	position: relative;
+	padding: 5px 20px;
+	border-radius: 10px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-indigo {
+	background-color: aliceblue;
+	color: #1e6b7b;
+}
+
+.w-btn-skin-outline {
+	border: 0.5px solid #999999;
+	color: #000000;
+}
+
+div.content-wrapper {
+	min-height: 100%;
+	overflow: auto;
+	height: auto;
+	margin-bottom: 30%;
 }
 
 </style>
@@ -806,12 +886,10 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
         <ul class="nav">
           <li class="nav-item">
               <button type="button" id="modal_open_btn">
-            <a class="nav-link">
               <i class="icon-grid menu-icon"></i>
               <div id="root">
-              <span class="menu-title">새프로젝트</span>
+              <span class="menu-title">새 프로젝트</span>
               </div>
-            </a>
               </button>
           </li>
           <li class="nav-item">
@@ -893,17 +971,16 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               <!-- <button>  내프로필</button> -->
                 </form>
               <div class="content">
-                 <div class="newContentsBox">
-                    <div>
-                       <ul class="newContentsBox">
-                          <li class="newContentsBox"><button type="button" id="yongdal_open1">글</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open2">업무</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open3">일정</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open4">할 일</button></li>
-                       </ul>
-                    </div>
-                 </div>
-              </div>
+								<button type="button" id="yongdal_open1"
+									class="w-btn-outline w-btn-skin-outline">글</button>
+								<button type="button" id="yongdal_open2"
+									class="w-btn-outline w-btn-skin-outline">업무</button>
+								<button type="button" id="yongdal_open3"
+									class="w-btn-outline w-btn-skin-outline">일정</button>
+								<button type="button" id="yongdal_open4"
+									class="w-btn-outline w-btn-skin-outline">할 일</button>
+							</div>
+              <div class="content">
               <div class="content">
               <a href="sadf.jsp">이동동</a>
                     <% for(int i = 0; i < tododto.size(); i++){ %>

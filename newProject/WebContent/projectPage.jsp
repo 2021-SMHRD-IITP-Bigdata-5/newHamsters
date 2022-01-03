@@ -1,3 +1,4 @@
+<%@page import="com.DAO.teamDAO"%>
 <%@page import="com.DTO.t_team_memberDTO"%>
 <%@page import="com.DTO.t_todoDTO"%>
 <%@page import="com.DTO.t_workDTO"%>
@@ -30,8 +31,6 @@
   
   <!-- modal style -->
   <style>
-  
-  
 #modal {
   display: none;
   width:100%;
@@ -138,7 +137,7 @@ div.team_icon{
    height: 40px;
    border-radius: 10px;
    border: none;
-   background-color: green;
+   background-color: #e2d6ff;
    display:inline-block;
    
 }
@@ -196,6 +195,17 @@ div.newContentsBox{
    padding-left: 20px;
    padding-top: 20px;
    padding-bottom: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   
+}
+
+div.content_box{
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid grey;
+   width: 800px;
+   padding: 20px;
    margin-top: 20px;
    margin-bottom: 20px;
    
@@ -590,8 +600,64 @@ button#modal_open_btn{
 	
 }
 
+/* 참여자 */
+/* 참여자 */
+
+div.attendee{
+	border: none;
+	border-radius: 10px;
+	background-color: white;
+	width: 300px;
+	padding: 20px;
+	position: fixed;
+	right: 400px;
+	top: 400px;
+}
+
+/* 글 작성 버튼 */
+/* 글 작성 버튼 */
 
 
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 10px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight:;
+	transition: 0.25s;
+}
+
+.w-btn-outline {
+	position: relative;
+	padding: 5px 20px;
+	border-radius: 10px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-indigo {
+	background-color: aliceblue;
+	color: #1e6b7b;
+}
+
+.w-btn-skin-outline {
+	border: 0.5px solid #999999;
+	color: #000000;
+}
+
+div.content-wrapper {
+	min-height: 100%;
+	overflow: auto;
+	height: auto;
+	margin-bottom: 30%;
+}
 
 </style>
   
@@ -601,8 +667,9 @@ button#modal_open_btn{
 <%
 memberDTO dto = (memberDTO)session.getAttribute("teamdto");
 t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
+t_team_memberDTO ttmem = (t_team_memberDTO)session.getAttribute("admin");
 ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("teamSeq");
-/* ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3"); */
+ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3");
 %>
 
 <div class="container-scroller">
@@ -834,6 +901,30 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="project.html"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">게시글</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projectPageWork.jsp"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">업무</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="project.html"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">할 일</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
               <i class="icon-columns menu-icon"></i>
               <span class="menu-title">전체업무</span>
@@ -841,25 +932,37 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
             </a>
           </li>
           <li class="nav-item">
-            <%out.print("<a class='nav-link' href='GetDate.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
+            <%out.print("<a class='nav-link' href='getSche.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="icons">
               <i class="icon-contract menu-icon"></i>
               <span class="menu-title">나를언급</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="auth">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">내 게시물</span>
               <i class="menu-arrow"></i>
             </a>
+        </ul>
+        <%-- <H1>어드민어ㅕ부<%=ttmem.getAdminYN() %></H1> --%>
+        <% if(ttmem.getAdminYN().equals("1")){ %>
+         <li class="nav-item">
+         <h1><a href="projectInvite.jsp">이동동</a></h1>
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">팀원 초대</span>
+              <i class="menu-arrow"></i>
+            </a>
+         </li>
+       <%} %>
         </ul>
       </nav>
       <!-- partial -->
@@ -891,46 +994,59 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
                   </div>
                  </div>
                 </div>
-                <div>
+                <!-- <div>
                 	<ul type="none">
                 		<li class="menuuu"><a href="projectPage.jsp">글</a></li>
                 		<li class="menuuu"><a href="projectPageWork.jsp">업무</a></li>
                 		<li class="menuuu"><a href="projectPageTodo.jsp">할 일</a></li>
                 		<li class="menuuu"><a href="projectPageCal.jsp">캘린더</a></li>
                 	</ul>
-                </div>
+                </div> -->
               </div>
+              <div class="attendee">
+              	<div class="attendeeTitle">
+              		<h4>참여자</h4>
+              	</div>
+              	<div class="attendeebox">
+              		<%for(int i = 0; i < memberdto.size(); i++) { %>
+              		<hr>
+              		<ul type="none">
+              			<li><b><%=memberdto.get(i).getMemId() %></b></li>
+              			<li><%=memberdto.get(i).getTmMemo() %></li>
+              		</ul>
+              		<%} %>
+              	</div>
+              	
+              </div>
+              
               <form action="update.jsp">
               <!-- <button>  내프로필</button> -->
                 </form>
               <div class="content">
-                 <div class="newContentsBox">
-                    <div>
-                       <ul class="newContentsBox">
-                          <li class="newContentsBox"><button type="button" id="yongdal_open1">글</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open2">업무</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open3">일정</button></li>
-                          <li class="newContentsBox"><button type="button" id="yongdal_open4">할 일</button></li>
-                       </ul>
-                    </div>
-                 </div>
-              </div>
+								<button type="button" id="yongdal_open1"
+									class="w-btn-outline w-btn-skin-outline">글</button>
+								<button type="button" id="yongdal_open2"
+									class="w-btn-outline w-btn-skin-outline">업무</button>
+								<button type="button" id="yongdal_open3"
+									class="w-btn-outline w-btn-skin-outline">일정</button>
+								<button type="button" id="yongdal_open4"
+									class="w-btn-outline w-btn-skin-outline">할 일</button>
+							</div>
               <div class="content">
 
-								<h1>팀삭제하기</h1>
+								<%-- <h1>팀삭제하기</h1>
 								<%=t_DTO.getTeamSeq() %>
 								<% out.print("<a href='deleteTeam.do?teamSeq=" + t_DTO.getTeamSeq() + "'</a>"); %>
-									<button type="submit">삭제</button>
+									<button type="submit">삭제</button> --%>
 
-								<a href="sadf.jsp">이동동</a>
+								<!-- <a href="sadf.jsp">이동동</a> -->
                     <% for(int i = 0; i < commudto.size(); i++){ %>
-                 <div class="newContentsBox">
+                 <div class="content_box">
                     <div>
-                    <img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15
-										hspace=10>
+                    <img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15 hspace=10">
                        <span><%=commudto.get(i).getMemId() %></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span><%=commudto.get(i).getArticleDate() %></span>
                        <br>
-                       <h2><%=commudto.get(i).getArticleTitle() %></h2>
+                       <h3><%=commudto.get(i).getArticleTitle() %></h3>
                        <hr>
                        <h4><%=commudto.get(i).getArticleContent() %></h4>
                        <h6>#<%=commudto.get(i).getHashTag() %></h6>
