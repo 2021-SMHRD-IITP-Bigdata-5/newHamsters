@@ -841,7 +841,7 @@ ArrayList<t_commuDTO> commudto = (ArrayList<t_commuDTO>)session.getAttribute("te
             </a>
           </li>
           <li class="nav-item">
-            <%out.print("<a class='nav-link' href='getSche.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
+            <%out.print("<a class='nav-link' href='GetDate.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
