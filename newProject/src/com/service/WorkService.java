@@ -24,56 +24,69 @@ import oracle.sql.DATE;
 
 public class WorkService implements Command {
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("utf-8");
-		
+
 		HttpSession session = request.getSession();
-		memberDTO mdto = (memberDTO)session.getAttribute("dto");
-		t_teamDTO tdto = (t_teamDTO)session.getAttribute("teamName");
-		
+		memberDTO mdto = (memberDTO) session.getAttribute("dto");
+		t_teamDTO tdto = (t_teamDTO) session.getAttribute("teamName");
+
 		String workTitle = request.getParameter("title");
 		String workContent = request.getParameter("content");
 		String workStartDt2 = request.getParameter("startdt");
 		String workEndDt2 = request.getParameter("enddt");
 		String workProgress = request.getParameter("progress");
-		if(workContent.equals("")) {
-			response.sendRedirect("errormodal.jsp");
+
+		String progress = "";
+		System.out.println(workProgress);
+		if (workProgress.equals("요청")) {
+			progress = "1";
+		} else if (workProgress.equals("진행")) {
+			progress = "2";
+		} else if (workProgress.equals("피드백")) {
+			progress = "3";
+		} else if (workProgress.equals("완료")) {
+			progress = "4";
+		} else if (workProgress.equals("보류")) {
+			progress = "5";
 		}
+		System.out.println(progress);
+
 		String memId = mdto.getMemId();
 		double teamSeq = tdto.getTeamSeq();
 		String referenceId = request.getParameter("ref");
-		
-		//String type 으로 받아온 date 정보를 localdate로 형변환
+
+		// String type 으로 받아온 date 정보를 localdate로 형변환
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.US);
 		LocalDate workStartDt3 = LocalDate.parse(workStartDt2, formatter);
 		LocalDate workEndDt3 = LocalDate.parse(workEndDt2, formatter);
-		
+
 		// localDate -> date
 		Date workStartDt = java.sql.Date.valueOf(workStartDt3);
 		Date workEndDt = java.sql.Date.valueOf(workEndDt3);
-		
-		
-		System.out.println("입력받은날짜 : "+workStartDt + workEndDt);
-		System.out.println("팀시퀀스"+teamSeq);
-		System.out.println("입력하는 사람의 아이디"+memId);
-		
-		String nextpage = "";		
-		t_workDTO dto = new t_workDTO(workTitle, workContent, workStartDt, workEndDt, workProgress, memId, teamSeq, referenceId);
+
+		System.out.println("입력받은날짜 : " + workStartDt + workEndDt);
+		System.out.println("팀시퀀스" + teamSeq);
+		System.out.println("입력하는 사람의 아이디" + memId);
+
+		String nextpage = "";
+		t_workDTO dto = new t_workDTO(workTitle, workContent, workStartDt, workEndDt, progress, memId, teamSeq,
+				referenceId);
 		teamDAO dao = new teamDAO();
 		int cnt = dao.workWrite(dto);
-		
+
 		ArrayList<t_workDTO> list2 = dao.getWork(teamSeq);
-		
-		if(cnt > 0) {
+
+		if (cnt > 0) {
 			session.setAttribute("teamSeq1", list2);
 			RequestDispatcher dis = request.getRequestDispatcher("projectPageWork.jsp");
 			dis.forward(request, response);
-		}else {
+		} else {
 			nextpage = "LoginFalse.jsp";
 		}
 		return null;
 	}
-	
-	
+
 }

@@ -1,8 +1,6 @@
 package com.service;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -13,21 +11,17 @@ import javax.servlet.http.HttpSession;
 import com.DAO.memberDAO;
 import com.DTO.memberDTO;
 import com.DTO.t_teamDTO;
-import com.DTO.t_team_memberDTO;
-import com.google.gson.Gson;
 import com.inter.Command;
 
-public class LoginService implements Command {
-	
-	public String execute(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
-		
+public class mainService implements Command {
+
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
-		String memId = request.getParameter("id");
-		String memPw = request.getParameter("pw");
-		String memid = request.getParameter("id");
-		
-		memberDTO dto1 = new memberDTO(memId, memPw);
+		HttpSession session = request.getSession();
+		memberDTO dto1 = (memberDTO)session.getAttribute("dto");
+		String memid = dto1.getMemId();
 		
 		memberDAO dao = new memberDAO();
 		
@@ -36,14 +30,10 @@ public class LoginService implements Command {
 		response.setCharacterEncoding("utf-8");
 		
 		memberDTO dto = dao.Login(dto1);
-		
 		String nextpage = "";
-		System.out.println("로그인아이디"+memId);
-		System.out.println("로그인pw" + memPw);
+		
 		
 		if(dto != null) {
-			
-			HttpSession session = request.getSession();
 			
 			session.setAttribute("dto", dto);
 			session.setAttribute("teamSeq", list);
@@ -55,6 +45,6 @@ public class LoginService implements Command {
 			nextpage = "LoginFalse.jsp";
 	}
 	return nextpage;
-	
 	}
+
 }

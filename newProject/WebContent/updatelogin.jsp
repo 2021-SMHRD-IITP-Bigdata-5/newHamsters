@@ -20,7 +20,7 @@
 	box-shadow: 0 8px 28px 6 rgba(31, 38, 135, 0.37);
 	backdrop-filter: blur(1.5px);
 	-webkit-backdrop-filter: blur(1.5px);
-	border-radius: 10px;
+	border-radius: 30px;
 	border: 1px solid rgb(255, 255, 255);
 }
 
@@ -31,13 +31,15 @@
 	-webkit-backdrop-filter: blur(13.5px);
 	border-radius: 10px;
 	border: 1px solid rgba(36, 3, 3, 0.418);
-	width: 225px;
-	height: 200px;
+	width: 300px;
+	height: 500px;
 	position: relative;
 	top: -50px;
 	padding: 15px;
 }
-
+#img1{
+	border-radius: 30px;
+}
 #modal .title {
 	padding-left: 10px;
 	display: inline;
@@ -93,6 +95,7 @@ div#button {
 									<div class="brand-logo"></div>
 									<form class="pt-3">
 									<br>
+									<img id="img1" src="사용자.JPG">
 										<div class="form-group">
 											<input type="text" class="form-control form-control-lg"
 												id="exampleInputUsername1" placeholder="사용자이름">
@@ -129,11 +132,7 @@ div#button {
 			</div>
 		</div>
 	</div>
-	<script>
-        const loremIpsum = document.getElementById("lorem-ipsum")
-            .then(response => response.text())
-            .then(result => loremIpsum.innerHTML = result)
-    </script>
+
 </body>
 </html>
 

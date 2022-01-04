@@ -32,6 +32,23 @@
   
  <style>
 
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body,button,a{
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+}
+  
+.content-wrapper{
+	overflow: auto;
+}
+
+
 input#title{
    position: absolute;
    top : 25%;
@@ -111,6 +128,11 @@ div.row{
    margin-top: 20px;
 }
 
+div.row>div{
+	width: 850px;
+	padding-top:20px;
+	padding-left:20px;
+}
 div.content{
    padding-left: 40px;
    padding-top: 40px;
@@ -120,7 +142,7 @@ div.content{
 div.newContentsBox{
    background-color: white;
    border-radius: 10px;
-   border: 1px solid grey;
+   border: 1px solid #dedede;
    width: 800px;
    padding-left: 20px;
    padding-top: 20px;
@@ -133,11 +155,10 @@ div.newContentsBox{
 div.content_box{
    background-color: white;
    border-radius: 10px;
-   border: 1px solid grey;
+   border: 1px solid #dedede;
    width: 800px;
    padding: 20px;
-   margin-top: 20px;
-   margin-bottom: 20px;
+   margin: 40px;
    
 }
 
@@ -165,21 +186,93 @@ div.title{
 }
 
 
+/* 글 작성 버튼 */
+/* 글 작성 버튼 */
 
+div.content-wrapper {
+	min-height: 100%;
+	overflow: auto;
+	height: auto;
+	margin-bottom: 30%;
+}
+
+ul.nav {
+	width: 200px;
+	height: 100
+}
+
+
+button {
+	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	display: block;
+	margin: 0px auto;
+	max-width: 180px;
+	text-decoration: none;
+	border-radius: 4px;
+	padding: 10px 50px;
+}
+
+a.button {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+a.button2 {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button2:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
+/* 글 작성 버튼 */
+/* 글 작성 버튼 */
+
+div#seulgib{
+	position: absolute;
+	top: 20px;
+	right: -200px;
+
+}
+
+button#Seulgi{
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid #dedede;
+	
+}
 
 
 /* 참여자 */
 /* 참여자 */
 
 div.attendee{
-	border: none;
+	border: 1px solid #dedede;
 	border-radius: 10px;
 	background-color: white;
 	width: 300px;
 	padding: 20px;
-	position: fixed;
-	right: 400px;
-	top: 400px;
+	position: absolute ;
+	right: 300px;
+	top: 200px;
+}
+
+img.img{
+	width: 50px; 
+	height: 50px;
+	float: left;
+	margin-right: 10px;
 }
 
 table{
@@ -189,6 +282,80 @@ table{
 th, td{
 	border: 1px solid
 
+}
+
+h3.team_name{
+	font-size: 35px;
+   font-weight: bold;
+   display:inline-block;
+   position: absolute;
+   top: 25px;
+   left: 70px;
+}
+
+h6.team_attri{
+	font-size: 18px;
+   display:inline-block;
+   top: 10px;
+}
+
+/* 새프로젝트 버튼 */
+/* 새프로젝트 버튼 */
+button#modal_open_btn{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #4B49AC;
+	
+}
+
+button#modal_open_btn:hover{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #9492D1;
+	
+}
+
+/* 표 디자인  */
+/* 표 디자인  */
+
+
+div#invite{
+	margin:107px 20px;
+	border: 1px solid #dedede;
+	border-radius: 10px;
+	background-color: white;
+	width: 1100px;
+	heigth: 800px;
+	
+}
+
+table{
+	border: 20px solid white;
+	background-color: white;
+	text-align: center;
+	font-size: 20px;
+	margin: 20px auto;
+	padding:20px;
+}
+
+td, th{
+	border: 1px solid #dedede;
+	padding: 10px;
+}
+
+thead{
+	font-weight: bold;
+}
+
+td>a{
+	color: #1f1f1f;
+}
+
+td>a:hover{
+	color: #9492D1;
+	text-decoration: none;
 }
 
 </style>
@@ -201,82 +368,39 @@ memberDAO dao = new memberDAO();
 ArrayList<memberDTO> arr = dao.inviteMember();
 memberDTO dto = (memberDTO)session.getAttribute("teamdto");
 t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
+t_team_memberDTO ttmem = (t_team_memberDTO)session.getAttribute("admin");
 ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3");
 %>
 
-<div class="container-scroller">
+<div class="container-scroller" >
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="projectMain.jsp"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="projectMain.jsp"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="main.do"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="main.do"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
-                </span>
-              </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
-            </div>
-          </li>
-        </ul>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">알림</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="./images/faces/댕댕이2.JPG" alt="profile"/>
+              <img src="./사용자.JPG" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                설정
-              </a>
+              
               <form action="update.jsp">
               <button class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 내프로필</button>
                 </form>
               </a>
-              <a class="dropdown-item">
+              <a href = 'LogoutCon.do'>
+               <button class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
-                로그아웃
+                로그아웃</button>
               </a>
             </div>
           </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
-            </a>
-          </li>
-        </ul>
+ㄴ        </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
@@ -284,133 +408,8 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
+    
       <!-- partial:partials/_settings-panel.html -->
-      <div class="theme-setting-wrapper">
-        <div id="settings-trigger"><i class="ti-settings"></i></div>
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close ti-close"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
-          <p class="settings-heading mt-2">HEADER SKINS</p>
-          <div class="color-tiles mx-0 px-4">
-            <div class="tiles success"></div>
-            <div class="tiles warning"></div>
-            <div class="tiles danger"></div>
-            <div class="tiles info"></div>
-            <div class="tiles dark"></div>
-            <div class="tiles default"></div>
-          </div>
-        </div>
-      </div>
-      <div id="right-sidebar" class="settings-panel">
-        <i class="settings-close ti-close"></i>
-        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">MEMBER</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="setting-content">
-          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-            <div class="add-items d-flex px-3 mb-0">
-              <form class="form w-100">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">add</button>
-                </div>
-              </form>
-            </div>
-            <div class="list-wrapper px-3">
-              <ul class="d-flex flex-column-reverse todo-list">
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      이번주 업무 및 일정 확인하기
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      발표 01.03 확인
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      다음주 일정 확인하기
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      업무별 파트 확인하기
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- To do section tab ends -->
-          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
-            <div class="d-flex align-items-center justify-content-between border-bottom">
-              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
-              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
-            </div>
-            <ul class="chat-list">
-              <li class="list active">
-                <div class="profile"><img src="./images/faces/제2의유라언니.jpg"alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>최유라</p>
-                  <p>A팀 프로젝트</p>
-                </div>
-                <small class="text-muted my-auto">19 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="./images/faces/제2의정훈.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <div class="wrapper d-flex">
-                    <p>배정훈</p>
-                  </div>
-                  <p>A팀 프로젝트 팀장</p>
-                </div>
-                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
-                <small class="text-muted my-auto">23 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="./images/faces/슬기쿠키.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>장슬기</p>
-                  <p>A팀 프로젝트</p>
-                </div>
-                <small class="text-muted my-auto">14 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="./images/faces/영훈.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <p>나영훈</p>
-                  <p>A팀 프로젝트</p>
-                </div>
-                <small class="text-muted my-auto">2 min</small>
-              </li>
-            </ul>
-          </div>
-          <!-- chat tab ends -->
-        </div>
-      </div>
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -425,7 +424,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               </button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="project.html"> 
+            <a class="nav-link" href="projectMain.jsp"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">내프로젝트</span>
               <i class="menu-arrow"></i>
@@ -433,7 +432,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="project.html"> 
+            <a class="nav-link" href="projectPage.jsp"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">게시글</span>
               <i class="menu-arrow"></i>
@@ -441,7 +440,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="project.html"> 
+            <a class="nav-link" href="projectPageWork.jsp"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">업무</span>
               <i class="menu-arrow"></i>
@@ -449,7 +448,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="project.html"> 
+            <a class="nav-link" href="projectPageTodo.jsp"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">할 일</span>
               <i class="menu-arrow"></i>
@@ -463,8 +462,9 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               <i class="menu-arrow"></i>
             </a>
           </li>
+          
           <li class="nav-item">
-            <%out.print("<a class='nav-link' href='getSche.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
+            <%out.print("<a class='nav-link' href='GetDate.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
@@ -483,16 +483,18 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               <span class="menu-title">내 게시물</span>
               <i class="menu-arrow"></i>
             </a>
-        </ul>
-        <%-- <H1>어드민어ㅕ부<%=ttmem.getAdminYN() %></H1> --%>
-         <li class="nav-item">
-         <h1><a href="sadf.jsp">이동동</a></h1>
-            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="auth">
+            </li> 
+         <% if(ttmem.getAdminYN().equals("1")){ %> 
+          <li class="nav-item">
+            <a class="nav-link" href="projectInvite.jsp" aria-controls="auth"> 
               <i class="icon-head menu-icon"></i>
-              <span class="menu-title">팀원 초대</span>
+              <span class="menu-title">팀원초대</span>
               <i class="menu-arrow"></i>
             </a>
-         </li>
+          </li>
+        <%} %> 
+        <%-- <H1>어드민어ㅕ부<%=ttmem.getAdminYN() %></H1> --%>
+        
         </ul>
       </nav>
       <!-- partial -->
@@ -507,31 +509,18 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
                   <%-- <%=memberdto.get(0).getTeamSeq() %> --%>
                   <h3 class="team_name"><%= t_DTO.getTeamName()%></h3> <br>
                   <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
-                  
-                </div>
-                <div class="col-12 col-xl-4">
-                 <div class="justify-content-end d-flex">
-                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                     <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                      <a class="dropdown-item" href="#">January - March</a>
-                      <a class="dropdown-item" href="#">March - June</a>
-                      <a class="dropdown-item" href="#">June - August</a>
-                      <a class="dropdown-item" href="#">August - November</a>
-                    </div>
+                  <div id="seulgib">
+                  	<%if(ttmem.getTmMemo().equals("프로젝트관리자")) {%>
+	                  	<form action="deleteTeam.do">
+	                  	<button id="Seulgi" type="button">팀 삭제</button>
+	                  	</form>
+                  	<%} %>
                   </div>
-                 </div>
                 </div>
               </div>
               <div id="invite">
               	<table >
               	<thead>
-					<tr>
-						<td colspan="5"><input type="text" name="name" placeholder="검색할 이름을 입력하세요."></td>
-						<td><button onclick="memberSearch()">검색</button></td>
-					</tr>
 					<tr>
 						<td>회사</td>
 						<td>이름</td>
@@ -569,6 +558,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               		<%for(int i = 0; i < memberdto.size(); i++) { %>
               		<hr>
               		<ul type="none">
+              		<img class="img" src="사용자.JPG">
               			<li><b><%=memberdto.get(i).getMemId() %></b></li>
               			<li><%=memberdto.get(i).getTmMemo() %></li>
               		</ul>

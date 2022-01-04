@@ -1,17 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-    <style>
+ <style>
         :root{
    --body-background-color: #f5f6f7;
    --font-color: #4e4e4e;
    --border-gray-color : #dadada;
    --naver-green-color: #623ad6;
    --naver-green-border-color: #623ad6;
+}
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 
@@ -32,6 +39,7 @@ body{
    margin-top: 21px;
 }
 .main-container .main-wrap{
+   padding-top: 50px;
    width:768px;
 
 }
@@ -48,6 +56,7 @@ body{
 
 .main-container .main-wrap .logo-wrap{
    padding-top:55px;
+   padding-bottom:55px;
 }
 .main-container .main-wrap .logo-wrap img
 {
@@ -70,10 +79,14 @@ body{
    display: flex;
    flex-direction: column;
    align-items: center;
+   margin-top: 5px;
+   
+   
+   
 }
 
 .login-input-section-wrap2{
-   padding-top: 60px;
+   padding-top: 0px;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -86,6 +99,7 @@ body{
    height :48px;
    border: solid 1px var(   --border-gray-color );
    background: white;
+   margin: 5px;
 }
 
 .login-input-wrap#idCheck{
@@ -119,6 +133,8 @@ body{
    padding-top: 28px;
 }
 div>button#check{
+font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
    width: 50px;
    height :48px;
    font-size: 15px;
@@ -129,6 +145,8 @@ div>button#check{
    
 }
 .login-button-wrap button{
+font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
    width: 465px;
    height :48px;
    font-size: 18px;
@@ -154,30 +172,24 @@ div>button#check{
 
 
 footer{
-   
    padding-top: 95px;
    padding-bottom: 15px;
-
-   display:flex;
    flex-direction:column;
    align-items:center;
    width:768px;
-
-
-
+   margin: 0px;	
+   position:absolute;
+   left:50%;
+   margin-left:-384px;
 }
 .copyright-wrap{
-
    display: flex;
    flex-direction: column;
    align-items: center;
    height: 15px;
-
-
 }
 footer .copyright-wrap span img{
    width: 59px;
-   
    height: 11px;
 }
 footer .copyright-wrap span{
@@ -187,140 +199,146 @@ footer .copyright-wrap span{
     </style>
 </head>
 <body>
-   <script src="//code.jquery.com/jquery-latest.min.js"></script>
-   <script type="text/javascript">
-      function checkId() {
-    	
-         $.ajax({
-            url : "check.do",
-            type : "get",
-            data : {
-               "id" : $("input[id=idCheck]").val()
-            },
-            success : function(res) {
-               if (res == "true") {
-                  $("#result").html("중복된 ID입니다. 다른 ID를 입력해주세요.").css("color", "red");
-               } else {
-                  $("#result").html("사용가능한 ID입니다. ")
-                        .css("color", "#623ad6");
-               }
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+		function checkId() {
 
-            },
-            error : function() {
-               alert("요청실패")
-            }
-         });
-       
-      }
-      
-     
-    
-      
-   </script>
+			$.ajax({
+				url : "check.do",
+				type : "get",
+				data : {
+					"id" : $("input[id=idCheck]").val()
+				},
+				success : function(res) {
+					if (res == "true") {
+						$("#result").html("중복된 ID입니다. 다른 ID를 입력해주세요.").css(
+								"color", "red");
+					} else {
+						$("#result").html("사용가능한 ID입니다. ").css("color",
+								"#623ad6");
+					}
+
+				},
+				error : function() {
+					alert("요청실패")
+				}
+			});
+
+		}
+	</script>
 	<form action="JoinCon.do" method="post">
-    <div class="main-container">
-      <div class="main-wrap">
-      <header>
-         <div class="sel-lang-wrap">
-            
-         </div>
-         <div class="logo-wrap">
-            <img src ="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" width ="100" height="25">
-         </div>
-      </header>
-      <section class="login-input-section-wrap2">
-         <div id="idCheck" class="login-input-wrap">   
-         <input id="idCheck" class="idvalue" placeholder="Id(필수입력)" type="text" name="id"></input>
-         <button id="check" type="button" onclick="checkId()">중복</button>
-         </div>
-     </section>
-      <section class="login-input-section-wrap">
-         <div>
-            <p id="result"></p>
-         </div>
-         <div class="login-input-wrap password-wrap">   
-            <input id="Password" placeholder="Password(필수입력)" type="password" name="pw"></input>
-         </div>
-         <div class="login-input-wrap">   
-         <input placeholder="Name(필수입력)" type="text" name="name"></input>
-         </div>
-         <div class="login-input-wrap">   
-         <input placeholder="Company" type="text" name="com"></input>
-         </div>
-         <div class="login-input-wrap">   
-         <input placeholder="Email(필수입력)" type="text" name="email"></input>
-         </div>
-         <div class="login-input-wrap">   
-         <input placeholder="Tel(필수입력)" type="text" name="phone"></input>
-         </div>
-         <div class="login-input-wrap">   
-         <input placeholder="소개글" type="text" name="statu"></input>
-         </div>
-         <div class="login-button-wrap">
-            <button class="register_btn">회원가입</button>
-         </div>
-         </form>
-      </section>
-      
-      <footer>
-         <div class="copyright-wrap">
-         <span><img src ="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" width ="100" height="25"> Copyright © HAMSTERS Corp. All Rights Reserved.</span>
-         </div>
-      </footer>
-      </div>
-   </div>
-<script>
-	$(".register_btn").click(function(e) {
-		
-		let account = $(".idvalue").val();
-	    let password = $("#Password").val();
-	   
-	        var idcheck = /^[a-zA-Z]{1}[a-zA-Z0-9_]{4,11}$/.test(account);
-	        var pscheck = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/.test(password);
+		<div class="main-container">
+			<div class="main-wrap">
+				<header>
+					<div class="sel-lang-wrap"></div>
+					<div class="logo-wrap">
+						<img
+							src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg"
+							width="100" height="25">
+					</div>
+				</header>
+				<section class="login-input-section-wrap2">
+					<div id="idCheck" class="login-input-wrap">
+						<input id="idCheck" class="idvalue" placeholder="Id(필수입력)"
+							type="text" name="id"></input>
+						<button id="check" type="button" onclick="checkId()">중복</button>
+					</div>
+				</section>
+				<section class="login-input-section-wrap">
+					<div>
+						<p id="result"></p>
+					</div>
+					<div class="login-input-wrap password-wrap">
+						<input id="Password" placeholder="Password(필수입력)" type="password"
+							name="pw"></input>
+					</div>
+					<div class="login-input-wrap">
+						<input placeholder="Name(필수입력)" type="text" name="name"></input>
+					</div>
+					<div class="login-input-wrap">
+						<input placeholder="Company" type="text" name="com"></input>
+					</div>
+					<div class="login-input-wrap">
+						<input placeholder="Email(필수입력)" type="email" name="email"></input>
+					</div>
+					<div class="login-input-wrap">
+						<input placeholder="Tel(필수입력)" type="text" name="phone"></input>
+					</div>
+					<div class="login-input-wrap">
+						<input placeholder="소개글" type="text" name="statu"></input>
+					</div>
+					<div class="login-button-wrap">
+						<button class="register_btn">회원가입</button>
+					</div>
+				</section>
+			</div>
+		</div>
+	</form>
 
+	<footer>
+		<div class="copyright-wrap">
+			<span><img
+				src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg"
+				width="100" height="25"> Copyright © HAMSTERS Corp. All Rights
+				Reserved.</span>
+		</div>
+	</footer>
+	<script>
+		$(".register_btn")
+				.click(
+						function(e) {
 
-	        if (account.trim() === "") {
-	            alert("ID 입력!!");
-	            return false;
-	        }
+							let account = $(".idvalue").val();
+							let password = $("#Password").val();
 
-	        if(!idcheck){
-	            alert("아이디는 5 ~ 12자, 영문, 숫자가 포함되어야 합니다.");
-	            return false;
-	        }
+							var idcheck = /^[a-zA-Z]{1}[a-zA-Z0-9_]{4,11}$/
+									.test(account);
+							var pscheck = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,}$/
+									.test(password);
 
-	        if (password.trim() === "") {
-	            alert("비밀번호 입력!!");
-	            return false;
-	        }
+							if (account.trim() === "") {
+								alert("ID 입력!!");
+								return false;
+							}
 
-	        if(!pscheck){
-	            alert("비밀번호는 최소 8자, 하나 이상의 소문자, 숫자, 특수문자가 포함되어야 합니다.");
-	            return false;
-	        }
-	        
-	        $.ajax({ 
-	            url : "JoinCon.do",
-	            type : "post",
-	            data : {
-	               "id" : account,
-	               "password" : password
-	            },
-	            success : function(res) {
-	               if (res == "true") {
-	                  $("#result").html("중복된 ID입니다. 다른 ID를 입력해주세요.").css("color", "red");
-	               } else {
-	                  $("#result").html("사용가능한 ID입니다. ")
-	                        .css("color", "#623ad6");
-	               }
+							if (!idcheck) {
+								alert("아이디는 5 ~ 12자, 영문, 숫자가 포함되어야 합니다.");
+								return false;
+							}
 
-	            },
-	            error : function() {
-	               alert("요청실패")
-	            }//고쳤습니다
-	         });
-	});
-</script>   
+							if (password.trim() === "") {
+								alert("비밀번호 입력!!");
+								return false;
+							}
+
+							if (!pscheck) {
+								alert("비밀번호는 최소 8자, 하나 이상의 소문자, 숫자, 특수문자가 포함되어야 합니다.");
+								return false;
+							}
+
+							$.ajax({
+								url : "JoinCon.do",
+								type : "post",
+								data : {
+									"id" : account,
+									"password" : password
+								},
+								success : function(res) {
+									if (res == "true") {
+										$("#result").html(
+												"중복된 ID입니다. 다른 ID를 입력해주세요.")
+												.css("color", "red");
+									} else {
+										$("#result").html("사용가능한 ID입니다. ").css(
+												"color", "#623ad6");
+									}
+
+								},
+								error : function() {
+									alert("요청실패")
+								}//고쳤습니다
+							});
+						});
+	</script>
 </body>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-5/hamsters.git
 </html>

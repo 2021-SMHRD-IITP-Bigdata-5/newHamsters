@@ -23,7 +23,7 @@ public class memberDAO {
 	memberDTO dto = null;
 	private boolean check;
 	t_teamDTO dtot = null;
-
+	
 	public void getConn() {
 
 		try {
@@ -208,7 +208,7 @@ public class memberDAO {
 		try {
 			getConn();
 
-			String sql = "select * from t_team where mem_id = ?";
+			String sql = "select t.team_seq, t.team_name, t.team_content, t.reg_date from t_team t, t_team_members m where t.team_seq = m.team_seq and m.mem_id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, memid);
 			rs = psmt.executeQuery();
@@ -220,8 +220,6 @@ public class memberDAO {
 				Date teamDate = rs.getDate(4);
 				dtot = new t_teamDTO(teamSeq, teamName, teamCon, teamDate);
 				arr.add(dtot);
-				System.out.println(arr);
-				System.out.println(teamSeq);
 			}
 
 		} catch (Exception e) {
@@ -231,7 +229,35 @@ public class memberDAO {
 		}
 		return arr;
 	}
-
+//	public ArrayList<t_team_memberDTO> teamList(String memid){
+//		ArrayList<t_team_memberDTO> array = new ArrayList<t_team_memberDTO>();
+//		t_team_memberDTO ttmdto = null;
+//		try {
+//			getConn();
+//			
+//			String sql ="select t.team_seq, t.team_name from t_team t, t_team_members m where t.team_seq = m.team_seq and m.mem_id = ?";
+//			
+//			psmt = conn.prepareStatement(sql);
+//			
+//			psmt.setString(1, memid);
+//			
+//			rs = psmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				double getTeamSeq = rs.getDouble(3);
+//				ttmdto = new t_team_memberDTO(getTeamSeq, teamName);
+//				array.add(ttmdto);
+//			}
+//			
+//		} catch (Exception e) {
+//			System.out.println("클래스파일 로딩실패");
+//			e.printStackTrace();
+//		}finally {
+//			close();
+//		}
+//		
+//		return array;
+//	}
 	public int UpdateMem(memberDTO dto) {
 
 		try {
@@ -329,5 +355,5 @@ public class memberDAO {
 
 		return arr;
 	}
-
+	
 }

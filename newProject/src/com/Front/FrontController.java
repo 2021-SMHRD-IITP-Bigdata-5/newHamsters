@@ -25,9 +25,11 @@ import com.service.TodoService;
 import com.service.UpdateService;
 import com.service.WorkChangeService;
 import com.service.WorkService;
+import com.service.acceptTeamService;
 import com.service.createTeamService;
 import com.service.deleteTeamService;
 import com.service.inviteService;
+import com.service.mainService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -124,6 +126,12 @@ public class FrontController extends HttpServlet {
 			nextpage = com.execute(request, response);
 		} else if (command.equals("WorkChange.do")) {
 			com = new WorkChangeService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("acceptTeam.do")) {
+			com = new acceptTeamService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("main.do")) {
+			com = new mainService();
 			nextpage = com.execute(request, response);
 		}
 		

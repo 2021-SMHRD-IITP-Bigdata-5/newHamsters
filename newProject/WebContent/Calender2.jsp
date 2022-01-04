@@ -1,3 +1,4 @@
+<%@page import="com.DTO.t_team_memberDTO"%>
 <%@page import="com.DTO.t_scheduleDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DTO.memberDTO"%>
@@ -8,10 +9,12 @@
 <html>
 <head>
 <meta charset='utf-8' />
+
 <title>Insert title here</title>
 <!-- plugins:css -->
  <link rel="stylesheet" href="vendors/feather/feather.css"> 
  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- Plugin css for this page -->
  <link rel="stylesheet"
@@ -38,6 +41,20 @@
 <script
    src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
 <style>
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body,button,a{
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+}
+  
+
+
 .fc-icon,.fc-unselectable{-moz-user-select:none;-ms-user-select:none}
 .fc .fc-button,.fc-icon{text-transform:none;font-weight:400}
 .fc-not-allowed,.fc-not-allowed .fc-event{cursor:not-allowed}
@@ -86,7 +103,7 @@
 .fc .fc-toolbar{display:flex;justify-content:space-between;align-items:center}
 .fc .fc-toolbar.fc--toolbar{margin-bottom:1.5em}
 .fc .fc-toolbar.fc-footer-toolbar{margin-top:1.5em}
-.fc .fc-toolbar-title{font-size:1.75em;margin:0}.fc-direction-ltr .fc-toolbar>*>:not(:first-child){margin-left:.75em}
+.fc .fc-toolbar-title{font-size:1.75em;margin-top:10px;}.fc-direction-ltr .fc-toolbar>*>:not(:first-child){margin-left:.75em}
 .fc-direction-rtl .fc-toolbar>*>:not(:first-child){margin-right:.75em}
 .fc-direction-rtl .fc-toolbar-ltr{flex-direction:row-reverse}
 .fc .fc-scroller{-webkit-overflow-scrolling:touch;position:relative}
@@ -274,10 +291,20 @@
 .fc-theme-bootstrap a:not([href]){color:inherit}
 .fc-event-time{display: none;}
 /* body 스타일 */
-html, body {
+
+ @font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html, body, button, a {
    overflow: hidden;
-   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-   font-size: 14px;
+   font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+   
 }
 
 
@@ -538,17 +565,22 @@ div.team_icon {
    height: 40px;
    border-radius: 10px;
    border: none;
-   background-color: green;
+   background-color: #e2d6ff;
    display: inline-block;
 }
 
-h3.team_name {
+h3.team_name{
+	font-size: 35px;
    font-weight: bold;
-   display: inline-block;
+   position: absolute;
+   top: 25px;
+   left: 70px;
 }
 
-h6.team_attri {
-   display: inline-block;
+h6.team_attri{
+	font-size: 18px;
+   display:inline-block;
+   top: 10px;
 }
 
 ul#menutap {
@@ -580,6 +612,12 @@ div.row1 {
 
 div.row {
    margin-top: 20px;
+}
+
+div.row>div{
+	width: 850px;
+	padding-top:20px;
+	padding-left:20px;
 }
 
 div.content {
@@ -647,15 +685,15 @@ div.title {
 
 #modal1 .modal_content {
    position: relative;
-   top: 4%;
+   top: 250px;
    width: 728px;
    height: 487px;
    margin: 20px auto;
    padding: 40px;
-   padding-right: -28px;
    background: #fff;
-   border-radius: 0px;
-   left:639px;
+   border-radius: 10px;
+   left: -80px;
+   
 }
 
 #modal1 .modal_layer {
@@ -678,12 +716,191 @@ div.title {
    right: -4%;
    top: -10%;
 }
+
+h3.team_name{
+	font-size: 35px;
+   font-weight: bold;
+   display:inline-block;
+   position: absolute;
+   top: 6px;
+   left: 70px;
+}
+
+h6.team_attri{
+	font-size: 18px;
+   display:inline-block;
+   top: 10px;
+}
+
+/* 글 작성 버튼 */
+/* 글 작성 버튼 */
+
+div#seulgib{
+	position: absolute;
+	top: 20px;
+	right: -250px;
+
+}
+
+button#Seulgi{
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid #dedede;
+	
+}
+
+
+/* 새프로젝트 버튼 */
+/* 새프로젝트 버튼 */
+button#modal_open_btn{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #4B49AC;
+	
+}
+
+button#modal_open_btn:hover{
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #9492D1;
+	
+}
+
+/* 참여자 */
+/* 참여자 */
+div.attendee{
+	border: 1px solid #dedede;
+	border-radius: 10px;
+	background-color: white;
+	width: 300px;
+	padding: 20px;
+	position: absolute ;
+	right: 250px;
+	top: 200px;
+}
+
+img.img{
+	width: 50px; 
+	height: 50px;
+	float: left;
+	margin-right: 10px;
+}
+
+/* 글작성 버튼 */
+/* 글작성 버튼 */
+div.content-wrapper {
+	min-height: 100%;
+	overflow: auto;
+	height: auto;
+	margin-bottom: 30%;
+}
+
+ul.nav {
+	width: 200px;
+	height: 100
+}
+
+
+button {
+	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	display: block;
+	margin: 0px auto;
+	max-width: 180px;
+	text-decoration: none;
+	border-radius: 4px;
+	padding: 10px 50px;
+}
+
+a.button {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+a.button2 {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button2:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
+
+div.card-body>a{
+	align-text: center;
+   display: block;
+}
+div.card.card-tale{
+	text-align: center;
+	
+}
+a:hover{
+	text-decoration: none;
+}
+
+
+/*   캘린더       */
+
+div#calendar-container{
+	position: absolute;
+	top: 150px;
+	left: 50px;
+	background-color: white;
+	border-radius: 25px;
+	padding: 25px;
+	margin-bottom: 50px;
+}
+
+/* footer */
+
+footer{
+   padding-top: 95px;
+   padding-bottom: 15px;
+   flex-direction:column;
+   align-items:center;
+   width:768px;
+   margin: 0px;	
+   position:absolute;
+   left:50%;
+   margin-left:-384px;
+}
+.copyright-wrap{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: 15px;
+}
+footer .copyright-wrap span img{
+   width: 59px;
+   height: 11px;
+}
+footer .copyright-wrap span{
+   font-size: 13px;
+   line-height: 15px;
+}
+
+
 </style>
 </head>
 <body >
 <%
 memberDTO dto = (memberDTO)session.getAttribute("dto");
 String userId = dto.getMemId(); 
+t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
+t_team_memberDTO ttmem = (t_team_memberDTO)session.getAttribute("admin");
+ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.getAttribute("teamSeq3");
 %> 
  
 
@@ -693,7 +910,7 @@ String userId = dto.getMemId();
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
            <div
             class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-5" href="index.html"><img
+            <a class="navbar-brand brand-logo mr-5" href="main.do"><img
                src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg"
                class="mr-2" alt="logo" /></a> <a class="navbar-brand brand-logo-mini"
                href="index.html"><img
@@ -702,67 +919,22 @@ String userId = dto.getMemId();
          </div>
          <div
             class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-            <button class="navbar-toggler navbar-toggler align-self-center"
-               type="button" data-toggle="minimize">
-               <span class="icon-menu"></span>
-            </button>
-            <ul class="navbar-nav mr-lg-2">
-               <li class="nav-item nav-search d-none d-lg-block">
-                  <div class="input-group">
-                     <div class="input-group-prepend hover-cursor"
-                        id="navbar-search-icon">
-                        <span class="input-group-text" id="search"> <i
-                           class="icon-search"></i>
-                        </span>
-                     </div>
-                     <input type="text" class="form-control" id="navbar-search-input"
-                        placeholder="Search now" aria-label="search"
-                        aria-describedby="search">
-                  </div>
-               </li>
-            </ul>
             <ul class="navbar-nav navbar-nav-right">
-               <li class="nav-item dropdown"><a
-                  class="nav-link count-indicator dropdown-toggle"
-                  id="notificationDropdown" href="#" data-toggle="dropdown"> <i
-                     class="icon-bell mx-0"></i> <span class="count"></span>
-               </a>
-                  <div
-                     class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                     aria-labelledby="notificationDropdown">
-                     <p class="mb-0 font-weight-normal float-left dropdown-header">알림</p>
-                     <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                           <div class="preview-icon bg-info">
-                              <i class="ti-user mx-0"></i>
-                           </div>
-                        </div>
-                        <div class="preview-item-content">
-                           <h6 class="preview-subject font-weight-normal">New user
-                              registration</h6>
-                           <p class="font-weight-light small-text mb-0 text-muted">2
-                              days ago</p>
-                        </div>
-                     </a>
-                  </div></li>
                <li class="nav-item nav-profile dropdown"><a
                   class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
-                  id="profileDropdown"> <img src="./images/faces/댕댕이2.JPG"
+                  id="profileDropdown"> <img src="./사용자.JPG"
                      alt="profile" />
                </a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                      aria-labelledby="profileDropdown">
-                     <a class="dropdown-item"> <i class="ti-settings text-primary"></i>
-                        설정
-                     </a> <a class="dropdown-item"> <i
+                      <a class="dropdown-item"> <i
                         class="ti-settings text-primary"></i> 내프로필
-                     </a> <a class="dropdown-item"> <i
-                        class="ti-power-off text-primary"></i> 로그아웃
-                     </a>
+                     </a> <a href = 'LogoutCon.do'>
+               <button class="dropdown-item">
+                <i class="ti-power-off text-primary"></i>
+                로그아웃</button>
+              </a>
                   </div></li>
-               <li class="nav-item nav-settings d-none d-lg-flex"><a
-                  class="nav-link" href="#"> <i class="icon-ellipsis"></i>
-               </a></li>
             </ul>
             <button
                class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
@@ -772,57 +944,137 @@ String userId = dto.getMemId();
          </div>
 
       </nav>
+      
       <!-- partial -->
       <div class="container-fluid page-body-wrapper" >
       			<nav class="sidebar sidebar-offcanvas" id="sidebar">
 
-				<ul class="nav">
-			
-					<li class="nav-item" >
-						<a class="nav-link" style="background:#5F04B4;">
-						<span class="menu-title" type="clickable button" id="modal_open_btn" style="font-size:1.8em; color:#FFFFFF;"><b>New Project</b></span></a>
-							
-						<li type="clickable button" id="modal_open_btn">
-						
-						</li>
-					</li>
-					
-					
-					<li class="nav-item">
-						<a class="nav-link" href="project.html">
-							<i class="icon-layout menu-icon"></i> 
-							<span class="menu-title">내프로젝트</span>
-							<i class="menu-arrow"></i>
-					 </a></li>
-					
-					
-					
-					<li class="nav-item"><a class="nav-link"
-						data-toggle="collapse" href="#form-elements" aria-expanded="false"
-						aria-controls="form-elements"> <i
-							class="icon-columns menu-icon"></i> <span class="menu-title">전체업무</span>
-							<i class="menu-arrow"></i>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						data-toggle="collapse" href="#tables" aria-expanded="false"
-						aria-controls="tables"> <i class="icon-grid-2 menu-icon"></i>
-							<span class="menu-title">캘린더</span> <i class="menu-arrow"></i>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						data-toggle="collapse" href="#icons" aria-expanded="false"
-						aria-controls="icons"> <i class="icon-contract menu-icon"></i>
-							<span class="menu-title">나를언급</span> <i class="menu-arrow"></i>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						data-toggle="collapse" href="#auth" aria-expanded="false"
-						aria-controls="auth"> <i class="icon-head menu-icon"></i> <span
-							class="menu-title">내 게시물</span> <i class="menu-arrow"></i>
-					</a>
-				</ul>
+        <ul class="nav">
+          <li class="nav-item">
+              <button type="button" id="modal_open_btn">
+              <i class="icon-grid menu-icon"></i>
+              <div id="root">
+              <span class="menu-title">새 프로젝트</span>
+              </div>
+              </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projectMain.jsp"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">내프로젝트</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projectPage.jsp"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">게시글</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projectPageWork.jsp"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">업무</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projectPageTodo.jsp"> 
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">할 일</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">전체업무</span>
+              <i class="menu-arrow"></i>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <%out.print("<a class='nav-link' href='GetDate.do?connect_team=" + t_DTO.getTeamSeq() + "'</a>"); %>
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">캘린더</span>
+              <i class="menu-arrow"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="icons">
+              <i class="icon-contract menu-icon"></i>
+              <span class="menu-title">나를언급</span>
+              <i class="menu-arrow"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="sadf.jsp" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">내 게시물</span>
+              <i class="menu-arrow"></i>
+            </a>
+            </li> 
+         <% if(ttmem.getAdminYN().equals("1")){ %> 
+          <li class="nav-item">
+            <a class="nav-link" href="projectInvite.jsp" aria-controls="auth"> 
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">팀원초대</span>
+              <i class="menu-arrow"></i>
+            </a>
+          </li>
+        <%} %> 
+        <%-- <H1>어드민어ㅕ부<%=ttmem.getAdminYN() %></H1> --%>
+        
+        </ul>
+      </nav>
 			</nav>
          <!-- partial -->
-          
-         <!-- calendar 태그 -->
+          <div class="main-panel">
+        <div class="content-wrapper" style="padding: 0px;">
+          <div class="row1" style="">
+          <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <div class="team_icon"></div>
+                  <!-- <h1><a href="sadf.jsp">이동동</a></h1> -->
+                  <%-- <%=memberdto.get(0).getTeamSeq() %> --%>
+                  <h3 class="team_name"><%= t_DTO.getTeamName()%></h3> <br>
+                  <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
+                  <div id="seulgib">
+                  	<button id="Seulgi" type="button">글 작성</button>
+                  	<%if(ttmem.getTmMemo().equals("프로젝트관리자")) {%>
+	                  	<form action="deleteTeam.do">
+	                  	<button id="Seulgi" type="button">팀 삭제</button>
+	                  	</form>
+                  	<%} %>
+                  </div>
+                </div>
+                <div class="content">
+              
+              <div class="content_2">
+              <div class="attendee">
+              	<div class="attendeeTitle">
+              		<h4>참여자</h4>
+              	</div>
+              	<div class="attendeebox">
+              		<%for(int i = 0; i < memberdto.size(); i++) { %>
+              		<hr>
+              		<ul type="none">
+              		<img class="img" src="사용자.JPG">
+              			<li><b><%=memberdto.get(i).getMemId() %></b></li>
+              			<li><%=memberdto.get(i).getTmMemo() %></li>
+              		</ul>
+              		<%} %>
+              	</div>
+              	
+              </div>
+         <!-------------------- calendar 태그 ------------------------------->
+         <!-------------------- calendar 태그 ------------------------------->
    <div id='calendar-container' style='display:inline-block'>
       
       <div id="calendar" class="fc fc-media-screen fc-direction-ltr fc-theme-standard" style="height: 700px; width: 1000px;">
@@ -1401,88 +1653,48 @@ String userId = dto.getMemId();
             </div>
  </div>           
  </div>
- 
-          <!-- 업무 모달 -->
+ <!---------------------- 캘린더 끝 -->
+ <!---------------------- 캘린더 끝 -->
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+          <!-- 캘린더 모달 -->
             <div style="display: inline">
             <div id="modal1" class="modal_content">
                <div class="modal_content">
-                  <div class="title">
+                  <div>
                   <button type="button" id="yongdal_close1">X</button>
                   <form action="comWrite.do">
+                  <div class="scheContent">
+                     	<span><img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15 hspace=10><p class="id" style="display: inline;">작성자</p></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<span style="display: inline;"><p class="regdate" style="display: inline;">작성시간</p></span>
+                     </div>   
+                     <div class="title">
+                     	<h2>제목</h2>
+                     </div>
+                     <br>
+                     <div class="date">
+                     	<h5>기간</h5>
+                     </div>
+                     <hr>
+                     <br>
                      <div class="content">
-                     <input type="text" style="width:455px; height:25px; border:1px solid white; background-color:transparent;"
-                           name="content1" id="content1" placeholder="일정"><br>
-                           <img src="사용자.JPG" style="width: 50px; height: 50px;" vspace=15
-										hspace=10> <font size="3" color="000000"><b>최유라</b>&nbsp;
-                           <input type="text" style="width:150px; height:25px; border:1px solid white; background-color:transparent;" value="";
-                           name="content1" id="content1" placeholder="시작일자"> 
-                           <input type="text" style="width:150px; height:25px; border:1px solid white; background-color:transparent;" value="";
-                           name="content1" id="content1" placeholder="종료일자"> 
-                           <input type="text" style="width:450px; height:200px;"
-                           name="content" id="content" placeholder="일정내용입력"> 
-                          <input type="text" style="width:200px; height:25px; border:1px solid white; background-color:transparent; "
-                           name="content1" id="content1" placeholder="참석자"> 
-                           <img src="사용자.JPG" style="width:25px; height: 25px;">
-                           <img src="사용자.JPG" style="width:25px; height: 25px;">
-                           <img src="사용자.JPG" style="width:25px; height: 25px;">
-                           <img src="사용자.JPG" style="width:25px; height: 25px;">
-                        <br> <br>
-                       
+                     	<h4>내용</h4>
+                     </div>
+                     <div class="attendant">
+                     	<p style="display: inline; font-size: 15px;">참석자</p>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<b style="display: inline;">참석자</b>
+                     </div>
                      </div>
                   </form>
-               </div>
                <div class="modal_layer"></div>
+               </div>
             </div>
          </div>
-               
-               
-               <!-- modal scipt -->
+           <!-- modal scipt -->
                <script src="js/jquery-3.6.0.min.js"></script>
-               <script>
-         document.getElementById("modal_open_btn").onclick = function() {
-            document.getElementById("modal").style.display = "block";
-         }
 
-         document.getElementById("modal_close_btn").onclick = function() {
-            document.getElementById("modal").style.display = "none";
-         }
-      </script>
-
-
-
-               <script>
-         $("#modal_open_btn").click(function() {
-            $("#modal").attr("style", "display:block");
-         });
-
-         $("#modal_close_btn").click(function() {
-            $("#modal").attr("style", "display:none");
-         });
-      </script>
-
-
-
-               <!--  글 작성 modal  -->
-               <!--  글 작성 modal  -->
-               <!--  글 작성 modal  -->
-
-
-               <script>
-         document.getElementById("yongdal_open1").onclick = function() {
-            document.getElementById("modal1").style.display = "block";
-         }
-
-         document.getElementById("yongdal_close1").onclick = function() {
-            document.getElementById("modal1").style.display = "none";
-         }
-         document.getElementById("modal5_close_btn").onclick = function() {
-            document.getElementById("modal5").style.display = "none";
-         }
-      </script>
-
-
-
-               <script>
+        <script>
          $("#yongdal_open1").click(function() {
             $("#modal1").attr("style", "display:block");
          });
@@ -1491,10 +1703,6 @@ String userId = dto.getMemId();
             $("#modal1").attr("style", "display:none");
          });
       </script>
-
- 
- 
-
 
 
    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -1505,9 +1713,7 @@ String userId = dto.getMemId();
             let data = JSON.parse('<%=json%>');
             
             console.log(data);
-            
-            
-               
+              
             for(let i = 0; i < data.length; i++){
                
                calendar.addEvent(data[i]);
@@ -1536,7 +1742,7 @@ String userId = dto.getMemId();
                      initialDate : '2021-12-21', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
                      navLinks : true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
                      editable : true, // 수정 가능?
-                     selectable : true, // 달력 일자 드래그 설정가능
+                     /* selectable : true, */ // 달력 일자 드래그 설정가능
                      nowIndicator : true, // 현재 시간 마크
                      dayMaxEvents : true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
                      locale : 'ko', // 한국어 설정
@@ -1551,11 +1757,27 @@ String userId = dto.getMemId();
                      },
                      eventClick : function(obj){
                         console.log('클릭한 노란바의 타이틀>>',obj.event._def.title);
+                        console.log('클릭한 노란바의 내용>>',obj.event._def.extendedProps.scheContnet);
+	
+                        regD = obj.event._def.extendedProps.regDate.split(" ");
+                        start = obj.event._instance.range.start + "";
+                        end = obj.event._instance.range.end + "";
                         
+                        console.log(start.split(" "));
+                        console.log((start.split(" ")[3]) + "-" + engNumber(start.split(" ")[1])+ "-" +(start.split(" ")[2]));
+                        console.log((end.split(" ")[3]) + "-" + engNumber(end.split(" ")[1])+ "-" +(end.split(" ")[2]));
+                        
+                        $('p.id').text(obj.event._def.extendedProps.memId);
+                        $('p.regdate').text(regD[2] + "년 " + regD[0] + " " + regD[1].split(",")[0]+"일");
+                        $('div.title>h2').text(obj.event._def.title);
+                        $('div.date>h5').text((start.split(" ")[3]) + "-" + engNumber(start.split(" ")[1])+ "-" +(start.split(" ")[2])  + ' ~ ' + (end.split(" ")[3]) + "-" + engNumber(end.split(" ")[1])+ "-" +(end.split(" ")[2]));
+                        $('div.content>h4').text(obj.event._def.extendedProps.scheContnet);
+                        $('div.attendant>b').text(obj.event._def.extendedProps.scheAttendance);
+                    
                        document.getElementById("modal1").style.display = "block";
                       
                      },
-                     select : function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
+                     /* select : function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.
                         // 이벤트 생성 코드
                         var title = prompt('Event Title:');
                         if (title) {
@@ -1568,12 +1790,10 @@ String userId = dto.getMemId();
                            // 여기서 Ajax이용해서 json을 보내주면 된다.
                         }
                         calendar.unselect()
-                     },////////
+                     },//////// */
                      
                      // 이벤트
-                     events : [
-                        
-                     ]
+                     events : []
                      
                   });
                
@@ -1584,8 +1804,28 @@ String userId = dto.getMemId();
       })();
    </script>
    <script type="text/javascript">
-         $(".fc-event-time").hide();      
+         $(".fc-event-time").hide();    
+       
+         function engNumber(a){
+        	 if(a == 'Dec'){
+        		 return '12'
+        	 }else if(a == 'Nov'){
+        		 return '11'
+        	 }else if(a =='Jan'){
+        		 return '1'	         	 
+        	}else if(a =='Feb'){
+        		 return '2'	         	 
+        	}
+         }
    </script>
+<!-- <footer>
+		<div class="copyright-wrap">
+			<span> <img
+				src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg">
+				Copyright © HAMSTERS Corp. All Rights Reserved.
+			</span>
+		</div>
+	</footer> -->
 </body>
 </html> 
                         

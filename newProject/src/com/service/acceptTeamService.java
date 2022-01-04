@@ -10,33 +10,36 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.teamDAO;
+import com.DTO.memberDTO;
 import com.DTO.t_teamDTO;
 import com.DTO.t_team_memberDTO;
 import com.inter.Command;
 
-public class inviteService implements Command {
+public class acceptTeamService implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String nextpage = "";
-		HttpSession session = request.getSession();
+
 		request.setCharacterEncoding("utf-8");
-		String memid = request.getParameter("memid");
-		t_teamDTO t_DTO = (t_teamDTO)session.getAttribute("teamName");
-		double teamseq = t_DTO.getTeamSeq();
+		
+		HttpSession session = request.getSession();
+		memberDTO memberdto = (memberDTO)session.getAttribute("dto");
+		t_teamDTO teamdto = (t_teamDTO)session.getAttribute("teamName");
+		String memid = memberdto.getMemId();
+		Double teamseq = teamdto.getTeamSeq();
 		
 		teamDAO dao = new teamDAO();
+		int cnt = dao.acceptTeam(memid, teamseq);
+		t_team_memberDTO ttmem = dao.teamMemberdto(memid, teamseq);
 		ArrayList<t_team_memberDTO> list4 = dao.getMembers(teamseq);
-		int cnt = dao.insertTeam(memid, teamseq);
-		
 		if(cnt > 0) {
+			session.setAttribute("admin", ttmem);
 			session.setAttribute("teamSeq3", list4);
-			RequestDispatcher dis = request.getRequestDispatcher("projectInvite.jsp");
-	        dis.forward(request, response);
-		}else {
-			
+			RequestDispatcher dis = request.getRequestDispatcher("projectPage.jsp");
+            dis.forward(request, response);
 		}
+		
 		
 		return null;
 	}

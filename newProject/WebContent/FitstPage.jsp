@@ -8,11 +8,126 @@
 <link href="/static/package/view.min.css?1630042307762" rel="stylesheet" type="text/css"><script async="" src="//www.google-analytics.com/analytics.js"></script>
 	<script src="/static/package/view-resource.min.js?1630042307762"></script>
 	<script>screenWidth = 1200; projectId = "kvDHg6vdscwzCEQ1tOzIE5O6hodFNSUW"; sequenceId = "dTQsd";</script>
-	<style>body {margin:0;padding:0;}
-		#webView {overflow:hidden;position:relative;background:;width:1200px;height:1002px;margin:0 auto;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
-		#webView[data-show-memo='true'] {overflow:visible}
-	</style>
+	<style>
+body {
+	margin: 0;
+	padding: 0;
+}
 
+#webView {
+	overflow: hidden;
+	position: relative;
+	background:;
+	width: 1200px;
+	height: 1002px;
+	margin: 0 auto;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0)
+}
+
+#webView[data-show-memo='true'] {
+	overflow: visible
+}
+
+div.title {
+	position: absolute;
+	top: 300px;
+	left: 93px;
+}
+
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff') format('woff');
+}
+
+.godo * {
+ font-family: 'Godo', sans-serif;
+}
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+	font-size: 55px;
+	font-family: 'Godo';
+	src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+
+div.count {
+font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+	position: absolute;
+	left: 410px;
+	top: 500px;
+}
+
+div.countbox {
+	float: left;
+	margin: 30px;
+}
+
+p.countlist {
+	font-size: 20px;
+}
+
+div.biglogo {
+	position: absolute;
+	top: 200px;
+	right: 360px;
+}
+
+img.logo {
+	width: 500px;
+	height: 300px;
+}
+
+div.buttonbox {
+	position: absolute;
+	right: 450px;
+	bottom: 300px;
+	
+}
+
+button {
+	width: 300px;
+	height: 60px;
+	font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+	font-size: 20px;
+	font-weight: bold;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	border-radius: 10px;
+	background-color: rgb(94, 28, 232);
+	text-shadow: none;
+	box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px 0px;
+	border: none;
+	margin: 10px;
+}
+
+button.loginbutton {
+	background-color: rgb(94, 28, 232);
+	padding: 10px;
+}
+
+button.joinbutton {
+	background-color: rgb(190, 190, 190);
+	padding: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -20,9 +135,9 @@
 	 
 	<div id="webView">
 		
-		<div style="position: absolute; top: 252px; left: 93px; width: 320px; height: 112px;">
-			<div style="font-weight:bold;font-size:42px;" class="">목표달성을 위한
-				<div>No.1 업무관리 협업툴</div><br>
+		<div class="title">
+			<h1 class="">목표달성을 위한</h1>
+			<h1>No.1 업무관리 협업툴</h1>
 				
 			</div>
 		</div>
@@ -31,42 +146,33 @@
 			
 		</div>
 		
-		<div style="position: absolute; left: 93px; top: 434px; width: 506px; height: 118px;">
+		<div class="count">
 		
-			<div  style="position: absolute; top: 27px; left: 21px; width: 117px; height: 27px;">
-				<div  style="font-weight: normal; font-size: 15px;" class="">개설 프로젝트</div>
+			<div class="countbox">
+				<p class="countlist">개설 프로젝트</p>
+				<h3 style="font-weight:bold;font-size:24px" class="">1,004,109</h3>
 			</div>
-			<div style="position: absolute; top: 27px; left: 192px; width: 117px; height: 27px;">
-				<div style="font-weight: normal; font-size: 15px;" class="">공유된 업무</div>
+			<div class="countbox">
+				<p class="countlist">공유된 업무</p>
+				<h3 style="font-weight:bold;font-size:24px" class="">11,573,345</h3>
 			</div>
-			<div class="" style="position: absolute; top: 27px; left: 370px; width: 117px; height: 27px;">
-				<div style="font-weight: normal; font-size: 15px;" class="">사용중인 팀</div>
-			</div>
-			<div style="position: absolute; top: 58px; left: 21px; width: 136px; height: 36px;">
-				<div style="font-weight:bold;font-size:24px" class="">1,004,109</div>
-			</div>
-			<div style="position: absolute; top: 58px; left: 192px; width: 136px; height: 36px;">
-				<div style="font-weight:bold;font-size:24px" class="">11,573,345</div>
-			</div>
-			<div style="position: absolute; top: 58px; left: 370px; width: 136px; height: 36px;">
-				<div style="font-weight:bold;font-size:24px" class="">351,941</div>
+			<div class="countbox">
+				<p class="countlist">사용중인 팀</p>
+				<h3 style="font-weight:bold;font-size:24px" class="">351,941</h3>
 			</div>
 		</div>
 
-		<div style="position: absolute; top: 141px; left: 680px; width: 600px; height: 400px;">
-			<div ><img style= "width:500px; height : 300px;"src ="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" ></div>
+		<div class="biglogo">
+			<div ><img class="logo" src ="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" ></div>
 		</div>
 	
-		<div style="position: absolute; top: 428px; left: 804px; " data-link-to="page:l7BBL">
-		<div>		
-			<button style="width: 247px; height: 43px; font-size: 18px; color: rgb(255, 255, 255); text-align: center; line-height: 40px; border-radius: 8px; background-color: rgb(94, 28, 232); text-shadow: none; box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px 0px;" onclick="location.href='Login.jsp'">로그인</button>
-		</div>
-		</div>
-		
-		<div style="position: absolute; top: 485px; left: 804px; ">
-		<div >
-			<button style="width: 247px; height: 43px; font-size: 18px; color: rgb(255, 255, 255); text-align: center; line-height: 40px; border-radius: 8px; background-color: rgb(190, 190, 190); box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 5px 0px;" onclick="location.href='Join.jsp'">회원가입</button>
-		</div>
+		<div class="buttonbox">
+			<div >		
+				<button class="loginbutton" onclick="location.href='Login.jsp'">로그인</button>
+			</div>
+			<div >
+				<button class="joinbutton" onclick="location.href='Join.jsp'">회원가입</button>
+			</div>
 		</div>
 		
 

@@ -26,6 +26,19 @@
   
   <!-- modal style -->
   <style>
+  
+  @font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body,button,a{
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+}
+  
 #modal {
   display: none;
   width:100%;
@@ -211,20 +224,28 @@ input.update {
 }
 /* 프로젝트 */
 /* 프로젝트 */
-div.card-body>a:link {
+
+div.card.card-tale{
+	background-color: #CCC7FA;
+}
+div.card.card-tale:hover{
+	background-color: #B3ABF8;
+}
+
+div.card.card-tale>a {
 	font-size: 25px;
 	font-weight: bold;
 	color: white;
-	text-docoration: none;
-}
+	text-decoration: none;
+}	
 
-div.card-body>a:visited {
+div.card.card-tale>a:visited {
 	color: white;
-	text-docoration: none;
+	text-decoration: none;
 }
 
-div.card-body>a:hover {
-	text-docoration: none;
+div.card.card-tale>a:hover {
+	text-decoration: none;
 
 }
 
@@ -234,11 +255,13 @@ div.card-body>a:hover {
 /* 새 프로젝트 */
 /* 새 프로젝트 */
 
+/* 새프로젝트 버튼 */
+/* 새프로젝트 버튼 */
 button#modal_open_btn{
 	border: none;
 	border-radius: 10px;
 	color: white;
-	background-color: #815ee8;
+	background-color: #4B49AC;
 	
 }
 
@@ -246,7 +269,7 @@ button#modal_open_btn:hover{
 	border: none;
 	border-radius: 10px;
 	color: white;
-	background-color: #b68cff;
+	background-color: #9492D1;
 	
 }
 
@@ -281,6 +304,67 @@ span.info{
 	display: inline;
 }
 
+button {
+	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+	display: block;
+	margin: 0px auto;
+	max-width: 180px;
+	text-decoration: none;
+	border-radius: 4px;
+	padding: 10px 50px;
+}
+
+a.button {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+a.button2 {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button2:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
+
+div.card-body>a{
+	align-text: center;
+   display: block;
+}
+div.card.card-tale{
+	text-align: center;
+	
+}
+a:hover{
+	text-decoration: none;
+}
+
+span.info {
+	position:relative;
+	left:20px; 
+	bottom:15px;
+	font-weigth: bolder;
+}
+
+div#infobutton{
+	position:relative;
+	display:inline;
+	left: 15px;
+	bottom:20px;
+}
+
 </style>
   
 </head>
@@ -293,57 +377,19 @@ span.info{
     
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="main.do"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="main.do"><img src="https://flow.team/flow-renewal/view/homepage/assets/images/common/logo.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
-                </span>
-              </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
-            </div>
-          </li>
-        </ul>
+        
+       
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">알림</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li>
+          
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="./images/faces/댕댕이2.JPG" alt="profile"/>
+              <img src="./사용자.JPG" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                	설정
-              </a>
               <button class="dropdown-item" id="modal_update">
                 <i class="ti-settings text-primary"></i>
                 	내프로필</button>
@@ -354,11 +400,7 @@ span.info{
               </a>
             </div>
           </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
-            </a>
-          </li>
+          
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
@@ -369,131 +411,22 @@ span.info{
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
-        <div id="settings-trigger"><i class="ti-settings"></i></div>
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close ti-close"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
-          <p class="settings-heading mt-2">HEADER SKINS</p>
-          <div class="color-tiles mx-0 px-4">
-            <div class="tiles success"></div>
-            <div class="tiles warning"></div>
-            <div class="tiles danger"></div>
-            <div class="tiles info"></div>
-            <div class="tiles dark"></div>
-            <div class="tiles default"></div>
-          </div>
-        </div>
+        <div onclick="play()"id="settings-trigger"><i class="ti-settings"><audio id='audio_play' src='맷돌.mp3'></audio> </i></div>
+        <script type="text/javascript"> 
+function play() { 
+    var audio = document.getElementById('audio_play'); 
+    if (audio.paused) { 
+        audio.play(); 
+    }else{ 
+        audio.pause(); 
+        audio.currentTime = 0 
+    } 
+} 
+</script>
+        
+        
       </div>
-      <div id="right-sidebar" class="settings-panel">
-        <i class="settings-close ti-close"></i>
-        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">MEMBER</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="setting-content">
-          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-            <div class="add-items d-flex px-3 mb-0">
-              <form class="form w-100">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">add</button>
-                </div>
-              </form>
-            </div>
-            <div class="list-wrapper px-3">
-              <ul class="d-flex flex-column-reverse todo-list">
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      이번주 업무 및 일정 확인하기
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      발표 01.03 확인
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      다음주 일정 확인하기
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      업무별 파트 확인하기
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- To do section tab ends -->
-          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
-            <div class="d-flex align-items-center justify-content-between border-bottom">
-              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
-              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
-            </div>
-            <ul class="chat-list">
-              <li class="list active">
-                <div class="profile"><img src="./images/faces/제2의유라언니.jpg"alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>최유라</p>
-                  <p>A팀 프로젝트</p>
-                </div>
-                <small class="text-muted my-auto">19 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="./images/faces/제2의정훈.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <div class="wrapper d-flex">
-                    <p>배정훈</p>
-                  </div>
-                  <p>A팀 프로젝트 팀장</p>
-                </div>
-                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
-                <small class="text-muted my-auto">23 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="./images/faces/슬기쿠키.jpg" alt="image"><span class="online"></span></div>
-                <div class="info">
-                  <p>장슬기</p>
-                  <p>A팀 프로젝트</p>
-                </div>
-                <small class="text-muted my-auto">14 min</small>
-              </li>
-              <li class="list">
-                <div class="profile"><img src="./images/faces/영훈.jpg" alt="image"><span class="offline"></span></div>
-                <div class="info">
-                  <p>나영훈</p>
-                  <p>A팀 프로젝트</p>
-                </div>
-                <small class="text-muted my-auto">2 min</small>
-              </li>
-            </ul>
-          </div>
-          <!-- chat tab ends -->
-        </div>
-      </div>
+      
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -509,7 +442,7 @@ span.info{
               <!-- <button><a href="projectCalPage.jsp">이동</a></button> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="project.html"> 
+            <a class="nav-link" href="projectMain.html"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">내프로젝트</span>
               <i class="menu-arrow"></i>
@@ -517,30 +450,28 @@ span.info{
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="form-elements">
               <i class="icon-columns menu-icon"></i>
               <span class="menu-title">전체업무</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
-              <form action="getSche.do">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="tables">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">캘린더</span>
               <i class="menu-arrow"></i>
             </a>
-              </form>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="icons">
               <i class="icon-contract menu-icon"></i>
               <span class="menu-title">나를언급</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="auth">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">내 게시물</span>
               <i class="menu-arrow"></i>
@@ -557,38 +488,22 @@ span.info{
                   <h3 class="font-weight-bold">내 프로젝트</h3>
                   <h6 class="font-weight-normal mb-0"> 참여중 프로젝트 </h6>
                 </div>
-                <div class="col-12 col-xl-4">
-                 <div class="justify-content-end d-flex">
-                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                     <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                      <a class="dropdown-item" href="#">January - March</a>
-                      <a class="dropdown-item" href="#">March - June</a>
-                      <a class="dropdown-item" href="#">June - August</a>
-                      <a class="dropdown-item" href="#">August - November</a>
-                    </div>
-                  </div>
-                 </div>
-                </div>
+                
               </div>
             </div>
           </div>
           
             <div class="col-md-6 grid-margin transparent">
-            <a href="sadf.jsp">이동동</a>
               <div class="row">
                <%
                System.out.println("프로젝트메인페이지");
                  for(int i = 0; i < team_dto.size(); i++){
                     out.print("<div class='col-md-6 mb-4 stretch-card transparent'>");
                     out.print("<div class='card card-tale'>");
+                    out.print("<a class='fs-30 mb-2' href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'><br><br>"+ team_dto.get(i).getTeamName());
                     out.print("<div class='card-body'>");
-                	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
-                    out.print("<a class='fs-30 mb-2' href='connectPage.do?connect_team=" + team_dto.get(i).getTeamSeq() + "'>" + team_dto.get(i).getTeamName() + "</a>");
-                	out.print("<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>");
                     out.print("</div>");
+                    out.print("</a>");
                     out.print("</div>");
                     out.print("</div>");
                  }
@@ -698,14 +613,17 @@ span.info{
 							<ul type="none">
 								<li>비밀번호&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="pw" class="update" type="text" placeholder="<%=dto.getMemPw()%>"></li>
 								<li>전화번호&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="tel" class="update" type="text" placeholder="<%=dto.getMemPhone() %>"></li>
-								<li>&nbsp;&nbsp;&nbsp;&nbsp;이메일&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="email" class="update" type="email" placeholder="<%=dto.getMemEmail() %>"></li>
+								<li>&nbsp;&nbsp;&nbsp;이메일&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="email" class="update" type="email" placeholder="<%=dto.getMemEmail() %>"></li>
 							</ul>
 						</div>
-						<div><button id="updatebutton">정보 수정</button></div></form>
-						<div><button id="modal_update_close">취소</button></div>
-						
+						<div id="infobutton">
+							<div><button id="updatebutton">수정</button></div>
+							<div><button id="modal_update_close">취소</button></div>
+						</div>
+						</form>
 						</div>
 					<div class="modal_layer"></div>
+						</div>
 					</div>
 				</div>
 			</div>

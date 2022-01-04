@@ -30,14 +30,16 @@ public class ConnectPageService implements Command {
 		String memid = memdto.getMemId();
 		teamDAO dao = new teamDAO();
 
+		ArrayList<t_team_memberDTO> list4 = dao.getMembers(teamSeq);
 		ArrayList<t_commuDTO> list = dao.getCommu(teamSeq);
 		t_teamDTO t_DTO = dao.selectTeam(teamSeq);
 		ArrayList<t_workDTO> list2 = dao.getWork(teamSeq);
 		ArrayList<t_todoDTO> list3 = dao.getTodoDTO(teamSeq);
 		t_team_memberDTO ttmem = dao.teamMemberdto(memid, teamSeq);
 		String nextpage = "";
+		System.out.println("아이디" + memid);
+		System.out.println("시퀀스" + teamSeq);
 		
-		ArrayList<t_team_memberDTO> list4 = dao.getMembers(teamSeq);
 		
 		if (t_DTO != null) {
 

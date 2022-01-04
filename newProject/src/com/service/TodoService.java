@@ -43,7 +43,8 @@ public class TodoService implements Command{
 		Date eventDate = java.sql.Date.valueOf(eventDate3);
 		
 		
-		
+System.out.println("llllllllllllllllll"+eventDate2);
+System.out.println("llllllllllllllllll"+eventDate);
 		
 		
 		
