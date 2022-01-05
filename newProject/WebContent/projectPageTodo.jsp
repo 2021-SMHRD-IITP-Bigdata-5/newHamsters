@@ -358,7 +358,7 @@ div.attendee{
 	width: 300px;
 	padding: 20px;
 	position: absolute ;
-	right: 400px;
+	right: 300px;
 	top: 200px;
 }
 
@@ -479,7 +479,7 @@ div.content-wrapper {
 div#seulgib{
 	position: absolute;
 	top: 20px;
-	right: -100px;
+	right: -170px;
 
 }
 
@@ -581,7 +581,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               </button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="projectMain.jsp"> 
+            <a class="nav-link" href="main.do"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">내프로젝트</span>
               <i class="menu-arrow"></i>
@@ -668,6 +668,11 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
                   <h6 class="team_attri"><%=t_DTO.getTeamContent() %></h6> <br>
                   <div id="seulgib">
                   	<button id="Seulgi" type="button">할 일 등록</button>
+                  	<%if(ttmem.getTmMemo().equals("프로젝트관리자")) {%>
+	                  	<form action="deleteTeam.do">
+	                  	<button id="Seulgi" type="submit">팀 삭제</button>
+	                  	</form>
+                  	<%} %>
                   </div>
                 </div>
               </div>

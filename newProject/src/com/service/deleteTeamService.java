@@ -20,12 +20,12 @@ public class deleteTeamService implements Command {
 		   
 		   request.setCharacterEncoding("utf-8");
 		   
-		   String teamSeq2 = request.getParameter("teamSeq");
+		   Double teamSeq2 = Double.parseDouble(request.getParameter("teamSeq"));
 		   teamDAO dao = new teamDAO();
 		   
 		   int cnt = dao.deleteTeam(teamSeq2);
 		   if(cnt > 0) {
-			   RequestDispatcher dis = request.getRequestDispatcher("projectMain.jsp");
+			   RequestDispatcher dis = request.getRequestDispatcher("main.do");
 	            dis.forward(request, response);
 		   }else {
 			   

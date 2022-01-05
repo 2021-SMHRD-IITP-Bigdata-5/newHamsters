@@ -61,7 +61,7 @@ System.out.println("llllllllllllllllll"+eventDate);
 		
 		if(cnt > 0) {
 			session.setAttribute("teamSeq2", list3);
-			RequestDispatcher dis = request.getRequestDispatcher("projectPage.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("projectPageTodo.jsp");
 			dis.forward(request, response);
 		}else {
 			nextpage = "LoginFalse.jsp";

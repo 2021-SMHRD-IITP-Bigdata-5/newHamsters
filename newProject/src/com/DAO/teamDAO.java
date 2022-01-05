@@ -478,7 +478,7 @@ public class teamDAO {
 
 	}
 
-	public int deleteTeam(String teamSeq) {
+	public int deleteTeam(double teamSeq) {
 
 		try {
 			getConn();
@@ -486,8 +486,7 @@ public class teamDAO {
 			String sql = "delete from t_team where team_seq = ?";
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, teamSeq);
-
+			psmt.setDouble(1, teamSeq);
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {

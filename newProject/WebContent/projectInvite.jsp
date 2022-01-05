@@ -242,7 +242,7 @@ a.button2:hover {
 div#seulgib{
 	position: absolute;
 	top: 20px;
-	right: -200px;
+	right: -160px;
 
 }
 
@@ -424,7 +424,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               </button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="projectMain.jsp"> 
+            <a class="nav-link" href="main.do"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">내프로젝트</span>
               <i class="menu-arrow"></i>

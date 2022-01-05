@@ -19,8 +19,6 @@ public class DeleteService implements Command {
 		String id = request.getParameter("delete_id");
 		System.out.println("삭제하는 아이디 : " + id);
 		
-		//member_message 테이블에서 위 email 값 삭제 후
-		// selectmember.jsp 로 이동
 		memberDAO dao = new memberDAO();
 		int cnt = dao.Delete(id);
 		

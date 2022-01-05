@@ -572,8 +572,8 @@ div.team_icon {
 h3.team_name{
 	font-size: 35px;
    font-weight: bold;
-   position: absolute;
-   top: 25px;
+   position: relative;
+   top: 30px;
    left: 70px;
 }
 
@@ -738,7 +738,7 @@ h6.team_attri{
 div#seulgib{
 	position: absolute;
 	top: 20px;
-	right: -250px;
+	right: -260px;
 
 }
 
@@ -777,7 +777,7 @@ div.attendee{
 	width: 300px;
 	padding: 20px;
 	position: absolute ;
-	right: 250px;
+	right: 200px;
 	top: 200px;
 }
 
@@ -959,7 +959,7 @@ ArrayList<t_team_memberDTO> memberdto = (ArrayList<t_team_memberDTO>)session.get
               </button>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="projectMain.jsp"> 
+            <a class="nav-link" href="main.do"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">내프로젝트</span>
               <i class="menu-arrow"></i>

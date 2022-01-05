@@ -136,67 +136,124 @@ input#content {
 /* 업데이트 */
 /* 업데이트 */
   
-#modal_update_content {
-  display: none;
-  width:100%;
-  height:100%;
-  z-index:1;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#modal22.modal-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: radial-gradient(rgb(246, 243, 246));
+	box-shadow: 0 8px 28px 6 rgba(216, 216, 216, 0.37);
+	backdrop-filter: blur(1.5px);
+	-webkit-backdrop-filter: blur(1.5px);
+	border-radius: 30px;
+	border: 1px solid rgb(255, 255, 255);
 }
 
-#modal_update_content h3 {
-  margin:0;   
-  font-size: 25px;
-}
-
-
-#modal_update_content .update_content {
-  position: relative;
-  top: 15%;
-  width:400px;
-  height: 700px;
-  margin:50px auto;
-  padding:20px;
-  background:#fff;
-  border-radius: 10px;
-  
-}
-
-#modal_update_content .modal_layer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0, 0, 0, 0.8);
-  z-index:-1;
-}   
-
- #modal_update_close {
- 	float:left;
- 	position: relative;
-    width: 150px;
-   heigth: 50px;
-   font-size: 20px;
-    bottom : 10%;
-   border: none;
-   border-radius: 5px;
-   margin: 10px;
-} 
-
-button#updatebutton {
-	float:left;
+#modal22 .modal-window {
+	background: rgb(246, 243, 246);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(13.5px);
+	-webkit-backdrop-filter: blur(13.5px);
+	border-radius: 30px;
+	border: 1px solid rgba(36, 3, 3, 0.418);
+	width: 245px;
+	height: 500px;
 	position: relative;
-   width: 150px;
-   heigth: 50px;
-   font-size: 20px;
-    bottom : 10%;
-   border: none;
-   border-radius: 5px;
-   margin: 10px;
+	top: -50px;
+	padding: 15px;
+}
+#img1{
+	border-radius: 30px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#modal22 .title {
+	padding-left: 10px;
+	display: inline;
+	text-shadow: 2px 2px 2px gray;
+	color: black;
+}
+
+#modal22 .title h2 {
+	display: inline;
+}
+
+#modal22 .close-area {
+	display: inline;
+	float: right;
+	padding-right: 10px;
+	cursor: pointer;
+	text-shadow: 1px 1px 2px gray;
+	color: rgb(244, 237, 245);
+}
+
+#modal22 .content {
+	margin-top: 20px;
+	padding: 0px 10px;
+	text-shadow: 1px 1px 2px gray;
+	color: white;
+}
+
+div#button {
+	align-items: center;
+	font-size: 15px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+}
+#exampleInputpw{
+	position: fixed;
+	left: 0;
+	top: 60%;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color :rgb(246, 243, 246);
+}
+#exampleInputcom{
+	position: fixed;
+	left: 0;
+	top: 66%;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color :rgb(246, 243, 246);
+}
+#exampleInputtel{
+	position: fixed;
+	left: 0;
+	top: 72%;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color :rgb(246, 243, 246);
+}
+#exampleInputintro{
+	position: fixed;
+	left: 0;
+	top: 78%;
+	height: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color :rgb(246, 243, 246);
 }
 
 
@@ -442,7 +499,7 @@ function play() {
               <!-- <button><a href="projectCalPage.jsp">이동</a></button> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="projectMain.html"> 
+            <a class="nav-link" href="main.do"> 
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">내프로젝트</span>
               <i class="menu-arrow"></i>
@@ -597,33 +654,54 @@ function play() {
 
 <!-- 업데이트 -->
 <!-- 업데이트 -->
-<div style="display: inline">
-				<div id="modal_update_content" class="modal_content">
-					<div class="update_content">
-					<form action="UpdateCon.do">
-						<div id="myinfo">
-							<h3 style="font-weight: bold;">내 정보</h3>
-						</div> 	
-						<div id="info">
-							<img class="infoimg" src="사용자.JPG" align="center">
-							<span class="info"><h3><%=dto.getMemName() %></h3></span><br>
-							<span class="info" style="margin-bottom: 20px;"><h4><%=dto.getMemCompany() %></h4></span>
+<!-- <div style="display: inline">
+				<div  class="modal22"id="container">
+		<div id="lorem-ipsum"></div>
+	</div>
+	<div id="modal22" class="modal-overlay">
+		<div class="modal-window">
+			<div class="title">
+				<h2>회원수정</h2>
+			</div>
+			<div id="modal_update_content" class="close-area">X</div>
+			<div class="container-scroller">
+				<div class="container-fluid page-body-wrapper full-page-wrapper">
+					<div class="content-wrapper d-flex align-items-center auth px-0">
+						<div class="row w-100 mx-0">
+							<div class="col-lg-4 mx-auto">
+								<div class="auth-form-light text-left py-5 px-4 px-sm-5">
+									<div class="brand-logo"></div>
+									<form class="pt-3" action="UpdateCon.do">
+									<br>
+									<img id="img1" src="사용자.JPG">
+										<div class="form-group">
+											<input type="text" class="form-control form-control-lg"
+												id="exampleInputpw" placeholder="비밀번호" style="border:0 solid black" >
+										</div>
+										<div class="form-group" >
+											<input type="email" class="form-control form-control-lg"
+												id="exampleInputcom" placeholder="회사명" style="border:0 solid black">
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control form-control-lg"
+												id="exampleInputtel" placeholder="전화번호" style="border:0 solid black">
+										</div>
+										<div class="form-group">
+											<input type="work" class="form-control form-control-lg"
+												id="exampleInputintro" placeholder="소개글" style="border:0 solid black">
+										</div>
+										<div class="text-center mt-4 font-weight-light">
+											<a href="" class="text-primary">확인</a>
+										</div>
+									</form>
+								</div>
+							</div>
 						</div>
-						<div>
-							<ul type="none">
-								<li>비밀번호&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="pw" class="update" type="text" placeholder="<%=dto.getMemPw()%>"></li>
-								<li>전화번호&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="tel" class="update" type="text" placeholder="<%=dto.getMemPhone() %>"></li>
-								<li>&nbsp;&nbsp;&nbsp;이메일&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input name="email" class="update" type="email" placeholder="<%=dto.getMemEmail() %>"></li>
-							</ul>
-						</div>
-						<div id="infobutton">
-							<div><button id="updatebutton">수정</button></div>
-							<div><button id="modal_update_close">취소</button></div>
-						</div>
-						</form>
-						</div>
-					<div class="modal_layer"></div>
-						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 					</div>
 				</div>
 			</div>
@@ -631,11 +709,11 @@ function play() {
   
   <script>
 document.getElementById("modal_update").onclick = function() {
-    document.getElementById("modal_update_content").style.display="block";
+    document.getElementById("modal22").style.display="block";
 }
 
 document.getElementById("modal_update_close").onclick = function() {
-    document.getElementById("modal_update_content").style.display="none";
+    document.getElementById("modal22").style.display="none";
 }   
 </script>
 
@@ -643,13 +721,13 @@ document.getElementById("modal_update_close").onclick = function() {
 
 <script>
 $("#modal_update").click(function(){
-    $("#modal_update_content").attr("style", "display:block");
+    $("#modal22").attr("style", "display:block");
 });
 
  $("#modal_update_close").click(function(){
-    $("#modal_update_content").attr("style", "display:none");
+    $("#modal22").attr("style", "display:none");
 });      
 
-</script>
+</script> -->
 </body>
 </html>
