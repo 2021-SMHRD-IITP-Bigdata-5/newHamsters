@@ -312,7 +312,7 @@ div.title{
    width: 25px;
    height: 25px;
    cursor : pointer;
-   right: -10%;
+   right: -5%;
    top: -10%;
 } 
 
